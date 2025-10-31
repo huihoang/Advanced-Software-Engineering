@@ -1,0 +1,4 @@
+export enum QUERY_KEY {
+  GET_ALL_DOCTORS = "GET_ALL_DOCTORS",
+  GET_DOCTOR = "GET_DOCTOR",
+}

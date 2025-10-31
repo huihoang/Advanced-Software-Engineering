@@ -1,0 +1,21 @@
+{
+  "login": "Login",
+  "logout": "Logout",
+  "home": "Home",
+  "notFound": "Page Not Found",
+  "backToHome": "Back to home",
+
+  "username": "Username",
+  "password": "Password",
+  "forgotPassword": "Forgot password",
+  "submit": "Submit",
+  "cancel": "Cancel",
+  "yes": "Yes",
+  "no": "No",
+
+  "doctors": "Doctors",
+  "doctor": "Doctor",
+  "posts": "Posts",
+  "post": "Post",
+  "appointments": "Appointments"
+}

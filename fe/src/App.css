@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --primary: #2267bb;
+}
+
+@layer base {
+  h1 {
+    @apply font-medium;
+    @apply text-[42px];
+  }
+  h2 {
+    @apply font-medium;
+    @apply text-[34px];
+  }
+  h3 {
+    @apply font-medium;
+    @apply text-[28px];
+  }
+  h4 {
+    @apply font-medium;
+    @apply text-[22px];
+  }
+  h5 {
+    @apply font-medium;
+    @apply text-[18px];
+  }
+}
+
+a {
+  color: #2267bb;
+}
+a:hover {
+  color: #2267bbaa;
+}
+.img-crop-container {
+  height: 50vh;
+}
+
+*::-webkit-scrollbar {
+  border-radius: 0px;
+  width: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: #ccc;
+}
+*::-webkit-scrollbar-track {
+  border-radius: 0px;
+  background-color: #eee;
+}
