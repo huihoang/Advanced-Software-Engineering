@@ -1,14 +1,15 @@
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
+import { PATH } from "@/constants";
 import { AuthLayout, MainLayout } from "@/layouts";
 import {
-  LoginPage,
-  HomePage,
-  DoctorsPage,
-  NotFound,
+  AppointmentDetailPage,
   DoctorProfilePage,
+  DoctorsPage,
+  HomePage,
+  LoginPage,
+  NotFound,
 } from "@/pages";
-import { PATH } from "@/constants";
 
 export default function AppRoutes() {
   return (
@@ -19,6 +20,10 @@ export default function AppRoutes() {
         <Route
           path={PATH.DOCTOR_PROFILE(":id")}
           element={<DoctorProfilePage />}
+        />
+        <Route
+          path={PATH.APPOINTMENT_DETAIL(":id")}
+          element={<AppointmentDetailPage />}
         />
         <Route path={PATH.SETTINGS} element={<></>} />
       </Route>

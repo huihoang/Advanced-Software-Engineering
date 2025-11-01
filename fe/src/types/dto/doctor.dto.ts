@@ -1,3 +1,4 @@
+import type { ShiftDto } from "./shift.dto";
 import type { UserDto } from "./user.dto";
 
 export type DoctorDto = UserDto & {
@@ -7,6 +8,8 @@ export type DoctorDto = UserDto & {
   specialization: { id: number; name: string };
   consultationFee?: number;
   rating?: number;
+  shifts: ShiftDto[];
+  clinicInfo: { id: number; name: string; address: string };
 };
 
 export type AllDoctorsDto = {

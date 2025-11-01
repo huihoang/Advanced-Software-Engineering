@@ -18,6 +18,12 @@ export const mockDoctors: DoctorDto[] = [
     specialization: { id: 1, name: "General Practice" },
     consultationFee: 20,
     rating: 4.6,
+    clinicInfo: { id: 1, name: "Central Clinic", address: "123 Le Loi, Hanoi" },
+    shifts: [
+      { id: 1, date: "2025-11-03", time: "09:00 - 10:00", status: "CONFIRMED" },
+      { id: 2, date: "2025-11-03", time: "14:00 - 15:00", status: "PENDING" },
+      { id: 3, date: "2025-11-04", time: "10:00 - 11:00", status: "CANCELED" },
+    ],
   },
   {
     userId: 2,
@@ -33,6 +39,15 @@ export const mockDoctors: DoctorDto[] = [
     specialization: { id: 2, name: "Cardiology" },
     consultationFee: 50,
     rating: 4.9,
+    clinicInfo: {
+      id: 2,
+      name: "Heart Care Center",
+      address: "45 Tran Hung Dao, Hanoi",
+    },
+    shifts: [
+      { id: 4, date: "2025-11-04", time: "08:30 - 09:30", status: "CONFIRMED" },
+      { id: 5, date: "2025-11-05", time: "13:00 - 14:00", status: "PENDING" },
+    ],
   },
   {
     userId: 3,
@@ -48,6 +63,16 @@ export const mockDoctors: DoctorDto[] = [
     specialization: { id: 3, name: "Pediatrics" },
     consultationFee: 25,
     rating: 4.7,
+    clinicInfo: {
+      id: 3,
+      name: "Children's Health Clinic",
+      address: "9 Nguyen Trai, Hanoi",
+    },
+    shifts: [
+      { id: 6, date: "2025-11-06", time: "09:00 - 09:30", status: "CONFIRMED" },
+      { id: 7, date: "2025-11-06", time: "10:00 - 10:30", status: "CONFIRMED" },
+      { id: 8, date: "2025-11-07", time: "15:00 - 16:00", status: "COMPLETED" },
+    ],
   },
 ];
 

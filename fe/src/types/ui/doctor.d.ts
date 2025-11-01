@@ -1,3 +1,4 @@
+import type { Shift } from "./shift";
 import type { User } from "./user";
 
 export type Doctor = User & {
@@ -7,6 +8,8 @@ export type Doctor = User & {
   specialization: { id: number; name: string };
   consultationFee?: number;
   rating?: number;
+  shifts: Shift[];
+  clinicInfo: { id: number; name: string; address: string };
 };
 
 export type AllDoctors = {
