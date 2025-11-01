@@ -24,7 +24,7 @@ public class UserService {
     private UserMapper userMapper;
 
     public Users createRequest(UserCreationRequest request) {
-        if (userRepository.existsByUsername(request.getUsername())) {
+        if (userRepository.existsByEmail(request.getEmail())) {
             throw new AppException(ErrorCode.USERNAME_ALREADY_EXISTS);
         }
 

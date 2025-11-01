@@ -10,6 +10,6 @@ import com.example.demo.model.Users;
 @Repository
 public interface UserRepository extends JpaRepository<Users, String> {
     // Custom query methods can be defined here if needed
-    boolean existsByUsername(String username);
-    Optional<Users> findByUsername(String username);
+    boolean existsByEmail(String email);
+    Optional<Users> findByEmail(String email);
 }

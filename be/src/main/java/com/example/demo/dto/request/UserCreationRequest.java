@@ -11,7 +11,7 @@ import lombok.experimental.FieldDefaults;
 public class UserCreationRequest {
     String firstname;
     String lastname;
-    String username;
+    String email;
 
     @Size(min = 8, message = "PASSWORD_TOO_SHORT")
     String password;
