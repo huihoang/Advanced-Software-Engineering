@@ -13,6 +13,11 @@ public class AppException extends RuntimeException {
         this.code = errorCode.getCode();
     }
 
+    public AppException(ErrorCode errorCode, String message) {
+        super(message);
+        this.code = errorCode.getCode();
+    }
+
     public AppException(int code, String message) {
         super(message);
         this.code = code;
