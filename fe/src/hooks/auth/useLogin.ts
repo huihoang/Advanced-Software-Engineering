@@ -4,19 +4,34 @@ import { useNavigate } from "react-router-dom";
 import { PATH, TOKEN_NAME } from "@/constants";
 import type { LoginReqDto } from "@/types/dto";
 import { setTokenCookie } from "@/utils/cookie-actions";
-
+import { authAPI } from "@/api";
 export function useLogin() {
   const navigate = useNavigate();
 
   const mutation = useMutation({
-    // mutationFn: authAPI.login,
+    // Giả lập API login
     mutationFn: (payload: LoginReqDto) =>
-      new Promise<{ access_token: string }>((resolve) => {
-        setTimeout(() => resolve({ access_token: "token" }), 1000);
+      new Promise<{ access_token: string; role: "doctor" | "patient" }>((resolve) => {
+        setTimeout(() => {
+          if (payload.username.toLowerCase().includes("doc"))
+            resolve({ access_token: "doctor_token", role: "doctor" });
+          else
+            resolve({ access_token: "patient_token", role: "patient" });
+        }, 1000);
       }),
+
     onSuccess: (data) => {
+      // Lưu token và role
       setTokenCookie(TOKEN_NAME.ACCESS_TOKEN, data.access_token);
-      navigate(PATH.HOME);
+      localStorage.setItem("role", data.role);
+
+      // Điều hướng theo quyền
+      if (data.role === "doctor") navigate(PATH.DOCTOR_HOME || "/doctor");
+      else navigate(PATH.PATIENT_HOME || "/patient");
+    },
+
+    onError: (error) => {
+      console.error("Login failed:", error);
     },
   });
 

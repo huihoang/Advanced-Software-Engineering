@@ -12,6 +12,7 @@ export default function App() {
         <Route path="/" element={<MainLayout />}>
           <Route index element={<HomePage />} />
           <Route path="doctors" element={<DoctorsPage />} />
+          <Route path="patient" element={<HomePage />} />
         </Route>
 
         <Route path="/" element={<AuthLayout />}>
