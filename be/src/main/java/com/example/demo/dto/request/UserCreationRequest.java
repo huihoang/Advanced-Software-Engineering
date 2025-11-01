@@ -1,16 +1,20 @@
 package com.example.demo.dto.request;
-import java.util.Date;
 
+import java.time.LocalDate;
 
+import jakarta.validation.constraints.Size;
+import lombok.Data;
+import lombok.experimental.FieldDefaults;
+
+@Data
+@FieldDefaults(level = lombok.AccessLevel.PRIVATE)
 public class UserCreationRequest {
-    private String email;
-    private String fullName;
-    private String password;
-    private Date dateOfBirth;
-    // public String getUsername() { return fullName; }
-    // public void setUsername(String username) { this.fullName = username; }
-    // public String getEmail() { return email; }
-    // public void setEmail(String email) { this.email = email; }
-    // public String getPassword() { return password; }
-    // public void setPassword(String password) { this.password = password; }
+    String firstname;
+    String lastname;
+    String username;
+    String email;
+
+    @Size(min = 8, message = "PASSWORD_TOO_SHORT")
+    String password;
+    LocalDate dob;
 }
