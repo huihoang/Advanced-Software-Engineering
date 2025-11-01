@@ -1,4 +1,5 @@
 package com.example.demo.model;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -20,17 +21,39 @@ public class Conditions {
     @Column(name = "Type", columnDefinition = "ENUM('symptom','injury','disease')")
     private ConditionType type;
 
-    public Integer getConditionId() { return conditionId; }
-    public void setConditionId(Integer conditionId) { this.conditionId = conditionId; }
+    public Integer getConditionId() {
+        return conditionId;
+    }
 
-    public String getConditionName() { return conditionName; }
-    public void setConditionName(String conditionName) { this.conditionName = conditionName; }
+    public void setConditionId(Integer conditionId) {
+        this.conditionId = conditionId;
+    }
 
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
+    public String getConditionName() {
+        return conditionName;
+    }
 
-    public ConditionType getType() { return type; }
-    public void setType(ConditionType type) { this.type = type; }
+    public void setConditionName(String conditionName) {
+        this.conditionName = conditionName;
+    }
 
-    public enum ConditionType { symptom, injury, disease }
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public ConditionType getType() {
+        return type;
+    }
+
+    public void setType(ConditionType type) {
+        this.type = type;
+    }
+
+    public enum ConditionType {
+        symptom, injury, disease
+    }
 }
