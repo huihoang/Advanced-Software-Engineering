@@ -1,21 +1,21 @@
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 
+import { authAPI } from "@/api";
 import { PATH, TOKEN_NAME } from "@/constants";
-import type { LoginReqDto } from "@/types/dto";
+import { useUser } from "@/hooks/common";
 import { setTokenCookie } from "@/utils/cookie-actions";
 
 export function useLogin() {
   const navigate = useNavigate();
 
+  const { setUser } = useUser();
+
   const mutation = useMutation({
-    // mutationFn: authAPI.login,
-    mutationFn: (payload: LoginReqDto) =>
-      new Promise<{ access_token: string }>((resolve) => {
-        setTimeout(() => resolve({ access_token: "token" }), 1000);
-      }),
+    mutationFn: authAPI.login,
     onSuccess: (data) => {
-      setTokenCookie(TOKEN_NAME.ACCESS_TOKEN, data.access_token);
+      setTokenCookie(TOKEN_NAME.ACCESS_TOKEN, data.accessToken);
+      setUser({ id: 1, email: "a@gmail.com", role: "DOCTOR" });
       navigate(PATH.HOME);
     },
   });

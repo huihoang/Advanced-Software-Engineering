@@ -9,6 +9,7 @@ import {
   HomePage,
   LoginPage,
   NotFound,
+  PatientProfilePage,
 } from "@/pages";
 
 export default function AppRoutes() {
@@ -20,6 +21,10 @@ export default function AppRoutes() {
         <Route
           path={PATH.DOCTOR_PROFILE(":id")}
           element={<DoctorProfilePage />}
+        />
+        <Route
+          path={PATH.PATIENT_PROFILE(":id")}
+          element={<PatientProfilePage />}
         />
         <Route
           path={PATH.APPOINTMENT_DETAIL(":id")}

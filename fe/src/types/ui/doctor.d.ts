@@ -1,14 +1,14 @@
-import type { Shift } from "./shift";
+import type { Appointment } from "./appointment";
 import type { User } from "./user";
 
 export type Doctor = User & {
   bio?: string;
   licenseNumber?: string;
   citizen: { id: string; name: string };
-  specialization: { id: number; name: string };
+  department: { id: number; name: string };
   consultationFee?: number;
   rating?: number;
-  shifts: Shift[];
+  appointments: Appointment[];
   clinicInfo: { id: number; name: string; address: string };
 };
 

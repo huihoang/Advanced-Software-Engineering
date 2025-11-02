@@ -1,5 +1,5 @@
+import type { AppointmentDto, UserDto } from ".";
 import type { Gender } from "../common";
-import type { UserDto } from "./user.dto";
 
 export type PatientDto = UserDto & {
   citizen: { id: string; name: string };
@@ -14,4 +14,8 @@ export type PatientDto = UserDto & {
     provinceState: string;
     country: string;
   };
+};
+
+export type PatientDetailDto = PatientDto & {
+  appointments: AppointmentDto[];
 };

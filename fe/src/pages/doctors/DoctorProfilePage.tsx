@@ -1,5 +1,5 @@
-import DateFilter from "@/components/custom/DateFilter";
-import { DATE_FORMAT_DTO, PATH } from "@/constants";
+import { DateFilter } from "@/components/custom";
+import { AppointmentButton, RegisterShiftModal } from "@/components/doctors";
 import { useGetDoctor } from "@/hooks/doctors";
 import { formatCurrency } from "@/utils/common";
 import { getFormattedDate } from "@/utils/datetime";
@@ -8,6 +8,7 @@ import {
   ArrowLeftOutlined,
   MailOutlined,
   PhoneOutlined,
+  PlusOutlined,
 } from "@ant-design/icons";
 import {
   Button,
@@ -20,26 +21,31 @@ import {
   Row,
   Space,
   Spin,
-  Tag,
   Typography,
   theme,
 } from "antd";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useUser } from "@/hooks/common";
+import type { ShiftDto } from "@/types/dto";
 
 const DoctorProfilePage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { token } = theme.useToken();
+  const { user } = useUser();
 
-  const { data: doctor, isLoading, isError } = useGetDoctor(id || "");
+  const { data: doctor, isLoading, isError } = useGetDoctor(id);
 
   const [filterDate, setFilterDate] = useState<Date>(new Date());
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const displayedShifts =
-    doctor?.shifts.filter(
-      (s) => getFormattedDate(s.date) === getFormattedDate(filterDate)
+  const filteredAppointment =
+    doctor?.appointments.filter(
+      (s) => getFormattedDate(s.shift.date) === getFormattedDate(filterDate)
     ) ?? [];
+
+  const isOwnProfile = user?.id === +id;
 
   if (isLoading) {
     return (
@@ -60,7 +66,7 @@ const DoctorProfilePage = () => {
       ) : (
         <>
           <Card>
-            <Row gutter={24}>
+            <Row gutter={24} className="py-2">
               <Col xs={24} sm={8} md={6} lg={6}>
                 <Flex vertical align="center" className="items-center">
                   <Image
@@ -78,7 +84,7 @@ const DoctorProfilePage = () => {
                     {doctor.firstName} {doctor.lastName}
                   </Typography.Title>
                   <Typography.Text type="secondary">
-                    {doctor.specialization?.name}
+                    {doctor.department?.name}
                   </Typography.Text>
 
                   <div className="mt-3">
@@ -117,7 +123,7 @@ const DoctorProfilePage = () => {
                           {doctor.citizen?.name ?? "N/A"}
                         </Descriptions.Item>
                         <Descriptions.Item label={t("department")}>
-                          {doctor.specialization?.name ?? "N/A"}
+                          {doctor.department?.name ?? "N/A"}
                         </Descriptions.Item>
                       </Descriptions>
                     </Col>
@@ -142,36 +148,36 @@ const DoctorProfilePage = () => {
             </Row>
           </Card>
 
-          <Row gutter={24} className="mt-4">
+          <Row gutter={24} className="mt-5">
             <Col xs={24} lg={12}>
               <Card>
-                <Space
-                  direction="vertical"
-                  size="small"
-                  style={{ width: "100%" }}
-                >
-                  <div className="flex items-center justify-between">
+                <Space direction="vertical" size="middle" className="w-full">
+                  <Flex align="center" justify="space-between">
                     <Typography.Title level={5}>
                       {t("workSchedule")}
                     </Typography.Title>
-                    <DateFilter value={filterDate} onChange={setFilterDate} />
-                  </div>
+                    <Space>
+                      <DateFilter value={filterDate} onChange={setFilterDate} />
+                      {isOwnProfile && (
+                        <Button
+                          color="primary"
+                          variant="filled"
+                          icon={<PlusOutlined />}
+                          onClick={() => setIsModalOpen(true)}
+                        >
+                          {t("registerShift")}
+                        </Button>
+                      )}
+                    </Space>
+                  </Flex>
 
-                  {!displayedShifts || displayedShifts.length === 0 ? (
+                  {!filteredAppointment || filteredAppointment.length === 0 ? (
                     <Typography.Text>{t("noShifts")}</Typography.Text>
                   ) : (
                     <Row gutter={16}>
-                      {displayedShifts.map((shift) => (
-                        <Col key={shift.id} xs={24} sm={12} md={8} lg={6}>
-                          <Button
-                            className="shadow-sm w-full"
-                            size="large"
-                            onClick={() =>
-                              navigate(PATH.APPOINTMENT_DETAIL(shift.id))
-                            }
-                          >
-                            {shift.time}
-                          </Button>
+                      {filteredAppointment.map((appointment) => (
+                        <Col key={appointment.id} xs={24} sm={12} md={8} xl={6}>
+                          <AppointmentButton appointment={appointment} />
                         </Col>
                       ))}
                     </Row>
@@ -201,6 +207,12 @@ const DoctorProfilePage = () => {
           </Row>
         </>
       )}
+
+      <RegisterShiftModal
+        open={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        initialDate={filterDate}
+      />
     </Space>
   );
 };

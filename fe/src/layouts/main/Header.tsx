@@ -1,6 +1,5 @@
 import { PATH } from "@/constants";
 import { t } from "@/utils/i18n";
-import { HistoryOutlined } from "@ant-design/icons";
 import { Button, Flex, Image, Layout, theme, Typography } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
 import AvatarDropdown from "./AvatarDropdown";
@@ -24,8 +23,6 @@ const Header = () => {
   };
 
   const handleTabClick = (path: string) => navigate(path);
-
-  const handleClickHistory = () => navigate("/appointments/history");
 
   return (
     <Layout.Header className="bg-white shadow-md sticky top-0 z-50 !px-10">
@@ -71,16 +68,7 @@ const Header = () => {
           ))}
         </Flex>
 
-        <Flex gap={20} align="center">
-          <Button
-            type="text"
-            onClick={handleClickHistory}
-            icon={<HistoryOutlined className="text-md" />}
-          >
-            {t("appointments")}
-          </Button>
-          <AvatarDropdown />
-        </Flex>
+        <AvatarDropdown />
       </Flex>
     </Layout.Header>
   );

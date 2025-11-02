@@ -4,7 +4,7 @@ import type { AllDoctorsDto } from "@/types/dto";
 import { doctorsAPI } from "@/api";
 import { PAGE_LIMIT, QUERY_KEY } from "@/constants";
 
-const useGetAllDoctor = (pagination: { page: number; limit?: number }) => {
+const useGetAllDoctors = (pagination: { page: number; limit?: number }) => {
   const page = pagination.page ?? 1;
   const limit = pagination.limit ?? PAGE_LIMIT;
 
@@ -18,4 +18,4 @@ const useGetAllDoctor = (pagination: { page: number; limit?: number }) => {
   return queryObject;
 };
 
-export default useGetAllDoctor;
+export default useGetAllDoctors;
