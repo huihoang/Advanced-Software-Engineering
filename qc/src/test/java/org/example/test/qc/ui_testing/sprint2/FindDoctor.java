@@ -1,4 +1,4 @@
-package org.example.test.qc.ui_testing;
+package org.example.test.qc.ui_testing.sprint2;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -10,28 +10,22 @@ import org.junit.jupiter.params.provider.ValueSource;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
+import java.util.List;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Set;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.openqa.selenium.Keys;
 
 /**
- * UI Test class for login functionality.
+ * Test class for verifying the "Find Doctor" feature.
  * <p>
- * This class demonstrates how to integrate Selenium WebDriver tests
- * with ExtentReports for generating detailed HTML reports.
+ * This class manages test lifecycle methods (setup and teardown)
+ * and integrates ExtentReports for generating test execution reports.
+ * Each test case related to find doctors should be defined here.
  * </p>
- *
- * <p>Each test method will automatically create a timestamped test log entry
- * and will close the browser instance after execution.</p>
- *
- * <p>Reports are initialized once before all tests
- * and finalized after all test cases complete.</p>
  */
-public class Login {
+public class FindDoctor {
 
     /** WebDriver instance for interacting with the browser */
     private WebDriver driver;
@@ -42,13 +36,14 @@ public class Login {
     /** ExtentTest instance for logging individual test results */
     private ExtentTest test;
 
-    /** Logger instance for logging test lifecycle events */
-    private static final Logger logger = LoggerFactory.getLogger(Login.class);
+    /** Logger instance for logging test execution details */
+    private static final Logger logger = LoggerFactory.getLogger(ViewProfile.class);
 
     /**
-     * Initializes the ExtentReports instance before all test methods run.
+     * Initializes ExtentReports once before all tests.
      * <p>
-     * This ensures that the report file is created and ready to log test results.
+     * Ensures the reporting system is ready before test execution begins.
+     * Called only once per test class.
      * </p>
      */
     @BeforeAll
@@ -57,41 +52,48 @@ public class Login {
     }
 
     /**
-     * Sets up the test environment before each test case.
+     * Sets up an individual test before execution.
      * <p>
-     * Creates a new test log in the Extent report with the current test name
-     * and a timestamp for easier tracking.
+     * Creates a timestamped entry in ExtentReports for each test
+     * and logs which test is currently being executed.
      * </p>
      *
-     * param testInfo information about the currently running test (provided by JUnit)
+     * @param testInfo Metadata of the currently running test (used to name reports)
      */
     @BeforeEach
     public void setup(TestInfo testInfo) {
         String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         test = extent.createTest(testInfo.getDisplayName() + " - " + timestamp);
+        logger.info("Starting test: {}", testInfo.getDisplayName());
     }
 
+
+
     /**
-     * Cleans up after each test execution.
+     * Closes the WebDriver instance after each test.
      * <p>
-     * Closes the WebDriver instance to ensure that no browser processes remain open.
+     * Prevents resource leaks by ensuring all browser sessions are terminated.
+     * Executed even if a test fails.
      * </p>
      */
     @AfterEach
     public void tearDown() {
         if (driver != null) {
+            logger.info("Closing WebDriver instance after test.");
             driver.quit();
         }
     }
 
     /**
-     * Finalizes the ExtentReports instance after all tests are completed.
+     * Finalizes and writes the ExtentReports report after all tests complete.
      * <p>
-     * This ensures that all test data is written to the report file.
+     * Ensures that all logs and results are properly flushed and saved
+     * into the output HTML report for later review.
      * </p>
      */
     @AfterAll
     public static void closeTest() {
+        logger.info("Closing ExtentReports after all ViewProfile tests.");
         ReportUtil.closeReport();
     }
 }
