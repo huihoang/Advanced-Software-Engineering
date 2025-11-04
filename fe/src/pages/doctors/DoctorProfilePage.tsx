@@ -1,5 +1,6 @@
 import { DateFilter } from "@/components/custom";
 import { AppointmentButton, RegisterShiftModal } from "@/components/doctors";
+import { useUser } from "@/hooks/common";
 import { useGetDoctor } from "@/hooks/doctors";
 import { formatCurrency } from "@/utils/common";
 import { getFormattedDate } from "@/utils/datetime";
@@ -26,8 +27,6 @@ import {
 } from "antd";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useUser } from "@/hooks/common";
-import type { ShiftDto } from "@/types/dto";
 
 const DoctorProfilePage = () => {
   const { id } = useParams();

@@ -14,6 +14,7 @@ import {
   Card,
   Col,
   Descriptions,
+  Flex,
   Row,
   Space,
   Spin,
@@ -22,12 +23,16 @@ import {
   theme,
 } from "antd";
 import { useNavigate, useParams } from "react-router-dom";
+import {
+  CancelAppointmentButton,
+  ConfirmAppointmentButton,
+  UnregisterShiftButton,
+} from "@/components/appointments";
 
 const AppointmentDetailPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { token } = theme.useToken();
-  const { user } = useUser();
 
   const { data: appointment, isLoading, isError } = useGetAppointment(id);
 
@@ -56,30 +61,11 @@ const AppointmentDetailPage = () => {
     AppointmentStatus,
     { color: string; border?: string; label: string }
   > = {
-    CONFIRMED: {
-      color: "blue",
-      border: token.colorPrimary,
-      label: t("confirmed"),
-    },
-    PENDING: {
-      color: "warning",
-      border: token.colorWarning,
-      label: t("pending"),
-    },
-    COMPLETED: {
-      color: "success",
-      border: token.colorSuccess,
-      label: t("completed"),
-    },
-    CANCELED: {
-      color: "error",
-      border: token.colorError,
-      label: t("canceled"),
-    },
-    AVAILABLE: {
-      color: "default",
-      label: t("available"),
-    },
+    CONFIRMED: { color: "blue", label: t("confirmed") },
+    PENDING: { color: "warning", label: t("pending") },
+    COMPLETED: { color: "success", label: t("completed") },
+    CANCELED: { color: "error", label: t("canceled") },
+    AVAILABLE: { color: "default", label: t("available") },
   };
 
   const statusStyle = statusConfig[appointment.status] || {
@@ -143,11 +129,7 @@ const AppointmentDetailPage = () => {
 
           {/* Appointment Info */}
           <Col xs={24} lg={8}>
-            <Card
-              style={
-                statusStyle.border ? { borderColor: statusStyle.border } : {}
-              }
-            >
+            <Card style={{ borderColor: token.colorBorder }}>
               <Space direction="vertical" size="middle" className="w-full">
                 <Typography.Title level={5} style={{ margin: 0 }}>
                   {t("appointmentInformation")}
@@ -185,6 +167,18 @@ const AppointmentDetailPage = () => {
                 </div>
               </Space>
             </Card>
+            {/* Action Buttons */}
+            <Flex className="!mt-5" gap={10} justify="end">
+              {appointment.status === "AVAILABLE" && (
+                <UnregisterShiftButton appointmentId={appointment.id} />
+              )}
+              {appointment.status === "PENDING" && (
+                <>
+                  <CancelAppointmentButton appointmentId={appointment.id} />
+                  <ConfirmAppointmentButton appointmentId={appointment.id} />
+                </>
+              )}
+            </Flex>
           </Col>
 
           {/* Patient Info */}

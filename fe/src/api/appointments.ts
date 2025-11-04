@@ -7,7 +7,7 @@ const mockAppointments: AppointmentDetailDto[] = [
     id: 1,
     shift: {
       id: 1,
-      date: "2025-11-03",
+      date: "2025-11-05",
       time: "09:00 - 10:00",
     },
     doctor: {
@@ -30,13 +30,13 @@ const mockAppointments: AppointmentDetailDto[] = [
       phoneNumber: "+84 98 111 2222",
       dateOfBirth: "1995-06-15",
     },
-    status: "CONFIRMED",
+    status: "AVAILABLE",
   },
   {
     id: 2,
     shift: {
       id: 2,
-      date: "2025-11-03",
+      date: "2025-11-05",
       time: "14:00 - 15:00",
     },
     doctor: {
@@ -57,7 +57,7 @@ const mockAppointments: AppointmentDetailDto[] = [
       gender: "male",
       email: "le.hoang@example.com",
       phoneNumber: "+84 91 333 4444",
-      dateOfBirth: "1988-03-22",
+      dateOfBirth: "1988-05-22",
     },
     status: "PENDING",
   },
@@ -186,7 +186,7 @@ const mockAppointments: AppointmentDetailDto[] = [
       phoneNumber: "+84 95 999 0000",
       dateOfBirth: "2015-08-12",
     },
-    status: "CONFIRMED",
+    status: "COMPLETED",
   },
   {
     id: 8,
@@ -222,6 +222,24 @@ export const appointmentsAPI = {
       const appointment = _.find(mockAppointments, { id: id });
       if (appointment) setTimeout(() => resolve(appointment), 500);
       else setTimeout(() => reject(new Error("Doctor not found")), 500);
+    });
+  },
+  book(id: number): Promise<any> {
+    // return axiosClient.patch(`/appointments/${id}/book`);
+    return new Promise((resolve) => {
+      setTimeout(() => resolve(""), 500);
+    });
+  },
+  confirm(id: number): Promise<any> {
+    // return axiosClient.patch(`/appointments/${id}/confirm`);
+    return new Promise((resolve) => {
+      setTimeout(() => resolve(""), 500);
+    });
+  },
+  cancel(id: number): Promise<any> {
+    // return axiosClient.patch(`/appointments/${id}/cancel`);
+    return new Promise((resolve) => {
+      setTimeout(() => resolve(""), 500);
     });
   },
 };

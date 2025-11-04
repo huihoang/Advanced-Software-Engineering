@@ -14,7 +14,6 @@ const Header = () => {
   const tabs = [
     { label: t("home"), path: PATH.HOME },
     { label: t("doctors"), path: PATH.DOCTORS },
-    { label: t("posts"), path: PATH.POSTS },
   ];
 
   const isTabActive = (pathname: string, tabPath: string) => {

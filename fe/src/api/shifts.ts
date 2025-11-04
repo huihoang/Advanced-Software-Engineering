@@ -36,9 +36,15 @@ export const shiftsAPI = {
     return new Promise((resolve) => setTimeout(() => resolve(mockShifts), 500));
   },
   register(id: number): Promise<any> {
-    // return axiosClient.post("/shifts", { shiftId: id });
+    // return axiosClient.post("/appointments", { shiftId: id });
     return new Promise((resolve) =>
       setTimeout(() => resolve("Shift registered successfully"), 500)
+    );
+  },
+  unregister(id: number): Promise<any> {
+    // return axiosClient.delete("/appointments", { params: { shiftId: id } });
+    return new Promise((resolve) =>
+      setTimeout(() => resolve("Shift unregistered"), 500)
     );
   },
 };
