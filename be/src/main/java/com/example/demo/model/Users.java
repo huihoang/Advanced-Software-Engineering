@@ -59,7 +59,11 @@ public class Users {
     public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
 
     public Role getRole() { return role; }
-    public void setRole(Role role) { this.role = role; }
+    public void setRole(String r) {
+        if(r == "admin") this.role = Role.admin;
+        else if(r == "doctor") this.role = Role.doctor; 
+        else this.role = Role.patient; 
+        }
 
     public enum Role { admin, doctor, patient }
 }

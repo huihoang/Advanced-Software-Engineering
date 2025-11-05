@@ -5,7 +5,7 @@ public enum ErrorCode {
 
     INVALID_KEY(1001, "Invalid message key"),
     USERNAME_ALREADY_EXISTS(1002, "User existed"),
-    USERNAME_INVALID(103, "Username is invalid"),
+    USERNAME_INVALID(1003, "Username is invalid"),
     INVALID_PASSWORD(1004, "Invalid password"),
     USER_NOT_FOUND(1005, "User not found"),
     UNAUTHENTICATED(1006, "Unauthenticated"),

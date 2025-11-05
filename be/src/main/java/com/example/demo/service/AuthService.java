@@ -17,7 +17,7 @@ public class AuthService {
     private UserRepository userRepository;
 
     public boolean authenticate(AuthRequest request) {
-        var user = userRepository.findByEmail(request.getUsername()).orElseThrow(() -> new AppException(ErrorCode.USER_NOT_FOUND));
+        var user = userRepository.findByEmail(request.getEmail()).orElseThrow(() -> new AppException(ErrorCode.USER_NOT_FOUND));
 
         SecurityConfig securityConfig = new SecurityConfig();
         PasswordEncoder passwordEncoder = securityConfig.passwordEncoder();

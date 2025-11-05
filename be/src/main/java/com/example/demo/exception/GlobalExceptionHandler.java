@@ -3,6 +3,7 @@ package com.example.demo.exception;
 import com.example.demo.dto.response.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
@@ -22,4 +23,11 @@ public class GlobalExceptionHandler {
                 null);
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
     }
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ApiResponse<String>> handleValidation(MethodArgumentNotValidException ex, WebRequest request){
+        ApiResponse<String> response = new ApiResponse<>(ErrorCode.UNCATEGORIZED_EXCEPTION.getCode(), ex.getFieldError().getDefaultMessage(),
+                null);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+    }
+
 }

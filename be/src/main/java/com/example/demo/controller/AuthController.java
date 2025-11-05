@@ -11,19 +11,28 @@ import com.example.demo.exception.AppException;
 import com.example.demo.service.AuthService;
 import com.example.demo.service.UserService;
 
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+
 import java.net.Authenticator;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @RestController
+@RequiredArgsConstructor
 public class AuthController {
-    // private AuthService authService;
+    // private AuthService authService; 
+    @Autowired
     private UserService registerService;
     // private 
     @PostMapping("/register")
-    public ApiResponse<AuthResponse> postRegister(@RequestBody UserCreationRequest request) {
+    public ApiResponse<AuthResponse> postRegister(@RequestBody @Valid UserCreationRequest request) {
     try {
         registerService.createRequest(request);
         return ApiResponse.<AuthResponse>builder()
@@ -39,8 +48,7 @@ public class AuthController {
             .build();
     }    
  }
- 
-    
+      
 
     // @PostMapping("/login")
     // public ApiResponse<AuthResponse> authenticate(@RequestBody AuthRequest request) {

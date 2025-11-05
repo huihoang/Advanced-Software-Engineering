@@ -23,15 +23,15 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
-    public Users createRequest(UserCreationRequest request) {
-        if (userRepository.existsByEmail(request.getUsername())) {
+    public Users createRequest(UserCreationRequest request) {       
+        if (userRepository.existsByEmail(request.getEmail())) {
             throw new AppException(ErrorCode.USERNAME_ALREADY_EXISTS);
         }
 
         Users user = userMapper.toUser(request);
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-
+        user.setRole("patient");
         return userRepository.save(user);
     }
 
