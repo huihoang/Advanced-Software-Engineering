@@ -3,6 +3,7 @@ org/example/axon/model/Condition.class
 org/example/axon/model/Patient.class
 org/example/axon/configuration/JwtAuthFilter.class
 org/example/axon/model/Doctor.class
+org/example/demo/exception/GlobalExceptionHandler.class
 org/example/axon/configuration/SecurityConfig.class
 org/example/axon/dto/response/UserResponse.class
 org/example/axon/configuration/JwtUtils.class
