@@ -1,26 +1,12 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import { AuthLayout, MainLayout } from "./layouts";
-import { LoginPage, HomePage, DoctorsPage, NotFound } from "./pages";
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from "./router/AppRoutes";
 
 import "./App.css";
 
 export default function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<HomePage />} />
-          <Route path="doctors" element={<DoctorsPage />} />
-          <Route path="patient" element={<HomePage />} />
-        </Route>
-
-        <Route path="/" element={<AuthLayout />}>
-          <Route path="login" element={<LoginPage />} />
-        </Route>
-
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <AppRoutes />
     </BrowserRouter>
   );
 }

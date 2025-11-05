@@ -7,6 +7,7 @@ import {
   AntDesignConfigProvider,
   MessageProvider,
   ReactQueryClientProvider,
+  UserContextProvider,
 } from "./components/providers";
 
 export default function Main() {
@@ -15,7 +16,9 @@ export default function Main() {
       <AntDesignConfigProvider>
         <MessageProvider>
           <ReactQueryClientProvider>
-            <App />
+            <UserContextProvider>
+              <App />
+            </UserContextProvider>
           </ReactQueryClientProvider>
         </MessageProvider>
       </AntDesignConfigProvider>

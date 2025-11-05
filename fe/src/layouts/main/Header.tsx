@@ -1,29 +1,14 @@
 import { PATH } from "@/constants";
 import { t } from "@/utils/i18n";
-import {
-  HistoryOutlined,
-  LogoutOutlined,
-  SettingOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
-import {
-  Avatar,
-  Button,
-  Dropdown,
-  Flex,
-  Image,
-  Layout,
-  Space,
-  theme,
-  Typography,
-} from "antd";
-import { useState } from "react";
+import { HistoryOutlined } from "@ant-design/icons";
+import { Button, Flex, Image, Layout, theme, Typography } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
+import AvatarDropdown from "./AvatarDropdown";
 
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [activeTab, setActiveTab] = useState(location.pathname);
+  const pathname = location.pathname;
 
   const { token } = theme.useToken();
 
@@ -33,39 +18,14 @@ const Header = () => {
     { label: t("posts"), path: PATH.POSTS },
   ];
 
-  const userMenuItems = [
-    {
-      key: "profile",
-      icon: <UserOutlined />,
-      label: "Profile",
-      onClick: () => navigate(PATH.PROFILE),
-    },
-    {
-      key: "settings",
-      icon: <SettingOutlined />,
-      label: "Settings",
-      onClick: () => navigate("/settings"),
-    },
-    {
-      type: "divider" as const,
-    },
-    {
-      key: "logout",
-      icon: <LogoutOutlined />,
-      label: "Logout",
-      onClick: () => {},
-      danger: true,
-    },
-  ];
-
-  const handleTabClick = (path: string) => {
-    setActiveTab(path);
-    navigate(path);
+  const isTabActive = (pathname: string, tabPath: string) => {
+    if (tabPath === PATH.HOME) return pathname === PATH.HOME;
+    return pathname.startsWith(tabPath);
   };
 
-  const handleClickHistory = () => {
-    navigate("/appointments/history");
-  };
+  const handleTabClick = (path: string) => navigate(path);
+
+  const handleClickHistory = () => navigate("/appointments/history");
 
   return (
     <Layout.Header className="bg-white shadow-md sticky top-0 z-50 !px-10">
@@ -101,7 +61,9 @@ const Header = () => {
               type="text"
               onClick={() => handleTabClick(tab.path)}
               style={
-                activeTab === tab.path ? { color: token.colorPrimary } : {}
+                isTabActive(pathname, tab.path)
+                  ? { color: token.colorPrimary }
+                  : {}
               }
             >
               {tab.label}
@@ -117,10 +79,7 @@ const Header = () => {
           >
             {t("appointments")}
           </Button>
-
-          <Dropdown menu={{ items: userMenuItems }} placement="bottomRight">
-            <Avatar icon={<UserOutlined />} className="cursor-pointer" />
-          </Dropdown>
+          <AvatarDropdown />
         </Flex>
       </Flex>
     </Layout.Header>

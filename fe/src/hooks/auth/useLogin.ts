@@ -26,8 +26,8 @@ export function useLogin() {
       localStorage.setItem("role", data.role);
 
       // Điều hướng theo quyền
-      if (data.role === "doctor") navigate(PATH.DOCTOR_HOME || "/doctor");
-      else navigate(PATH.PATIENT_HOME || "/patient");
+      if (data.role === "doctor") navigate(PATH.HOME || "/");
+      else navigate(PATH.HOME || "/");
     },
 
     onError: (error) => {

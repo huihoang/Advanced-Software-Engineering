@@ -2,9 +2,10 @@ export const PATH = {
   HOME: "/",
   LOGIN: "/login",
 
-  PROFILE: "/profile",
   DOCTORS: "/doctors",
+  DOCTOR_PROFILE: (doctorId: number | string) => `/doctors/${doctorId}`,
   POSTS: "/posts",
-  DOCTOR_HOME: '/doctor',
-  PATIENT_HOME: '/patient'
+
+  PROFILE: "/profile",
+  SETTINGS: "/SETTINGS",
 };

@@ -4,7 +4,7 @@ import { Typography } from "antd";
 const HomePage = () => {
   return (
     <div>
-      <Typography.Title>{t("home")}</Typography.Title>
+      <Typography.Title>{t("Home")}</Typography.Title>
     </div>
   );
 };

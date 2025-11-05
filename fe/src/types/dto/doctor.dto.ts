@@ -1,12 +1,11 @@
-export type DoctorDto = {
-  id: number;
-  image?: string;
-  fullName: string;
-  username: string;
-  email: string;
-  phoneNumber: string;
+import type { UserDto } from "./user.dto";
+
+export type DoctorDto = UserDto & {
   bio?: string;
-  province: string;
+  licenseNumber?: string;
+  citizen: { id: string; name: string };
+  specialization: { id: number; name: string };
+  consultationFee?: number;
   rating?: number;
 };
 

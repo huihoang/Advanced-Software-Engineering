@@ -1,11 +1,15 @@
-export type Doctor = {
-  id: number;
-  image?: string;
-  fullName: string;
-  username: string;
-  email: string;
-  phoneNumber: string;
+import type { User } from "./user";
+
+export type Doctor = User & {
   bio?: string;
-  province: string;
+  licenseNumber?: string;
+  citizen: { id: string; name: string };
+  specialization: { id: number; name: string };
+  consultationFee?: number;
   rating?: number;
+};
+
+export type AllDoctors = {
+  total: number;
+  doctors: DoctorDto[];
 };

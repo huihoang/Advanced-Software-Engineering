@@ -18,7 +18,7 @@ export function useRegister() {
             setTokenCookie(TOKEN_NAME.ACCESS_TOKEN, data.access_token);
             localStorage.setItem("role", "patient");
             message.success("Đăng ký thành công!");
-            navigate(PATH.PATIENT_HOME || "/patient");
+            navigate(PATH.HOME || "/");
         },
         onError: (error: any) => {
             // Nếu API trả lỗi email trùng
