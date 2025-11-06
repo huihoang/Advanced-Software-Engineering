@@ -1,0 +1,125 @@
+    .homepage {
+        background-color: #f2f8ff;
+        min-height: 100vh;
+        padding-bottom: 60px;
+        font-family: "Segoe UI", sans-serif;
+    }
+
+    /* 🎯 Hero section */
+    .homepage .hero {
+        background: linear-gradient(to bottom, #e3f2fd 0%, #f2f8ff 100%);
+        text-align: center;
+        padding: 50px 20px 30px;
+        border-radius: 0 0 40px 40px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .homepage .hero h2 {
+        color: #1565c0;
+        font-weight: 600;
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+    }
+
+    /* Ô tìm kiếm */
+    .homepage .hero .ant-input-search {
+        max-width: 1000px;
+        margin: 0 auto;
+        border: none;
+        height: 30px;
+    }
+
+    .homepage .hero .ant-input-search input {
+        border-radius: 20px !important;
+        /* border: 1px solid #e0e0e0; */
+        padding: 12px 16px;
+        font-size: 20px;
+    }
+
+    .homepage .hero .ant-input-search button {
+        background-color: #1e88e5;
+        color: #fff;
+        border-radius: 0 20px 20px 0 !important;
+        border: none;
+        transition: 0.3s ease;
+    }
+
+    .homepage .hero .ant-input-search button:hover {
+        background-color: #1565c0;
+    }
+
+    /* 🔹 Mỗi section (Chuyên khoa / Cơ sở y tế) */
+    .section {
+        background: #fff;
+        width: 90%;
+        margin: 40px auto;
+        padding: 20px 30px;
+        border-radius: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Tiêu đề section */
+    .section .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .section .section-header h3 {
+        color: #1e88e5;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .section .nav-btns {
+        display: flex;
+        gap: 8px;
+    }
+
+    .section .nav-btns button {
+        background: #e3f2fd;
+        color: #1e88e5;
+        border: none;
+        transition: 0.3s ease;
+    }
+
+    .section .nav-btns button:hover {
+        background: #bbdefb;
+        transform: scale(1.1);
+    }
+
+    /* 🎡 Các slide */
+    .slide-item {
+        text-align: center;
+        padding: 10px;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+    }
+
+    .slide-item:hover {
+        transform: translateY(-5px);
+    }
+
+    .slide-item img {
+        width: 1200px;
+        height: 120px;
+        object-fit: contain;
+        border-radius: 16px;
+        margin-bottom: 10px;
+        background: #f9f9f9;
+        padding: 8px;
+        border: 1px solid #eee;
+    }
+
+    .slide-item span {
+        display: block;
+        font-weight: 500;
+        color: #333;
+    }
+
+    .slide-item .address {
+        font-size: 13px;
+        color: #777;
+        margin-top: 4px;
+    }

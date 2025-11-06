@@ -3,8 +3,6 @@ import type { User } from "./user";
 
 export type Patient = User & {
   citizen: { id: string; name: string };
-  specialization: { id: number; name: string };
-  consultationFee?: number;
   emergencyName?: string;
   emergencyPhone?: string;
   gender?: Gender;

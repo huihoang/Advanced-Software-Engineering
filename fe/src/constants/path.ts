@@ -4,8 +4,11 @@ export const PATH = {
 
   DOCTORS: "/doctors",
   DOCTOR_PROFILE: (doctorId: number | string) => `/doctors/${doctorId}`,
+  PATIENT_PROFILE: (patientId: number | string) => `/patients/${patientId}`,
   POSTS: "/posts",
 
-  PROFILE: "/profile",
+  APPOINTMENT_DETAIL: (appointmentId: number | string) =>
+    `/appointments/${appointmentId}`,
+  DEPARTMENT_DETAIL: (id?: string) => `/department/${id ?? ":id"}`,
   SETTINGS: "/SETTINGS",
 };

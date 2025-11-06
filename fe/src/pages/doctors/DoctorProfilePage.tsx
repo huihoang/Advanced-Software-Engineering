@@ -1,8 +1,22 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { DateFilter } from "@/components/custom";
+import { AppointmentButton, RegisterShiftModal } from "@/components/doctors";
+import { useUser } from "@/hooks/common";
+import { useGetDoctor } from "@/hooks/doctors";
+import { formatCurrency } from "@/utils/common";
+import { getFormattedDate } from "@/utils/datetime";
+import { t } from "@/utils/i18n";
+import {
+  ArrowLeftOutlined,
+  MailOutlined,
+  PhoneOutlined,
+  PlusOutlined,
+} from "@ant-design/icons";
 import {
   Button,
   Card,
   Col,
+  Descriptions,
+  Flex,
   Image,
   Rate,
   Row,
@@ -10,25 +24,27 @@ import {
   Spin,
   Typography,
   theme,
-  Tag,
-  Flex,
 } from "antd";
-import {
-  ArrowLeftOutlined,
-  PhoneOutlined,
-  MailOutlined,
-} from "@ant-design/icons";
-import { Descriptions } from "antd";
-import { useGetDoctor } from "@/hooks/doctors";
-import { formatCurrency } from "@/utils/common";
-import { t } from "@/utils/i18n";
+import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 const DoctorProfilePage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { token } = theme.useToken();
+  const { user } = useUser();
 
-  const { data: doctor, isLoading, isError } = useGetDoctor(id || "");
+  const { data: doctor, isLoading, isError } = useGetDoctor(id);
+
+  const [filterDate, setFilterDate] = useState<Date>(new Date());
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const filteredAppointment =
+    doctor?.appointments.filter(
+      (s) => getFormattedDate(s.shift.date) === getFormattedDate(filterDate)
+    ) ?? [];
+
+  const isOwnProfile = user?.id === +id;
 
   if (isLoading) {
     return (
@@ -39,7 +55,7 @@ const DoctorProfilePage = () => {
   }
 
   return (
-    <div className="p-6">
+    <Space size="large" direction="vertical" className="mt-8 mb-20 w-full">
       <Button onClick={() => navigate(-1)} icon={<ArrowLeftOutlined />}>
         {t("back")}
       </Button>
@@ -47,92 +63,156 @@ const DoctorProfilePage = () => {
       {isError || !doctor ? (
         <Card className="!mt-4">{t("doctorNotFound")}</Card>
       ) : (
-        <Card className="!mt-4">
-          <Row gutter={24}>
-            <Col xs={24} sm={8} md={6} lg={6}>
-              <Flex vertical align="center" className="items-center">
-                <Image
-                  src={doctor.image || "/images/doctor.png"}
-                  width={160}
-                  height={160}
-                  preview={false}
-                  className="rounded-full object-cover"
-                />
-                <Typography.Title
-                  level={4}
-                  style={{ color: token.colorPrimary }}
-                  className="mt-4"
+        <>
+          <Card>
+            <Row gutter={24} className="py-2">
+              <Col xs={24} sm={8} md={6} lg={6}>
+                <Flex vertical align="center" className="items-center">
+                  <Image
+                    src={doctor.image || "/images/doctor.png"}
+                    width={160}
+                    height={160}
+                    preview={false}
+                    className="rounded-full object-cover"
+                  />
+                  <Typography.Title
+                    level={4}
+                    style={{ color: token.colorPrimary }}
+                    className="mt-4"
+                  >
+                    {doctor.firstName} {doctor.lastName}
+                  </Typography.Title>
+                  <Typography.Text type="secondary">
+                    {doctor.department?.name}
+                  </Typography.Text>
+
+                  <div className="mt-3">
+                    <Rate
+                      disabled
+                      allowHalf
+                      defaultValue={doctor.rating ?? 0}
+                    />
+                  </div>
+                </Flex>
+              </Col>
+
+              <Col xs={24} sm={16} md={18} lg={18}>
+                <Space
+                  direction="vertical"
+                  size="large"
+                  style={{ width: "100%" }}
                 >
-                  {doctor.firstName} {doctor.lastName}
-                </Typography.Title>
-                <Typography.Text type="secondary">
-                  {doctor.specialization?.name}
-                </Typography.Text>
+                  <div>
+                    <Typography.Title level={5}>{t("about")}</Typography.Title>
+                    <Typography.Paragraph>
+                      {doctor.bio ?? t("noBiography")}
+                    </Typography.Paragraph>
+                  </div>
 
-                <div className="mt-3">
-                  <Rate disabled allowHalf defaultValue={doctor.rating ?? 0} />
-                </div>
+                  <Row gutter={20}>
+                    <Col xs={24} sm={12}>
+                      <Typography.Title level={5}>
+                        {t("professionalInfo")}
+                      </Typography.Title>
+                      <Descriptions column={1} bordered size="small">
+                        <Descriptions.Item label={t("license")}>
+                          {doctor.licenseNumber ?? "N/A"}
+                        </Descriptions.Item>
+                        <Descriptions.Item label={t("citizen")}>
+                          {doctor.citizen?.name ?? "N/A"}
+                        </Descriptions.Item>
+                        <Descriptions.Item label={t("department")}>
+                          {doctor.department?.name ?? "N/A"}
+                        </Descriptions.Item>
+                      </Descriptions>
+                    </Col>
 
-                {doctor.consultationFee != null && (
-                  <Tag color="gold" className="mt-3">
-                    {t("consultationFee")}:{" "}
-                    {formatCurrency(doctor.consultationFee)}
-                  </Tag>
-                )}
-              </Flex>
+                    <Col xs={24} sm={12}>
+                      <Typography.Title level={5}>
+                        {t("contact")}
+                      </Typography.Title>
+                      <Descriptions column={1} bordered size="small">
+                        <Descriptions.Item label={t("email")}>
+                          <MailOutlined className="mr-2" /> {doctor.email}
+                        </Descriptions.Item>
+                        <Descriptions.Item label={t("phone")}>
+                          <PhoneOutlined className="mr-2" />{" "}
+                          {doctor.phoneNumber}
+                        </Descriptions.Item>
+                      </Descriptions>
+                    </Col>
+                  </Row>
+                </Space>
+              </Col>
+            </Row>
+          </Card>
+
+          <Row gutter={24} className="mt-5">
+            <Col xs={24} lg={12}>
+              <Card>
+                <Space direction="vertical" size="middle" className="w-full">
+                  <Flex align="center" justify="space-between">
+                    <Typography.Title level={5}>
+                      {t("workSchedule")}
+                    </Typography.Title>
+                    <Space>
+                      <DateFilter value={filterDate} onChange={setFilterDate} />
+                      {isOwnProfile && (
+                        <Button
+                          color="primary"
+                          variant="filled"
+                          icon={<PlusOutlined />}
+                          onClick={() => setIsModalOpen(true)}
+                        >
+                          {t("registerShift")}
+                        </Button>
+                      )}
+                    </Space>
+                  </Flex>
+
+                  {!filteredAppointment || filteredAppointment.length === 0 ? (
+                    <Typography.Text>{t("noShifts")}</Typography.Text>
+                  ) : (
+                    <Row gutter={16}>
+                      {filteredAppointment.map((appointment) => (
+                        <Col key={appointment.id} xs={24} sm={12} md={8} xl={6}>
+                          <AppointmentButton appointment={appointment} />
+                        </Col>
+                      ))}
+                    </Row>
+                  )}
+                </Space>
+              </Card>
             </Col>
 
-            <Col xs={24} sm={16} md={18} lg={18}>
-              <Space
-                direction="vertical"
-                size="large"
-                style={{ width: "100%" }}
-              >
-                <div>
-                  <Typography.Title level={5}>{t("about")}</Typography.Title>
-                  <Typography.Paragraph>
-                    {doctor.bio ?? t("noBiography")}
-                  </Typography.Paragraph>
-                </div>
-
-                <Row gutter={20}>
-                  <Col xs={24} sm={12}>
-                    <Typography.Title level={5}>
-                      {t("professionalInfo")}
-                    </Typography.Title>
-                    <Descriptions column={1} bordered size="small">
-                      <Descriptions.Item label={t("license")}>
-                        {doctor.licenseNumber ?? "N/A"}
-                      </Descriptions.Item>
-                      <Descriptions.Item label={t("citizen")}>
-                        {doctor.citizen?.name ?? "N/A"}
-                      </Descriptions.Item>
-                      <Descriptions.Item label={t("department")}>
-                        {doctor.specialization?.name ?? "N/A"}
-                      </Descriptions.Item>
-                    </Descriptions>
-                  </Col>
-
-                  <Col xs={24} sm={12}>
-                    <Typography.Title level={5}>
-                      {t("contact")}
-                    </Typography.Title>
-                    <Descriptions column={1} bordered size="small">
-                      <Descriptions.Item label={t("email")}>
-                        <MailOutlined className="mr-2" /> {doctor.email}
-                      </Descriptions.Item>
-                      <Descriptions.Item label={t("phone")}>
-                        <PhoneOutlined className="mr-2" /> {doctor.phoneNumber}
-                      </Descriptions.Item>
-                    </Descriptions>
-                  </Col>
-                </Row>
-              </Space>
+            <Col xs={24} lg={12}>
+              <Card>
+                <Typography.Title level={5}>{t("clinicInfo")}</Typography.Title>
+                <Descriptions column={1} bordered size="small">
+                  <Descriptions.Item label={t("name")}>
+                    {doctor.clinicInfo.name}
+                  </Descriptions.Item>
+                  <Descriptions.Item label={t("address")}>
+                    {doctor.clinicInfo.address}
+                  </Descriptions.Item>
+                  <Descriptions.Item label={t("consultationFee")}>
+                    {doctor.consultationFee != null
+                      ? formatCurrency(doctor.consultationFee)
+                      : "-"}
+                  </Descriptions.Item>
+                </Descriptions>
+              </Card>
             </Col>
           </Row>
-        </Card>
+        </>
       )}
-    </div>
+
+      <RegisterShiftModal
+        open={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        initialDate={filterDate}
+      />
+    </Space>
   );
 };
 

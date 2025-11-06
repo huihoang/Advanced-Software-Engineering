@@ -1,12 +1,15 @@
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 
+import { authAPI } from "@/api";
 import { PATH, TOKEN_NAME } from "@/constants";
-import type { LoginReqDto } from "@/types/dto";
+import { useUser } from "@/hooks/common";
 import { setTokenCookie } from "@/utils/cookie-actions";
 import { authAPI } from "@/api";
 export function useLogin() {
   const navigate = useNavigate();
+
+  const { setUser } = useUser();
 
   const mutation = useMutation({
     // Giả lập API login

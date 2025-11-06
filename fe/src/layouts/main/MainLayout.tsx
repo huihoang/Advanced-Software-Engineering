@@ -17,9 +17,9 @@ export default function MainLayout() {
   }, []);
 
   return (
-    <Layout className="min-h-screen">
+    <Layout className="!min-h-screen bg-gray-50">
       <Header />
-      <Layout.Content className="py-6 px-10 bg-white">
+      <Layout.Content className="px-20">
         {hasToken && <Outlet />}
       </Layout.Content>
     </Layout>

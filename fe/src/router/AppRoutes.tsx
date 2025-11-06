@@ -1,26 +1,40 @@
-import { Routes, Route } from "react-router-dom";
-
-import { AuthLayout, MainLayout } from "@/layouts";
-import {
-  LoginPage,
-  HomePage,
-  DoctorsPage,
-  NotFound,
-  DoctorProfilePage,
-} from "@/pages";
+import { Route, Routes } from "react-router-dom";
 import ProfileUser from "../pages/profile/profileUser";
 import { PATH } from "@/constants";
+import { AuthLayout, MainLayout } from "@/layouts";
+import {
+  AppointmentDetailPage,
+  DoctorProfilePage,
+  DoctorsPage,
+  HomePage,
+  LoginPage,
+  NotFound,
+  PatientProfilePage,
+} from "@/pages";
+
 
 export default function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
         <Route index element={<HomePage />} />
+        {/* <Route
+          path={PATH.DEPARTMENT_DETAIL(":id")}
+          element={<DepartmentDetail />}
+        /> */}
         <Route path={PATH.DOCTORS} element={<DoctorsPage />} />
         <Route path={PATH.PROFILE} element={<ProfileUser />} />
         <Route
           path={PATH.DOCTOR_PROFILE(":id")}
           element={<DoctorProfilePage />}
+        />
+        <Route
+          path={PATH.PATIENT_PROFILE(":id")}
+          element={<PatientProfilePage />}
+        />
+        <Route
+          path={PATH.APPOINTMENT_DETAIL(":id")}
+          element={<AppointmentDetailPage />}
         />
         <Route path={PATH.SETTINGS} element={<></>} />
       </Route>

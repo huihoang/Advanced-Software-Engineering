@@ -6,6 +6,7 @@ export * from "./token-name";
 export * from "./query-key";
 export * from "./user-role";
 export * from "./gender";
+export * from "./appointment-status";
 
 export const ACCESS_TOKEN_EXPIRES = 5 * 60;
 export const REFRESH_TOKEN_EXPIRES = 7 * 24 * 3600;
