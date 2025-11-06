@@ -1,5 +1,3 @@
-import { Route, Routes } from "react-router-dom";
-import ProfileUser from "../pages/profile/profileUser";
 import { PATH } from "@/constants";
 import { AuthLayout, MainLayout } from "@/layouts";
 import {
@@ -10,8 +8,9 @@ import {
   LoginPage,
   NotFound,
   PatientProfilePage,
+  RegisterPage,
 } from "@/pages";
-
+import { Route, Routes } from "react-router-dom";
 
 export default function AppRoutes() {
   return (
@@ -23,7 +22,14 @@ export default function AppRoutes() {
           element={<DepartmentDetail />}
         /> */}
         <Route path={PATH.DOCTORS} element={<DoctorsPage />} />
-        <Route path={PATH.PROFILE} element={<ProfileUser />} />
+        <Route
+          path={PATH.DOCTOR_PROFILE(":id")}
+          element={<DoctorProfilePage />}
+        />
+        <Route
+          path={PATH.PATIENT_PROFILE(":id")}
+          element={<PatientProfilePage />}
+        />
         <Route
           path={PATH.DOCTOR_PROFILE(":id")}
           element={<DoctorProfilePage />}
@@ -41,6 +47,7 @@ export default function AppRoutes() {
 
       <Route path="/" element={<AuthLayout />}>
         <Route path={PATH.LOGIN} element={<LoginPage />} />
+        <Route path={PATH.REGISTER} element={<RegisterPage />} />
       </Route>
 
       <Route path="*" element={<NotFound />} />

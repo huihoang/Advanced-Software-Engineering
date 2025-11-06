@@ -1,5 +1,6 @@
 import { appointmentsAPI } from "@/api";
 import { QUERY_KEY } from "@/constants";
+import type { BookAppointmentDto } from "@/types/dto";
 import { t } from "@/utils/i18n";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useMessage, useUser } from "../common";
@@ -10,7 +11,8 @@ export const useBookAppointment = (appointmentId: number) => {
   const { success } = useMessage();
 
   const mutation = useMutation({
-    mutationFn: appointmentsAPI.book,
+    mutationFn: (data: BookAppointmentDto) =>
+      appointmentsAPI.book(appointmentId, data),
     onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: [QUERY_KEY.GET_DOCTOR, user?.id],

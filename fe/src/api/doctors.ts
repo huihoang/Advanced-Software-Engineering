@@ -23,36 +23,48 @@ export const mockDoctors: DoctorDto[] = [
       {
         id: 1,
         patientId: 1,
-        shift: { id: 1, date: "2025-11-01", time: "09:00 - 10:00" },
-        status: "CONFIRMED",
-      },
-      {
-        id: 1,
-        patientId: 1,
-        shift: { id: 1, date: "2025-11-05", time: "09:00 - 10:00" },
+        scheduleDate: "2025-11-07",
+        scheduleTime: "09:00",
+        endTime: "10:00",
         status: "CONFIRMED",
       },
       {
         id: 2,
-        patientId: 2,
-        shift: { id: 2, date: "2025-11-05", time: "11:00 - 12:00" },
-        status: "PENDING",
+        patientId: 1,
+        scheduleDate: "2025-11-07",
+        scheduleTime: "16:00",
+        endTime: "17:00",
+        status: "CONFIRMED",
       },
       {
         id: 3,
-        shift: { id: 3, date: "2025-11-05", time: "13:00 - 14:00" },
-        status: "AVAILABLE",
+        patientId: 2,
+        scheduleDate: "2025-11-07",
+        scheduleTime: "11:00",
+        endTime: "12:00",
+        status: "PENDING",
       },
       {
         id: 4,
-        patientId: 2,
-        shift: { id: 4, date: "2025-11-05", time: "16:00 - 17:00" },
-        status: "COMPLETED",
+        scheduleDate: "2025-11-07",
+        scheduleTime: "08:00",
+        endTime: "09:00",
+        status: "AVAILABLE",
       },
       {
         id: 5,
+        patientId: 2,
+        scheduleDate: "2025-11-07",
+        scheduleTime: "13:00",
+        endTime: "14:00",
+        status: "COMPLETED",
+      },
+      {
+        id: 6,
         patientId: 1,
-        shift: { id: 5, date: "2025-11-05", time: "17:00 - 18:00" },
+        scheduleDate: "2025-11-07",
+        scheduleTime: "09:00",
+        endTime: "09:30",
         status: "CANCELED",
       },
     ],
@@ -78,15 +90,19 @@ export const mockDoctors: DoctorDto[] = [
     },
     appointments: [
       {
-        id: 6,
+        id: 7,
         patientId: 2,
-        shift: { id: 4, date: "2025-11-04", time: "08:30 - 09:30" },
+        scheduleDate: "2025-11-07",
+        scheduleTime: "10:00",
+        endTime: "11:00",
         status: "CONFIRMED",
       },
       {
-        id: 7,
+        id: 8,
         patientId: 1,
-        shift: { id: 3, date: "2025-11-05", time: "10:00 - 11:00" },
+        scheduleDate: "2025-11-07",
+        scheduleTime: "15:00",
+        endTime: "16:00",
         status: "PENDING",
       },
     ],
@@ -94,9 +110,12 @@ export const mockDoctors: DoctorDto[] = [
 ];
 
 export const doctorsAPI = {
-  getAll(page: number, limit: number): Promise<AllDoctorsDto> {
-    return axiosClient.get("/doctors", {
-      params: { page, limit },
+  getAll(page: number, limit: number): Promise<DoctorDto[]> {
+    // return axiosClient.get("/doctors", {
+    //   params: { page, limit },
+    // });
+    return new Promise((resolve) => {
+      setTimeout(() => resolve(mockDoctors), 500);
     });
   },
   getById(id: number): Promise<DoctorDto> {

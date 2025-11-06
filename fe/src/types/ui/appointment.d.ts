@@ -1,12 +1,6 @@
 import type { AppointmentStatus } from "../common";
 import type { Doctor, Patient } from ".";
 
-export type Shift = {
-  id: number;
-  date: Date;
-  time: string;
-};
-
 export type Appointment = {
   id: number;
   shift: Shift;

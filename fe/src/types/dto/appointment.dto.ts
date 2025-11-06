@@ -1,23 +1,21 @@
 import type { AppointmentStatus } from "../common";
 import type { DoctorDto, PatientDto } from ".";
 
-export type ShiftDto = {
-  id: number;
-  date: string;
-  time: string;
-};
-
 export type AppointmentDto = {
   id: number;
-  shift: ShiftDto;
   doctorId?: number;
   patientId?: number;
+  scheduleDate: string;
+  scheduleTime: string;
+  endTime: string;
   status: AppointmentStatus;
 };
 
 export type AppointmentDetailDto = {
   id: number;
-  shift: ShiftDto;
+  scheduleDate: string;
+  scheduleTime: string;
+  endTime: string;
   doctor?: Pick<
     DoctorDto,
     | "userId"
@@ -38,4 +36,14 @@ export type AppointmentDetailDto = {
     | "dateOfBirth"
   >;
   status: AppointmentStatus;
+};
+
+export type CreateAppointmentDto = {
+  scheduleDate: Date;
+  scheduleTime: string;
+  endTime: string;
+};
+
+export type BookAppointmentDto = {
+  note?: string;
 };

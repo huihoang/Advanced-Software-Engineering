@@ -27,7 +27,7 @@ const UserContextProvider = ({ children }: PropsWithChildren) => {
       try {
         const parsed = JSON.parse(cookie) as User;
         setUser(parsed);
-      } catch (e) {
+      } catch {
         removeCookie(COOKIE_NAME);
       }
     }
@@ -38,7 +38,7 @@ const UserContextProvider = ({ children }: PropsWithChildren) => {
     if (u) {
       try {
         setCookie(COOKIE_NAME, JSON.stringify(u));
-      } catch (e) {
+      } catch {
         // ignore serialization errors
       }
     } else {
