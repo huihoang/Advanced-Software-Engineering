@@ -5,7 +5,6 @@ import org.example.axon.dto.data.DoctorAppointmentInfo;
 import org.example.axon.dto.data.PatientAppointmentInfo;
 import org.example.axon.dto.response.AppointmentProfile;
 import org.example.axon.dto.response.AppointmentResponse;
-import org.example.axon.exception.ResourceNotFoundException;
 import org.example.axon.mapper.AppointmentMapper;
 import org.example.axon.model.Appointment;
 import org.example.axon.model.Doctor;
@@ -51,14 +50,16 @@ public class AppointmentService {
     public AppointmentProfile getAnAppointmentById(int id){
         try {
             Appointment appointment = appointmentRepository.findById(id)
-                    .orElseThrow(()->new ResourceNotFoundException("Appointment","id",id));
+                    .orElseThrow(()->new RuntimeException());
             DoctorAppointmentInfo doctorAppointmentInfo = null;
             if(appointment.getDoctor()!=null){
                 Doctor doctor = appointment.getDoctor();
                 ClinicInfo clinicInfo = null;
-                Hospital hospital = appointment.getHospitalDepartment().getHospital();
-                if(hospital != null){
-                    clinicInfo = new ClinicInfo(hospital.getId().toString(),hospital.getName(),hospital.getAddress());
+                if(doctor.getHospitalDepartment()!=null){
+                        Hospital hospital = doctor.getHospitalDepartment().getHospital();
+                    if(hospital != null){
+                        clinicInfo = new ClinicInfo(hospital.getId().toString(),hospital.getName(),hospital.getAddress());
+                    }
                 }
                 doctorAppointmentInfo = new DoctorAppointmentInfo(doctor.getUserId(), doctor.getUsers().getFirstName()
                         ,doctor.getUsers().getLastName(),doctor.getConsultationFee(),clinicInfo);

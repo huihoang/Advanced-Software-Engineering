@@ -65,8 +65,4 @@ public class Appointment {
         this.createdAt = Instant.now();
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "HospitalDepartmentId")
-    private HospitalDepartment hospitalDepartment;
-
 }

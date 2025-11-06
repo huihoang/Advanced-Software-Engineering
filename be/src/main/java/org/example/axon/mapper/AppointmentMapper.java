@@ -32,10 +32,6 @@ public class AppointmentMapper {
         doctor.setUserId(request.getDoctorId());
         appointment.setDoctor(doctor);
 
-        HospitalDepartment department = new HospitalDepartment();
-        department.setId(request.getHospitalDepartmentId());
-        appointment.setHospitalDepartment(department);
-
         return appointment;
     }
 
