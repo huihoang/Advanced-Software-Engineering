@@ -20,17 +20,7 @@ public class AppointmentMapper {
         appointment.setScheduleDate(request.getScheduleDate());
         appointment.setScheduleTime(request.getScheduleTime());
         appointment.setEndTime(request.getEndTime());
-        appointment.setNote(request.getNote());
-        appointment.setStatus("pending"); // default status
-
-        // Set relationship references by ID (assuming lazy loading)
-        Patient patient = new Patient();
-        patient.setUserId(request.getPatientId());
-        appointment.setPatient(patient);
-
-        Doctor doctor = new Doctor();
-        doctor.setUserId(request.getDoctorId());
-        appointment.setDoctor(doctor);
+        appointment.setStatus("AVAILABLE"); // default status
 
         return appointment;
     }

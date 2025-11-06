@@ -47,10 +47,8 @@ public class Appointment {
      *
      * Default: "PENDING"
      */
-    @ColumnDefault("'PENDING'")
-    @Lob
     @Column(name = "Status", length = 20)
-    private String status;
+    private String status="AVAILABLE";
 
     @Lob
     @Column(name = "Note")

@@ -15,11 +15,8 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AppointmentCreationRequest {
-    private String patientId;
-    private String doctorId;
     private LocalDate scheduleDate;
     private LocalTime scheduleTime;
     private LocalTime endTime;
     private String note;
-    private int hospitalDepartmentId;
 }
