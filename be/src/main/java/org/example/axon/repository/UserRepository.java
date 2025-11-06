@@ -1,13 +1,14 @@
 package org.example.axon.repository;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.example.axon.model.User;
-import org.springframework.data.jpa.repository.*;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.*;
 @Repository
-
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, String> { // ✅ String, không phải Long
     Optional<User> findByUserId(String userId);
     List<User> findAllByRole(String role);
     List<User> findAllByRoleAndEmail(String role, String email);
