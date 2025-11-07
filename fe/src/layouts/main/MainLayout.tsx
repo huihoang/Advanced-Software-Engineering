@@ -14,7 +14,7 @@ export default function MainLayout() {
   useEffect(() => {
     if (getCookie(TOKEN_NAME.ACCESS_TOKEN)) setHasToken(true);
     else navigate(PATH.LOGIN);
-  }, []);
+  }, [navigate]);
 
   return (
     <Layout className="!min-h-screen bg-gray-50">

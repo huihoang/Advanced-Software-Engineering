@@ -1,6 +1,5 @@
 import axiosClient from "@/utils/axios-client";
 import type { LoginReqDto, LoginResDto, RegisterReqDto } from "@/types/dto";
-import { register } from "module";
 
 export const authAPI = {
   login(payload: LoginReqDto): Promise<LoginResDto> {

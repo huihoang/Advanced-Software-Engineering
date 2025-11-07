@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import ProfileUser from "../pages/profile/profileUser";
+// import ProfileUser from "../pages/profile/profileUser";
 import { PATH } from "@/constants";
 import { AuthLayout, MainLayout } from "@/layouts";
 import {
@@ -23,7 +23,7 @@ export default function AppRoutes() {
           element={<DepartmentDetail />}
         /> */}
         <Route path={PATH.DOCTORS} element={<DoctorsPage />} />
-        <Route path={PATH.PROFILE} element={<ProfileUser />} />
+        {/* <Route path={PATH.PROFILE} element={<ProfileUser />} /> */}
         <Route
           path={PATH.DOCTOR_PROFILE(":id")}
           element={<DoctorProfilePage />}

@@ -3,9 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { PATH, TOKEN_NAME } from "@/constants";
 import type { LoginReqDto } from "@/types/dto";
 import { setTokenCookie } from "@/utils/cookie-actions";
-import { authAPI } from "@/api";
 import { message } from "antd";
-import type { RegisterReqDto } from "@/types/dto";
 export function useRegister() {
     const navigate = useNavigate();
 

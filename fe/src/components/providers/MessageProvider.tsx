@@ -1,8 +1,6 @@
-import { createContext, type PropsWithChildren } from "react";
+import { type PropsWithChildren } from "react";
 import { message } from "antd";
-import { MessageInstance } from "antd/es/message/interface";
-
-export const MessageContext = createContext<MessageInstance>(undefined);
+import { MessageContext } from "./MessageContext.tsx";
 
 const MessageProvider = ({ children }: PropsWithChildren) => {
   const [api, contextHolder] = message.useMessage();

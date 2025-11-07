@@ -26,9 +26,21 @@ const mockDoctors = [
   { id: 7, name: "Dr. Phạm Quang", department: "Da liễu", experience: 4 },
   { id: 8, name: "Dr. Trần Thị H", department: "Thần kinh", experience: 9 },
 ];
+type Doctor = {
+  id: number;
+  name: string;
+  department: string;
+  experience: number;
+}
+
+interface DepartmentSliderProps {
+  dept: string;
+  doctors: Doctor[];
+  onNavigate: (id: number) => void;
+}
 
 // 🧱 Component con: Slider cho từng chuyên khoa
-const DepartmentSlider = ({ dept, doctors, onNavigate }: any) => {
+const DepartmentSlider: React.FC<DepartmentSliderProps> = ({ dept, doctors, onNavigate }) => {
   const sliderRef = useRef<Slider>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -72,7 +84,7 @@ const DepartmentSlider = ({ dept, doctors, onNavigate }: any) => {
       </div>
 
       <Slider ref={sliderRef} {...settings}>
-        {doctors.map((doctor: any) => (
+        {doctors.map((doctor: Doctor) => (
           <div key={doctor.id} className="px-2">
             <Card
               hoverable
