@@ -16,3 +16,8 @@ export type AllDoctorsDto = {
   total: number;
   doctors: DoctorDto[];
 };
+
+export type DepartmentDto = {
+  id: number;
+  name: string;
+};

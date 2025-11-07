@@ -6,5 +6,6 @@ export { default as DoctorsPage } from "./doctors/DoctorsPage";
 export { default as DoctorProfilePage } from "./doctors/DoctorProfilePage";
 export { default as AppointmentDetailPage } from "./appointments/AppointmentDetailPage";
 export { default as PatientProfilePage } from "./patients/PatientProfilePage";
+export { default as AIChatPage } from "./ai-chat/AIChatPage";
 
 export { default as NotFound } from "./not-found";

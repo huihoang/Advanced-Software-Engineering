@@ -1,5 +1,4 @@
-import axiosClient from "@/utils/axios-client";
-import type { DoctorDto, AllDoctorsDto } from "@/types/dto";
+import type { DepartmentDto, DoctorDto } from "@/types/dto";
 
 import _ from "lodash";
 
@@ -110,9 +109,13 @@ export const mockDoctors: DoctorDto[] = [
 ];
 
 export const doctorsAPI = {
-  getAll(page: number, limit: number): Promise<DoctorDto[]> {
+  getAll(
+    search?: string,
+    departmentId?: string,
+    scheduleDate?: Date
+  ): Promise<DoctorDto[]> {
     // return axiosClient.get("/doctors", {
-    //   params: { page, limit },
+    //   params: { search, departmentId, scheduleDate },
     // });
     return new Promise((resolve) => {
       setTimeout(() => resolve(mockDoctors), 500);
@@ -124,6 +127,34 @@ export const doctorsAPI = {
       const doctor = _.find(mockDoctors, { userId: id });
       if (doctor) setTimeout(() => resolve(doctor), 500);
       else setTimeout(() => reject(new Error("Doctor not found")), 500);
+    });
+  },
+  getAllDepartments(): Promise<DepartmentDto[]> {
+    // return axiosClient.get("/api/departments");
+    return new Promise((resolve) => {
+      const departments = [
+        { id: 1, name: "Khoa Hồi sức" },
+        { id: 2, name: "Khoa Nội tổng quát" },
+        { id: 3, name: "Khoa Ngoại tổng quát" },
+        { id: 4, name: "Khoa Tim mạch" },
+        { id: 5, name: "Khoa Hô hấp" },
+        { id: 6, name: "Khoa Thần kinh" },
+        { id: 7, name: "Khoa Tai mũi họng" },
+        { id: 8, name: "Khoa Mắt" },
+        { id: 9, name: "Khoa Da liễu" },
+        { id: 10, name: "Khoa Nhi" },
+        { id: 11, name: "Khoa Sản" },
+        { id: 12, name: "Khoa Tiêu hóa" },
+        { id: 13, name: "Khoa Thận - Tiết niệu" },
+        { id: 14, name: "Khoa Cơ xương khớp" },
+        { id: 15, name: "Khoa Ung bướu" },
+        { id: 16, name: "Khoa Truyền nhiễm" },
+        { id: 17, name: "Khoa Y học cổ truyền" },
+        { id: 18, name: "Khoa Chấn thương chỉnh hình" },
+        { id: 19, name: "Khoa Răng - Hàm - Mặt" },
+        { id: 20, name: "Khoa Tâm thần" },
+      ];
+      setTimeout(() => resolve(departments), 300);
     });
   },
 };

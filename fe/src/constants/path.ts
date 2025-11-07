@@ -11,4 +11,5 @@ export const PATH = {
     `/appointments/${appointmentId}`,
   DEPARTMENT_DETAIL: (id?: string) => `/department/${id ?? ":id"}`,
   SETTINGS: "/SETTINGS",
+  AI_CHAT: "/ai-chat",
 };

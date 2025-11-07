@@ -1,28 +1,59 @@
-import { useState } from "react";
-import { Input, Card, Typography, Empty, Row, Col, Spin, Space } from "antd";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import {
+  Input,
+  Card,
+  Typography,
+  Empty,
+  Row,
+  Col,
+  Spin,
+  Space,
+  Flex,
+} from "antd";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { SearchOutlined } from "@ant-design/icons";
-import { DepartmentSlider } from "@/components/doctors";
+import { DepartmentSlider, DepartmentSelect } from "@/components/doctors";
+import { DateFilter } from "@/components/custom";
 import { useGetAllDoctors } from "@/hooks/doctors";
 import { PATH } from "@/constants";
 
 const { Title, Text } = Typography;
 
 const DoctorsPage = () => {
-  const [searchName, setSearchName] = useState("");
-  const [page] = useState(1);
   const navigate = useNavigate();
-
-  const { data: doctors = [], isLoading } = useGetAllDoctors({ page });
-
-  const filteredDoctors = doctors.filter((doc) =>
-    `${doc.firstName} ${doc.lastName}`
-      .toLowerCase()
-      .includes(searchName.toLowerCase())
+  const [searchParams] = useSearchParams();
+  const departmentIdFromQuery = searchParams.get("departmentId");
+  const [searchName, setSearchName] = useState("");
+  const [filterDate, setFilterDate] = useState<Date | null>();
+  const [filterDepartmentId, setFilterDepartmentId] = useState<number>(
+    departmentIdFromQuery ? +departmentIdFromQuery : undefined
   );
 
+  const { data: doctors = [], isLoading } = useGetAllDoctors(
+    searchName,
+    null,
+    filterDate
+  );
+
+  const filteredDoctors = doctors.filter((doc) => {
+    const matchesName = `${doc.firstName} ${doc.lastName}`
+      .toLowerCase()
+      .includes(searchName.toLowerCase());
+
+    const matchesDepartmentFromQuery = departmentIdFromQuery
+      ? doc.department?.id === parseInt(departmentIdFromQuery)
+      : true;
+
+    const matchesDepartmentFromSelect = filterDepartmentId
+      ? doc.department?.id === filterDepartmentId
+      : true;
+
+    return (
+      matchesName && matchesDepartmentFromQuery && matchesDepartmentFromSelect
+    );
+  });
   const departments = Array.from(
-    new Set(doctors.map((d) => d.department?.name).filter(Boolean))
+    new Set(filteredDoctors.map((d) => d.department?.name).filter(Boolean))
   );
 
   if (isLoading) {
@@ -39,16 +70,48 @@ const DoctorsPage = () => {
         Tìm kiếm bác sĩ
       </Title>
 
-      <div className="flex justify-center mb-8">
-        <Input.Search
-          placeholder="Nhập tên bác sĩ..."
-          allowClear
-          enterButton={<SearchOutlined />}
-          size="large"
-          className="max-w-lg w-full"
-          onSearch={(value) => setSearchName(value)}
-        />
-      </div>
+      <Card className="!mb-8 !rounded-2xl shadow-sm border-0">
+        <Flex gap="middle" wrap="wrap" justify="center" align="center">
+          <div>
+            <Text type="secondary" className="block mb-2">
+              Chọn ngày khám
+            </Text>
+            <DateFilter
+              value={filterDate}
+              onChange={setFilterDate}
+              size="large"
+              allowClear
+            />
+          </div>
+
+          <div>
+            <Text type="secondary" className="block mb-2">
+              Khoa / Chuyên khoa
+            </Text>
+            <DepartmentSelect
+              value={filterDepartmentId}
+              onChange={setFilterDepartmentId}
+              allowClear
+            />
+          </div>
+
+          <div
+            className="flex-1"
+            style={{ minWidth: "300px", maxWidth: "500px" }}
+          >
+            <Text type="secondary" className="block mb-2">
+              Tìm kiếm bác sĩ
+            </Text>
+            <Input.Search
+              placeholder="Nhập tên bác sĩ..."
+              allowClear
+              enterButton={<SearchOutlined />}
+              size="large"
+              onSearch={(value) => setSearchName(value)}
+            />
+          </div>
+        </Flex>
+      </Card>
 
       {/* Nếu chưa tìm kiếm → hiển thị slider */}
       {searchName.trim() === "" ? (
@@ -57,7 +120,9 @@ const DoctorsPage = () => {
             <DepartmentSlider
               key={dept}
               dept={dept || ""}
-              doctors={doctors.filter((d) => d.department?.name === dept)}
+              doctors={filteredDoctors.filter(
+                (d) => d.department?.name === dept
+              )}
             />
           ))}
         </Space>

@@ -1,11 +1,15 @@
 import { DATE_FORMAT_DTO } from "@/constants";
 import { getFormattedDate } from "@/utils/datetime";
 import { Select } from "antd";
+import { t } from "@/utils/i18n";
 
 type PropsType = {
-  value: Date;
-  onChange: (date: Date) => void;
+  value: Date | null;
+  onChange: (date: Date | null) => void;
+  size?: "small" | "middle" | "large";
   days?: number;
+  allowClear?: boolean;
+  placeholder?: string;
 };
 
 function labelFor(d: Date) {
@@ -17,8 +21,14 @@ function labelFor(d: Date) {
   return `${weekday} - ${day}`;
 }
 
-const DateFilter = ({ value, onChange, days = 7 }: PropsType) => {
-  const options: { value: string; label: string }[] = [];
+const DateFilter = ({
+  value,
+  onChange,
+  size = "middle",
+  days = 7,
+  allowClear = false,
+}: PropsType) => {
+  const options: { value: string | null; label: string }[] = [];
 
   const today = new Date();
   for (let i = 0; i < days; i++) {
@@ -32,14 +42,15 @@ const DateFilter = ({ value, onChange, days = 7 }: PropsType) => {
 
   return (
     <Select
-      size="middle"
+      size={size}
       options={options}
-      value={getFormattedDate(value, DATE_FORMAT_DTO)}
-      onChange={(val) => onChange(new Date(val))}
+      placeholder={t("selectDate")}
+      value={value ? getFormattedDate(value, DATE_FORMAT_DTO) : null}
+      onChange={(val) => onChange(val ? new Date(val) : null)}
+      allowClear={allowClear}
       style={{ minWidth: 160 }}
       showSearch={false}
     />
   );
 };
-
 export default DateFilter;

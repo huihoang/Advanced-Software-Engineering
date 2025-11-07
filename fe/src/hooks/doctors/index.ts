@@ -1,2 +1,3 @@
 export * from "./useGetDoctor";
-export { default as useGetAllDoctors } from "./useGetAllDoctors";
+export * from "./useGetAllDoctors";
+export * from "./useGetAllDepartments";
