@@ -31,6 +31,8 @@ public class ResourceNotFoundException extends RuntimeException {
     }
 
     // Constructor cơ bản nếu bạn chỉ muốn truyền một message tùy ý
+
+    ///Thank you 
     public ResourceNotFoundException(String message) {
         super(message);
     }

@@ -1,6 +1,7 @@
 package org.example.axon.services;
 
 import org.example.axon.dto.request.DoctorProfileUpdateRequest;
+import org.example.axon.dto.response.DoctorListItemResponse;
 import org.example.axon.dto.response.DoctorProfileResponse;
 import org.example.axon.exception.ResourceNotFoundException;
 import org.example.axon.mapper.DoctorMapper;
@@ -11,6 +12,10 @@ import org.example.axon.repository.DoctorRepository;
 import org.example.axon.repository.HospitalDepartmentRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
+
+import java.time.LocalDate;
+import java.util.List;
 
 @Service
 public class DoctorService {
@@ -22,6 +27,18 @@ public class DoctorService {
                          HospitalDepartmentRepository hospitalDepartmentRepository) {
         this.doctorRepository = doctorRepository;
         this.hospitalDepartmentRepository = hospitalDepartmentRepository;
+    }
+
+    @Transactional(readOnly = true)
+    public List<DoctorListItemResponse> getDoctors(String search, Integer departmentId, LocalDate scheduleDate) {
+        String normalizedSearch = StringUtils.hasText(search)
+                ? "%" + search.trim().toLowerCase() + "%"
+                : null;
+
+        return doctorRepository.searchDoctors(normalizedSearch, departmentId, scheduleDate)
+                .stream()
+                .map(DoctorMapper::toDoctorListItem)
+                .toList();
     }
 
     @Transactional(readOnly = true)

@@ -1,5 +1,6 @@
 org/example/axon/exception/ResourceNotFoundException.class
 org/example/axon/repository/PatientRepository.class
+org/example/axon/dto/response/DoctorListItemResponse$DepartmentSummary.class
 org/example/axon/dto/response/AppointmentProfile.class
 org/example/axon/controller/DoctorController.class
 org/example/axon/dto/data/PatientAppointmentInfo.class
@@ -7,10 +8,12 @@ org/example/axon/dto/response/UserResponse.class
 org/example/axon/mapper/DoctorMapper.class
 org/example/axon/dto/response/DoctorProfileResponse$DepartmentSummary.class
 org/example/axon/dto/request/DoctorProfileUpdateRequest.class
+org/example/axon/controller/DepartmentController.class
 org/example/axon/model/TreatedBy.class
 org/example/axon/model/HospitalDepartment.class
 org/example/axon/dto/response/AuthResponse.class
 org/example/axon/dto/request/AppointmentCreationRequest.class
+org/example/axon/dto/response/DoctorListItemResponse.class
 org/example/axon/util/ValidationUtils.class
 org/example/axon/controller/AppoinmentController.class
 org/example/axon/dto/response/DoctorProfileResponse$ShiftSummary.class
@@ -29,6 +32,8 @@ org/example/axon/dto/data/DoctorAppointmentInfo$DoctorAppointmentInfoBuilder.cla
 org/example/axon/dto/data/PatientAppointmentInfo$PatientAppointmentInfoBuilder.class
 org/example/axon/configuration/SecurityConfig.class
 org/example/axon/configuration/JwtUtils.class
+org/example/axon/services/DepartmentService.class
+org/example/axon/repository/MedicalDepartmentRepository.class
 org/example/axon/services/UserService.class
 org/example/axon/model/Address.class
 org/example/axon/dto/data/ClinicInfo.class
@@ -47,6 +52,7 @@ org/example/axon/controller/UserController.class
 org/example/axon/dto/data/DoctorAppointmentInfo.class
 org/example/axon/model/DoctorAvailability.class
 org/example/axon/model/PatientInsurance.class
+org/example/axon/dto/response/DepartmentSummaryResponse.class
 org/example/axon/mapper/AppointmentMapper.class
 org/example/axon/repository/UserRepository.class
 org/example/axon/dto/response/DoctorProfileResponse$ClinicInfo.class

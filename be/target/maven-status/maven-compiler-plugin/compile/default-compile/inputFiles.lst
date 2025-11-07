@@ -18,6 +18,7 @@
 /home/dungne/Advanced-Software-Engineering/be/src/main/java/org/example/axon/dto/response/AppointmentResponse.java
 /home/dungne/Advanced-Software-Engineering/be/src/main/java/org/example/axon/dto/response/AuthResponse.java
 /home/dungne/Advanced-Software-Engineering/be/src/main/java/org/example/axon/dto/response/DepartmentSummaryResponse.java
+/home/dungne/Advanced-Software-Engineering/be/src/main/java/org/example/axon/dto/response/DoctorListItemResponse.java
 /home/dungne/Advanced-Software-Engineering/be/src/main/java/org/example/axon/dto/response/DoctorProfileResponse.java
 /home/dungne/Advanced-Software-Engineering/be/src/main/java/org/example/axon/dto/response/UserResponse.java
 /home/dungne/Advanced-Software-Engineering/be/src/main/java/org/example/axon/exception/GlobalExceptionHandler.java
