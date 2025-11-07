@@ -1,9 +1,26 @@
 package org.example.axon.repository;
 
+import org.example.axon.dto.response.DoctorSearchResponse;
 import org.example.axon.model.Doctor;
-import java.util.Optional;
-
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
-public interface DoctorRepository extends JpaRepository<Doctor,String> {
+import java.util.List;
+
+@Repository
+public interface DoctorRepository extends JpaRepository<Doctor, String> {
+
+    @Query("SELECT new org.example.axon.dto.response.DoctorSearchResponse(" +
+            "d.licenseNumber, d.specialization, d.consultationFee, " +
+            "u.firstName, u.lastName) " +
+            "FROM Doctor d " +
+            "LEFT JOIN d.users u " +
+            "WHERE LOWER(u.firstName) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
+            "LOWER(u.lastName) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
+            "LOWER(CONCAT(u.firstName, ' ', u.lastName)) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
+            "LOWER(d.specialization) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
+            "LOWER(d.licenseNumber) LIKE LOWER(CONCAT('%', :keyword, '%'))")
+    List<DoctorSearchResponse> searchByKeyword(@Param("keyword") String keyword);
 }
