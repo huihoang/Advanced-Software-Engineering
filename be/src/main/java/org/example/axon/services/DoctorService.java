@@ -49,24 +49,27 @@ public class DoctorService {
     }
 
     @Transactional
-    public DoctorProfileResponse updateDoctorProfile(String doctorId, DoctorProfileUpdateRequest request) {
-        Doctor doctor = doctorRepository.findWithDetailsByUserId(doctorId)
-                .orElseThrow(() -> new ResourceNotFoundException("Doctor", "id", doctorId));
+    public DoctorProfileResponse updateCurrentDoctorProfile(String username, DoctorProfileUpdateRequest request) {
+        if (!StringUtils.hasText(username)) {
+            throw new IllegalArgumentException("User is not authenticated.");
+        }
+
+        Doctor doctor = doctorRepository.findWithDetailsByUserEmail(username)
+                .orElseThrow(() -> new ResourceNotFoundException("Doctor", "email", username));
 
         User user = doctor.getUsers();
-        if (user != null) {
-            if (request.firstName() != null) {
-                user.setFirstName(request.firstName());
-            }
-            if (request.lastName() != null) {
-                user.setLastName(request.lastName());
-            }
-            if (request.email() != null) {
-                user.setEmail(request.email());
-            }
-            if (request.phoneNumber() != null) {
-                user.setPhoneNumber(request.phoneNumber());
-            }
+        if (user == null) {
+            throw new IllegalStateException("Doctor profile is missing user information.");
+        }
+
+        if (request.firstName() != null) {
+            user.setFirstName(request.firstName());
+        }
+        if (request.lastName() != null) {
+            user.setLastName(request.lastName());
+        }
+        if (request.phoneNumber() != null) {
+            user.setPhoneNumber(request.phoneNumber());
         }
 
         if (request.bio() != null) {
@@ -75,13 +78,16 @@ public class DoctorService {
         if (request.licenseNumber() != null) {
             doctor.setLicenseNumber(request.licenseNumber());
         }
+        if (request.citizen() != null) {
+            doctor.setCitizenId(request.citizen());
+        }
         if (request.consultationFee() != null) {
             doctor.setConsultationFee(request.consultationFee());
         }
 
-        if (request.clinicId() != null) {
-            HospitalDepartment hospitalDepartment = hospitalDepartmentRepository.findById(request.clinicId())
-                    .orElseThrow(() -> new ResourceNotFoundException("HospitalDepartment", "id", request.clinicId()));
+        if (request.clinicInfo() != null && request.clinicInfo().id() != null) {
+            HospitalDepartment hospitalDepartment = hospitalDepartmentRepository.findById(request.clinicInfo().id())
+                    .orElseThrow(() -> new ResourceNotFoundException("HospitalDepartment", "id", request.clinicInfo().id()));
 
             doctor.setHospitalDepartment(hospitalDepartment);
         }

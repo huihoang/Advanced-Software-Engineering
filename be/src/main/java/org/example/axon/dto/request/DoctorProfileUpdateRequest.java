@@ -1,18 +1,22 @@
 package org.example.axon.dto.request;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 
 public record DoctorProfileUpdateRequest(
         String firstName,
         String lastName,
-        String email,
         String phoneNumber,
-        LocalDate dateOfBirth,
         String bio,
         String licenseNumber,
+        String citizen,
         BigDecimal consultationFee,
-        Integer departmentId,
-        Integer clinicId
+        DepartmentSummary department,
+        ClinicInfo clinicInfo
 ) {
+
+    public record DepartmentSummary(Integer id, String name) {
+    }
+
+    public record ClinicInfo(Integer id, String name, String address) {
+    }
 }

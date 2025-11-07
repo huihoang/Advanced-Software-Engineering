@@ -1,11 +1,9 @@
 package org.example.axon.controller;
 
-import org.example.axon.dto.request.DoctorProfileUpdateRequest;
-import org.example.axon.dto.response.DoctorListItemResponse;
-import org.example.axon.dto.response.DoctorProfileResponse;
+import org.example.axon.dto.request.PatientProfileUpdateRequest;
+import org.example.axon.dto.response.PatientProfileResponse;
 import org.example.axon.exception.ResourceNotFoundException;
-import org.example.axon.services.DoctorService;
-import org.springframework.format.annotation.DateTimeFormat;
+import org.example.axon.services.PatientService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -14,37 +12,24 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDate;
-import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api")
-public class DoctorController {
+@RequestMapping("/api/patients")
+public class PatientController {
 
-    private final DoctorService doctorService;
+    private final PatientService patientService;
 
-    public DoctorController(DoctorService doctorService) {
-        this.doctorService = doctorService;
+    public PatientController(PatientService patientService) {
+        this.patientService = patientService;
     }
 
-    @GetMapping("/doctors")
-    public ResponseEntity<List<DoctorListItemResponse>> getDoctors(
-            @RequestParam(required = false) String search,
-            @RequestParam(required = false) Integer departmentId,
-            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate scheduleDate
-    ) {
-        List<DoctorListItemResponse> doctors = doctorService.getDoctors(search, departmentId, scheduleDate);
-        return ResponseEntity.ok(doctors);
-    }
-
-    @GetMapping("/doctors/{id}")
-    public ResponseEntity<?> getDoctorProfile(@PathVariable String id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getPatientProfile(@PathVariable String id) {
         try {
-            DoctorProfileResponse response = doctorService.getDoctorProfile(id);
+            PatientProfileResponse response = patientService.getPatientProfile(id);
             return ResponseEntity.ok(response);
         } catch (ResourceNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of(
@@ -59,9 +44,9 @@ public class DoctorController {
         }
     }
 
-    @PutMapping("/doctor/me")
-    public ResponseEntity<?> updateCurrentDoctorProfile(
-            @RequestBody DoctorProfileUpdateRequest request,
+    @PutMapping("/me")
+    public ResponseEntity<?> updateCurrentPatientProfile(
+            @RequestBody PatientProfileUpdateRequest request,
             Authentication authentication
     ) {
         if (authentication == null || authentication.getName() == null) {
@@ -71,7 +56,7 @@ public class DoctorController {
             ));
         }
         try {
-            DoctorProfileResponse response = doctorService.updateCurrentDoctorProfile(authentication.getName(), request);
+            PatientProfileResponse response = patientService.updateCurrentPatient(authentication.getName(), request);
             return ResponseEntity.ok(response);
         } catch (ResourceNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of(

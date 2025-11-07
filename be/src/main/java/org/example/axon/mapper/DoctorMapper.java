@@ -9,8 +9,8 @@ import java.util.List;
 
 import org.example.axon.dto.response.DoctorListItemResponse;
 import org.example.axon.dto.response.DoctorProfileResponse;
+import org.example.axon.model.Appointment;
 import org.example.axon.model.Doctor;
-import org.example.axon.model.DoctorAvailability;
 import org.example.axon.model.Hospital;
 import org.example.axon.model.HospitalDepartment;
 import org.example.axon.model.MedicalDepartment;
@@ -71,7 +71,7 @@ public final class DoctorMapper {
 
         DoctorProfileResponse.DepartmentSummary departmentSummary = buildDepartmentSummary(medicalDepartment);
         DoctorProfileResponse.ClinicInfo clinicInfo = buildClinicInfo(hospitalDepartment, hospital);
-        List<DoctorProfileResponse.ShiftSummary> shifts = buildShifts(doctor.getDoctorAvailabilities());
+        List<DoctorProfileResponse.ShiftSummary> shifts = buildShifts(doctor.getAppointments());
 
         return new DoctorProfileResponse(
                 doctor.getUserId(),
@@ -79,6 +79,7 @@ public final class DoctorMapper {
                 user != null ? user.getLastName() : null,
                 user != null ? user.getEmail() : null,
                 user != null ? user.getPhoneNumber() : null,
+                doctor.getCitizenId(),
                 null,
                 user != null ? user.getRole() : null,
                 doctor.getSpecialization(),
@@ -112,28 +113,32 @@ public final class DoctorMapper {
         return new DoctorProfileResponse.ClinicInfo(id, name, address);
     }
 
-    private static List<DoctorProfileResponse.ShiftSummary> buildShifts(Iterable<DoctorAvailability> doctorAvailabilities) {
-        if (doctorAvailabilities == null) {
+    private static List<DoctorProfileResponse.ShiftSummary> buildShifts(Iterable<Appointment> appointments) {
+        if (appointments == null) {
             return List.of();
         }
 
-        List<DoctorAvailability> availabilityList = new ArrayList<>();
-        doctorAvailabilities.forEach(availabilityList::add);
+        List<Appointment> availableAppointments = new ArrayList<>();
+        appointments.forEach(appointment -> {
+            if (appointment != null && "AVAILABLE".equalsIgnoreCase(appointment.getStatus())) {
+                availableAppointments.add(appointment);
+            }
+        });
 
-        availabilityList.sort(
-                Comparator.comparing(DoctorAvailability::getAvailableDate,
+        availableAppointments.sort(
+                Comparator.comparing(Appointment::getScheduleDate,
                                 Comparator.nullsLast(LocalDate::compareTo))
-                        .thenComparing(DoctorAvailability::getStartTime,
+                        .thenComparing(Appointment::getScheduleTime,
                                 Comparator.nullsLast(LocalTime::compareTo))
         );
 
         List<DoctorProfileResponse.ShiftSummary> shiftSummaries = new ArrayList<>();
-        for (DoctorAvailability availability : availabilityList) {
+        for (Appointment appointment : availableAppointments) {
             shiftSummaries.add(
                     new DoctorProfileResponse.ShiftSummary(
-                            availability.getId(),
-                            availability.getAvailableDate(),
-                            buildShiftTime(availability.getStartTime(), availability.getEndTime())
+                            appointment.getId(),
+                            appointment.getScheduleDate(),
+                            buildShiftTime(appointment.getScheduleTime(), appointment.getEndTime())
                     )
             );
         }
