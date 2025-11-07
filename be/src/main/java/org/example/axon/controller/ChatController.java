@@ -1,14 +1,22 @@
 package org.example.axon.controller;
 
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+import org.example.axon.dto.request.ChatDepRequest;
 import org.example.axon.dto.request.ChatRequest;
 import org.example.axon.dto.response.ChatRespone;
 import org.example.axon.services.ChatService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+
 
 
 @RestController
+@RequestMapping("/api")
 public class ChatController {
     private final ChatService chatService;
 
@@ -19,6 +27,11 @@ public class ChatController {
     @PostMapping("/chat")
     public ChatRespone chat(@RequestBody ChatRequest request) {      
         return chatService.chat(request);
+    }
+    
+    @GetMapping("/department")
+    public List<ChatDepRequest> getDepartment() {
+        return chatService.getDepartment();
     }
     
 }
