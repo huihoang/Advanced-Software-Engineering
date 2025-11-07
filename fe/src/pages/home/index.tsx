@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import Slider from "react-slick";
-import { Typography, Button, Input, Card, Rate } from "antd";
+import { Typography, Button, Input, Card } from "antd";
 import { LeftOutlined, RightOutlined, SearchOutlined } from "@ant-design/icons";
 import { homeAPI } from "@/api/homePage";
 import type { DoctorDto } from "@/types/dto";

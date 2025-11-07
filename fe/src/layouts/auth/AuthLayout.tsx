@@ -11,7 +11,7 @@ export default function AuthLayout() {
 
   useEffect(() => {
     getCookie(TOKEN_NAME.ACCESS_TOKEN) && navigate(PATH.HOME);
-  }, []);
+  }, [navigate]);
 
   return (
     <div className="h-screen w-screen relative overflow-hidden">

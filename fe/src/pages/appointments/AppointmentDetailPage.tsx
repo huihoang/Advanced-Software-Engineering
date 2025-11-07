@@ -1,6 +1,5 @@
 import { PATH } from "@/constants";
 import { useGetAppointment } from "@/hooks/appointments";
-import { useUser } from "@/hooks/common";
 import type { AppointmentStatus } from "@/types/common";
 import { formatCurrency } from "@/utils/common";
 import { t } from "@/utils/i18n";
