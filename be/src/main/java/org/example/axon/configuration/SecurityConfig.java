@@ -26,6 +26,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/appointments/**").permitAll()
                         .requestMatchers("/api/doctors/**").permitAll()
                         .requestMatchers("/api/departments").permitAll()
+                        .requestMatchers("/api/patients/**").permitAll()
                         .requestMatchers("/api/users/**").authenticated()
                         .anyRequest().authenticated()
                 )

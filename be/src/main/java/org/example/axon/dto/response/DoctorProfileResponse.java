@@ -10,6 +10,7 @@ public record DoctorProfileResponse(
         String lastName,
         String email,
         String phoneNumber,
+        String citizenId,
         LocalDate dateOfBirth,
         String role,
         String bio,

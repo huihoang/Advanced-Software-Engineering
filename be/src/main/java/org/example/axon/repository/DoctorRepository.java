@@ -16,11 +16,23 @@ public interface DoctorRepository extends JpaRepository<Doctor, String> {
             "hospitalDepartment",
             "hospitalDepartment.department",
             "hospitalDepartment.hospital",
-            "doctorAvailabilities",
-            "doctorAvailabilities.hospitalDepartment",
-            "doctorAvailabilities.hospitalDepartment.hospital"
+            "appointments"
     })
     Optional<Doctor> findWithDetailsByUserId(String userId);
+
+    @EntityGraph(attributePaths = {
+            "users",
+            "hospitalDepartment",
+            "hospitalDepartment.department",
+            "hospitalDepartment.hospital",
+            "appointments"
+    })
+    @Query("""
+            select d from Doctor d
+            join d.users u
+            where lower(u.email) = lower(:email)
+            """)
+    Optional<Doctor> findWithDetailsByUserEmail(@Param("email") String email);
 ////Thank for ChatGPT's help to generate the below complex query
     @EntityGraph(attributePaths = {
             "users",
