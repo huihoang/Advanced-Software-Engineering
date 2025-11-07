@@ -18,7 +18,6 @@ import org.springframework.stereotype.Service;
 public class ChatService {
     private final ChatClient chatClient;
 
-    // @Autowired
     private final DepartmentRepository departmentRepository;
 
     public ChatService(ChatClient.Builder builder, DepartmentRepository departmentRepository){
