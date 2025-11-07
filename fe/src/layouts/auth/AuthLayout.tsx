@@ -26,7 +26,7 @@ export default function AuthLayout() {
               className="ml-6"
               style={{ color: token.colorPrimary }}
             >
-              Clinic
+              Healthcare Clinic
             </Typography.Title>
             <img
               height={550}

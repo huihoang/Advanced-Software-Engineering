@@ -9,8 +9,12 @@ import "./home.css";
 const { Title, Text } = Typography;
 
 const HomePage = () => {
-  const [departments, setDepartments] = useState<{ id: number; name: string }[]>([]);
-  const [clinics, setClinics] = useState<{ id: number; name: string; address: string }[]>([]);
+  const [departments, setDepartments] = useState<
+    { id: number; name: string }[]
+  >([]);
+  const [clinics, setClinics] = useState<
+    { id: number; name: string; address: string }[]
+  >([]);
   const [doctors, setDoctors] = useState<DoctorDto[]>([]);
   const [searchValue, setSearchValue] = useState("");
 
@@ -50,16 +54,16 @@ const HomePage = () => {
     c.name.toLowerCase().includes(searchValue.toLowerCase())
   );
   const filteredDoctors = doctors.filter((doc) =>
-    `${doc.firstName} ${doc.lastName}`.toLowerCase().includes(searchValue.toLowerCase())
+    `${doc.firstName} ${doc.lastName}`
+      .toLowerCase()
+      .includes(searchValue.toLowerCase())
   );
 
   return (
     <div className="homepage">
       {/* 🌟 HERO SECTION */}
       <div className="hero">
-        <Title level={2}>
-          Nền tảng đặt lịch khám bệnh
-        </Title>
+        <Title level={2}>Nền tảng đặt lịch khám bệnh</Title>
         <Input.Search
           placeholder="Tìm bác sỹ, chuyên khoa, cơ sở y tế..."
           allowClear
@@ -76,15 +80,23 @@ const HomePage = () => {
         <div className="section-header">
           <Title level={3}>Chuyên khoa</Title>
           <div className="nav-btns">
-            <Button shape="circle" icon={<LeftOutlined />} onClick={() => sliderDept.current?.slickPrev()} />
-            <Button shape="circle" icon={<RightOutlined />} onClick={() => sliderDept.current?.slickNext()} />
+            <Button
+              shape="circle"
+              icon={<LeftOutlined />}
+              onClick={() => sliderDept.current?.slickPrev()}
+            />
+            <Button
+              shape="circle"
+              icon={<RightOutlined />}
+              onClick={() => sliderDept.current?.slickNext()}
+            />
           </div>
         </div>
         <Slider ref={sliderDept} {...sliderSettings}>
           {filteredDepartments.map((dept) => (
             <div key={dept.id} className="slide-item">
               {/* <img src={`/images/departments/${dept.id}.png`} alt={dept.name} /> */}
-              <img src={`/public/images/dep.png`} alt={dept.name} />
+              <img src={`/images/dep.png`} alt={dept.name} />
               <Text>{dept.name}</Text>
             </div>
           ))}
@@ -96,15 +108,23 @@ const HomePage = () => {
         <div className="section-header">
           <Title level={3}>Cơ sở y tế</Title>
           <div className="nav-btns">
-            <Button shape="circle" icon={<LeftOutlined />} onClick={() => sliderClinic.current?.slickPrev()} />
-            <Button shape="circle" icon={<RightOutlined />} onClick={() => sliderClinic.current?.slickNext()} />
+            <Button
+              shape="circle"
+              icon={<LeftOutlined />}
+              onClick={() => sliderClinic.current?.slickPrev()}
+            />
+            <Button
+              shape="circle"
+              icon={<RightOutlined />}
+              onClick={() => sliderClinic.current?.slickNext()}
+            />
           </div>
         </div>
         <Slider ref={sliderClinic} {...sliderSettings}>
           {filteredClinics.map((clinic) => (
             <div key={clinic.id} className="slide-item">
               {/* <img src={`/images/clinics/${clinic.id}.png`} alt={clinic.name} /> */}
-              <img src={`/public/images/csyt.png`} alt={clinic.name} />
+              <img src={`/images/csyt.png`} alt={clinic.name} />
               <Text>{clinic.name}</Text>
               <p className="address">{clinic.address}</p>
             </div>
@@ -117,8 +137,16 @@ const HomePage = () => {
         <div className="section-header">
           <Title level={3}>Bác sĩ nổi bật</Title>
           <div className="nav-btns">
-            <Button shape="circle" icon={<LeftOutlined />} onClick={() => sliderDoctor.current?.slickPrev()} />
-            <Button shape="circle" icon={<RightOutlined />} onClick={() => sliderDoctor.current?.slickNext()} />
+            <Button
+              shape="circle"
+              icon={<LeftOutlined />}
+              onClick={() => sliderDoctor.current?.slickPrev()}
+            />
+            <Button
+              shape="circle"
+              icon={<RightOutlined />}
+              onClick={() => sliderDoctor.current?.slickNext()}
+            />
           </div>
         </div>
         <Slider ref={sliderDoctor} {...sliderSettings}>
@@ -127,7 +155,7 @@ const HomePage = () => {
               <Card hoverable bordered={false}>
                 <img
                   // src={`/images/doctors/${doc.userId}.png`}
-                  src={`/public/images/doctor.png`}
+                  src={`/images/doctor.png`}
                   alt={`${doc.firstName} ${doc.lastName}`}
                   className="doctor-img"
                 />

@@ -1,15 +1,18 @@
-import type { AppointmentDetailDto, AppointmentDto } from "@/types/dto";
+import type {
+  AppointmentDetailDto,
+  AppointmentDto,
+  BookAppointmentDto,
+  CreateAppointmentDto,
+} from "@/types/dto";
 import axiosClient from "@/utils/axios-client";
 import _ from "lodash";
 
 const mockAppointments: AppointmentDetailDto[] = [
   {
     id: 1,
-    shift: {
-      id: 1,
-      date: "2025-11-05",
-      time: "09:00 - 10:00",
-    },
+    scheduleDate: "2025-11-07",
+    scheduleTime: "09:00",
+    endTime: "10:00",
     doctor: {
       userId: 1,
       firstName: "Nguyen",
@@ -34,11 +37,9 @@ const mockAppointments: AppointmentDetailDto[] = [
   },
   {
     id: 2,
-    shift: {
-      id: 2,
-      date: "2025-11-05",
-      time: "14:00 - 15:00",
-    },
+    scheduleDate: "2025-11-07",
+    scheduleTime: "16:00",
+    endTime: "17:00",
     doctor: {
       userId: 1,
       firstName: "Nguyen",
@@ -63,11 +64,9 @@ const mockAppointments: AppointmentDetailDto[] = [
   },
   {
     id: 3,
-    shift: {
-      id: 3,
-      date: "2025-11-04",
-      time: "10:00 - 11:00",
-    },
+    scheduleDate: "2025-11-07",
+    scheduleTime: "11:00",
+    endTime: "12:00",
     doctor: {
       userId: 1,
       firstName: "Nguyen",
@@ -83,11 +82,9 @@ const mockAppointments: AppointmentDetailDto[] = [
   },
   {
     id: 4,
-    shift: {
-      id: 4,
-      date: "2025-11-04",
-      time: "08:30 - 09:30",
-    },
+    scheduleDate: "2025-11-07",
+    scheduleTime: "08:00",
+    endTime: "09:00",
     doctor: {
       userId: 2,
       firstName: "Tran",
@@ -112,11 +109,9 @@ const mockAppointments: AppointmentDetailDto[] = [
   },
   {
     id: 5,
-    shift: {
-      id: 5,
-      date: "2025-11-05",
-      time: "13:00 - 14:00",
-    },
+    scheduleDate: "2025-11-07",
+    scheduleTime: "13:00",
+    endTime: "14:00",
     doctor: {
       userId: 2,
       firstName: "Tran",
@@ -132,11 +127,9 @@ const mockAppointments: AppointmentDetailDto[] = [
   },
   {
     id: 6,
-    shift: {
-      id: 6,
-      date: "2025-11-06",
-      time: "09:00 - 09:30",
-    },
+    scheduleDate: "2025-11-07",
+    scheduleTime: "09:00",
+    endTime: "09:30",
     doctor: {
       userId: 3,
       firstName: "Le",
@@ -161,11 +154,9 @@ const mockAppointments: AppointmentDetailDto[] = [
   },
   {
     id: 7,
-    shift: {
-      id: 7,
-      date: "2025-11-06",
-      time: "10:00 - 10:30",
-    },
+    scheduleDate: "2025-11-07",
+    scheduleTime: "10:00",
+    endTime: "11:00",
     doctor: {
       userId: 3,
       firstName: "Le",
@@ -190,11 +181,9 @@ const mockAppointments: AppointmentDetailDto[] = [
   },
   {
     id: 8,
-    shift: {
-      id: 8,
-      date: "2025-11-07",
-      time: "15:00 - 16:00",
-    },
+    scheduleDate: "2025-11-07",
+    scheduleTime: "15:00",
+    endTime: "16:00",
     doctor: {
       userId: 3,
       firstName: "Le",
@@ -224,8 +213,21 @@ export const appointmentsAPI = {
       else setTimeout(() => reject(new Error("Doctor not found")), 500);
     });
   },
-  book(id: number): Promise<any> {
-    // return axiosClient.patch(`/appointments/${id}/book`);
+  create(payload: CreateAppointmentDto): Promise<any> {
+    // return axiosClient.post("/appointments", payload);
+    console.log(payload);
+    return new Promise((resolve) =>
+      setTimeout(() => resolve("Shift registered successfully"), 500)
+    );
+  },
+  delete(id: number): Promise<any> {
+    // return axiosClient.delete("/appointments", { params: { shiftId: id } });
+    return new Promise((resolve) =>
+      setTimeout(() => resolve("Shift unregistered"), 500)
+    );
+  },
+  book(id: number, payload: BookAppointmentDto): Promise<any> {
+    // return axiosClient.patch(`/appointments/${id}/book`, payload);
     return new Promise((resolve) => {
       setTimeout(() => resolve(""), 500);
     });

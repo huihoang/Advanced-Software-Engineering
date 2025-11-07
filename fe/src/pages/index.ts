@@ -1,4 +1,5 @@
-export { default as LoginPage } from "./auth/login";
+export { default as LoginPage } from "./auth/LoginPage";
+export { default as RegisterPage } from "./auth/RegisterPage";
 
 export { default as HomePage } from "./home";
 export { default as DoctorsPage } from "./doctors/DoctorsPage";

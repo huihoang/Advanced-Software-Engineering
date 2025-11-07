@@ -25,7 +25,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import {
   CancelAppointmentButton,
   ConfirmAppointmentButton,
-  UnregisterShiftButton,
+  DeleteAppointmentButton,
 } from "@/components/appointments";
 
 const AppointmentDetailPage = () => {
@@ -151,7 +151,7 @@ const AppointmentDetailPage = () => {
                     {t("date")}
                   </Typography.Text>
                   <Typography.Text>
-                    {new Date(appointment.shift.date).toLocaleDateString()}
+                    {new Date(appointment.scheduleDate).toLocaleDateString()}
                   </Typography.Text>
                 </div>
 
@@ -161,7 +161,7 @@ const AppointmentDetailPage = () => {
                     {t("time")}
                   </Typography.Text>
                   <Typography.Title className="!m-0" level={5}>
-                    {appointment.shift.time}
+                    {appointment.scheduleTime} - {appointment.endTime}
                   </Typography.Title>
                 </div>
               </Space>
@@ -169,7 +169,7 @@ const AppointmentDetailPage = () => {
             {/* Action Buttons */}
             <Flex className="!mt-5" gap={10} justify="end">
               {appointment.status === "AVAILABLE" && (
-                <UnregisterShiftButton appointmentId={appointment.id} />
+                <DeleteAppointmentButton appointmentId={appointment.id} />
               )}
               {appointment.status === "PENDING" && (
                 <>

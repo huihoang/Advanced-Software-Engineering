@@ -1,5 +1,9 @@
 import { DateFilter } from "@/components/custom";
-import { AppointmentButton, RegisterShiftModal } from "@/components/doctors";
+import {
+  AppointmentButton,
+  CreateAppointmentModal,
+} from "@/components/doctors";
+import { USER_ROLE } from "@/constants";
 import { useUser } from "@/hooks/common";
 import { useGetDoctor } from "@/hooks/doctors";
 import { formatCurrency } from "@/utils/common";
@@ -41,10 +45,10 @@ const DoctorProfilePage = () => {
 
   const filteredAppointment =
     doctor?.appointments.filter(
-      (s) => getFormattedDate(s.shift.date) === getFormattedDate(filterDate)
+      (a) => getFormattedDate(a.scheduleDate) === getFormattedDate(filterDate)
     ) ?? [];
 
-  const isOwnProfile = user?.id === +id;
+  const isOwnProfile = user.role === USER_ROLE.DOCTOR && user?.id === +id;
 
   if (isLoading) {
     return (
@@ -164,14 +168,14 @@ const DoctorProfilePage = () => {
                           icon={<PlusOutlined />}
                           onClick={() => setIsModalOpen(true)}
                         >
-                          {t("registerShift")}
+                          {t("addAppointment")}
                         </Button>
                       )}
                     </Space>
                   </Flex>
 
                   {!filteredAppointment || filteredAppointment.length === 0 ? (
-                    <Typography.Text>{t("noShifts")}</Typography.Text>
+                    <Typography.Text>{t("noAppointments")}</Typography.Text>
                   ) : (
                     <Row gutter={16}>
                       {filteredAppointment.map((appointment) => (
@@ -207,7 +211,7 @@ const DoctorProfilePage = () => {
         </>
       )}
 
-      <RegisterShiftModal
+      <CreateAppointmentModal
         open={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         initialDate={filterDate}

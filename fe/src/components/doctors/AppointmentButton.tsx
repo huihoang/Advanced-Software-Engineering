@@ -1,7 +1,6 @@
 import { PATH, USER_ROLE } from "@/constants";
 import { useUser } from "@/hooks/common";
 import type { AppointmentDto } from "@/types/dto/appointment.dto";
-import type { Appointment } from "@/types/ui/appointment";
 import { Card, Tag, theme, Typography } from "antd";
 import { useNavigate } from "react-router-dom";
 import {
@@ -11,28 +10,28 @@ import {
   CheckOutlined,
 } from "@ant-design/icons";
 import { t } from "@/utils/i18n";
+import { useState } from "react";
+import BookAppointmentModal from "./BookAppointmentModal";
 
 type Props = {
-  appointment: Appointment | AppointmentDto;
+  appointment: AppointmentDto;
 };
 
 const AppointmentButton = ({ appointment }: Props) => {
   const navigate = useNavigate();
   const { user } = useUser();
   const { token } = theme.useToken();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const role = user?.role;
 
-  const isShiftPast = () => {
-    const shiftDate = new Date(appointment.shift.date);
-    const shiftTime = appointment.shift.time;
-    const startTime = shiftTime.split("-")[0].trim();
-    const [hours, minutes] = startTime.split(":").map(Number);
+  const isPast = (() => {
+    const shiftDate = new Date(appointment.scheduleDate);
+    const [hours, minutes] = appointment.scheduleTime.split(":").map(Number);
     shiftDate.setHours(hours, minutes, 0, 0);
     return new Date() > shiftDate;
-  };
+  })();
 
-  const isPast = isShiftPast();
   const disabled =
     role === USER_ROLE.PATIENT
       ? appointment.status !== "AVAILABLE" || isPast
@@ -81,40 +80,58 @@ const AppointmentButton = ({ appointment }: Props) => {
   const statusDisplay = getStatusDisplay();
 
   const handleClick = () => {
-    if (!disabled) navigate(PATH.APPOINTMENT_DETAIL(appointment.id));
+    if (disabled) return;
+
+    if (role === USER_ROLE.PATIENT) {
+      setIsModalOpen(true);
+    } else {
+      navigate(PATH.APPOINTMENT_DETAIL(appointment.id));
+    }
   };
 
   return (
-    <Card
-      onClick={handleClick}
-      className={`duration-200 relative !mb-4 ${
-        disabled
-          ? "!bg-gray-50 cursor-not-allowed"
-          : "hover:shadow-md cursor-pointer"
-      }`}
-      styles={role === USER_ROLE.DOCTOR ? { body: { paddingBottom: 20 } } : {}}
-    >
-      {role !== USER_ROLE.PATIENT && (
-        <div className="absolute top-2 left-2">
-          <Tag
-            icon={statusDisplay.icon}
-            color={statusDisplay.tagColor}
-            bordered={false}
-            className="m-0"
-          >
-            {statusDisplay.label}
-          </Tag>
-        </div>
-      )}
-      <Typography.Text
-        className={`block font-medium text-lg text-center${
-          role === USER_ROLE.DOCTOR ? " pt-4" : ""
+    <>
+      <Card
+        onClick={handleClick}
+        className={`duration-200 relative !mb-4 ${
+          disabled
+            ? "!bg-gray-50 cursor-not-allowed"
+            : "hover:shadow-md cursor-pointer"
         }`}
-        style={{ color: statusDisplay.textColor }}
+        styles={
+          role === USER_ROLE.DOCTOR ? { body: { paddingBottom: 20 } } : {}
+        }
       >
-        {appointment.shift.time}
-      </Typography.Text>
-    </Card>
+        {role !== USER_ROLE.PATIENT && (
+          <div className="absolute top-2 left-2">
+            <Tag
+              icon={statusDisplay.icon}
+              color={statusDisplay.tagColor}
+              bordered={false}
+              className="m-0"
+            >
+              {statusDisplay.label}
+            </Tag>
+          </div>
+        )}
+        <Typography.Text
+          className={`block font-medium text-lg text-center${
+            role === USER_ROLE.DOCTOR ? " pt-4" : ""
+          }`}
+          style={{ color: statusDisplay.textColor }}
+        >
+          {appointment.scheduleTime} - {appointment.endTime}
+        </Typography.Text>
+      </Card>
+
+      <BookAppointmentModal
+        open={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        appointmentId={appointment.id}
+        appointmentTime={`${appointment.scheduleTime} - ${appointment.endTime}`}
+        appointmentDate={appointment.scheduleDate}
+      />
+    </>
   );
 };
 

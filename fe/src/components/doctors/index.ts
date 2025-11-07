@@ -1,2 +1,4 @@
 export { default as AppointmentButton } from "./AppointmentButton";
-export { default as RegisterShiftModal } from "./RegisterShiftModal";
+export { default as CreateAppointmentModal } from "./CreateAppointmentModal";
+export { default as DepartmentSlider } from "./DepartmentSlider";
+export { default as BookAppointmentModal } from "./BookAppointmentModal";

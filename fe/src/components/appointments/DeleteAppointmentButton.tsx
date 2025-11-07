@@ -1,5 +1,5 @@
 import { ConfirmModal } from "@/components/common";
-import { useUnregisterShift } from "@/hooks/shifts";
+import { useDeleteAppointment } from "@/hooks/appointments";
 import { t } from "@/utils/i18n";
 import { Button, theme } from "antd";
 import { useState } from "react";
@@ -8,11 +8,11 @@ type PropsType = {
   appointmentId: number;
 };
 
-const UnregisterShiftButton = ({ appointmentId }: PropsType) => {
+const DeleteAppointmentButton = ({ appointmentId }: PropsType) => {
   const { token } = theme.useToken();
 
   const [show, setShow] = useState(false);
-  const { mutate, isPending } = useUnregisterShift(appointmentId);
+  const { mutate, isPending } = useDeleteAppointment(appointmentId);
 
   const handleUnregisterShift = () => {
     mutate(null, {
@@ -23,15 +23,15 @@ const UnregisterShiftButton = ({ appointmentId }: PropsType) => {
   return (
     <>
       <Button danger onClick={() => setShow(true)}>
-        {t("unregisterShift")}
+        {t("deleteAppointment")}
       </Button>
 
       <ConfirmModal
         show={show}
         primary={token.colorError}
         loading={isPending}
-        title={t("unregisterShift")}
-        message={t("unregisterShiftConfirm")}
+        title={t("deleteAppointment")}
+        message={t("deleteAppointmentConfirm")}
         onCancel={() => setShow(false)}
         onOk={handleUnregisterShift}
       />
@@ -39,4 +39,4 @@ const UnregisterShiftButton = ({ appointmentId }: PropsType) => {
   );
 };
 
-export default UnregisterShiftButton;
+export default DeleteAppointmentButton;

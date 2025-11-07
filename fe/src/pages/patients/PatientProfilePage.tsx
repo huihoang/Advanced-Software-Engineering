@@ -146,7 +146,7 @@ const PatientProfilePage = () => {
               </Typography.Title>
               {patient.gender && (
                 <Typography.Text type="secondary">
-                  {patient.gender}
+                  {t(patient.gender)}
                 </Typography.Text>
               )}
             </div>
