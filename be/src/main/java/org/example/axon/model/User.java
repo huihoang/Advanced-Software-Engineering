@@ -1,6 +1,12 @@
 package org.example.axon.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -32,10 +38,10 @@ public class User {
     @Column(name = "Role", nullable = false)
     private String role;
 
-    @OneToOne
+    @OneToOne(mappedBy = "users", cascade = CascadeType.ALL)
     private Doctor doctor;
 
-    @OneToOne
+    @OneToOne(mappedBy = "users", cascade = CascadeType.ALL)
     private Patient patient;
 
 
