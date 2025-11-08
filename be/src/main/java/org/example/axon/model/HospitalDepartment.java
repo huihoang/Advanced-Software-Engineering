@@ -33,7 +33,7 @@ public class HospitalDepartment {
     private String address;
 
     @OneToMany(mappedBy = "hospitalDepartment")
-    private Set<Appointment> appointments = new LinkedHashSet<>();
+    private Set<Doctor> doctors = new LinkedHashSet<>();
 
     @OneToMany(mappedBy = "hospitalDepartment")
     private Set<DoctorAvailability> doctorAvailabilities = new LinkedHashSet<>();

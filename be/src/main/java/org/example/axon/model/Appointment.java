@@ -36,21 +36,31 @@ public class Appointment {
     @Column(name = "EndTime")
     private LocalTime endTime;
 
-    @ColumnDefault("'pending'")
-    @Lob
-    @Column(name = "Status")
-    private String status;
+    /**
+     * Appointment status.
+     * Valid values:
+     * - "AVAILABLE" : The appointment slot is open and can be booked.
+     * - "PENDING"   : Newly created appointment, waiting for confirmation.
+     * - "CONFIRMED" : Appointment has been confirmed by the doctor or system.
+     * - "COMPLETED" : Appointment has been cancelled by the patient or doctor.
+     * - "CANCELED" : Appointment has been completed successfully.
+     *
+     * Default: "PENDING"
+     */
+    @Column(name = "Status", length = 20)
+    private String status="AVAILABLE";
 
     @Lob
     @Column(name = "Note")
     private String note;
 
+    @Column(name = "Created_at", updatable = false, nullable = false)
     @ColumnDefault("CURRENT_TIMESTAMP")
-    @Column(name = "Created_at")
     private Instant createdAt;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "HospitalDepartmentId")
-    private HospitalDepartment hospitalDepartment;
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = Instant.now();
+    }
 
 }

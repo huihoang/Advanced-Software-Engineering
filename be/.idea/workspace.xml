@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e4e66a29-1979-4556-82c0-f49c10fb337f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/axon/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/axon/configuration/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/axon/controller/DoctorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/axon/controller/DoctorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/axon/dto/request/DoctorProfileUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/axon/dto/request/DoctorProfileUpdateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/axon/dto/response/DoctorProfileResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/axon/dto/response/DoctorProfileResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/axon/mapper/DoctorMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/axon/mapper/DoctorMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/axon/model/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/axon/model/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/axon/repository/DoctorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/axon/repository/DoctorRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/axon/repository/PatientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/axon/repository/PatientRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/axon/services/DoctorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/axon/services/DoctorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/axon/configuration/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/axon/configuration/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/axon/controller/DoctorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/axon/controller/DoctorController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/axon/dto/request/DoctorProfileUpdateRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/axon/dto/request/DoctorProfileUpdateRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/axon/dto/response/DoctorListItemResponse$DepartmentSummary.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/axon/dto/response/DoctorListItemResponse$DepartmentSummary.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/axon/dto/response/DoctorListItemResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/axon/dto/response/DoctorListItemResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/axon/dto/response/DoctorProfileResponse$ClinicInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/axon/dto/response/DoctorProfileResponse$ClinicInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/axon/dto/response/DoctorProfileResponse$DepartmentSummary.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/axon/dto/response/DoctorProfileResponse$DepartmentSummary.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/axon/dto/response/DoctorProfileResponse$ShiftSummary.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/axon/dto/response/DoctorProfileResponse$ShiftSummary.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/axon/dto/response/DoctorProfileResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/axon/dto/response/DoctorProfileResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/axon/mapper/DoctorMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/axon/mapper/DoctorMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/axon/model/Patient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/axon/model/Patient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/axon/repository/DoctorRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/axon/repository/DoctorRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/axon/repository/PatientRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/axon/repository/PatientRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/axon/services/DoctorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/axon/services/DoctorService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="357LQshO80D7YwKPwv9c1bg7MQ7" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dungne&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MTFeaturesSettingsConfigurable&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="AxonApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Axon" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.axon.AxonApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.27812.49" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-IU-251.27812.49" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e4e66a29-1979-4556-82c0-f49c10fb337f" name="Changes" comment="" />
+      <created>1746647684628</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1746647684628</updated>
+      <workItem from="1746647688890" duration="48000" />
+      <workItem from="1762456153983" duration="141000" />
+      <workItem from="1762456303766" duration="74000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

@@ -37,6 +37,12 @@ public class Doctor {
     @Column(name = "Specialization", length = 100)
     private String specialization;
 
+    //Mới thêm vào, mô tả quan hệ giữa bác sĩ và hospitalDeparttment
+    //Ban đầu là quan hệ giữa appoinment với hospitalDepartment => không chính xác.
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "HospitalDepartmentId")
+    private HospitalDepartment hospitalDepartment;
+
     @OneToMany(mappedBy = "doctor")
     private Set<Appointment> appointments = new LinkedHashSet<>();
 
