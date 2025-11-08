@@ -1,6 +1,6 @@
 import { Layout } from "antd";
 import { useEffect, useState } from "react";
-import { Outlet, useNavigate } from "react-router";
+import { Outlet, useNavigate } from "react-router-dom";
 
 import Header from "./Header";
 import Footer from "./Footer";

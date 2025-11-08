@@ -1,68 +1,68 @@
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\AxonApplication.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\configuration\JwtAuthFilter.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\configuration\JwtUtils.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\configuration\SecurityConfig.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\configuration\WebConfig.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\controller\AppoinmentController.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\controller\AuthController.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\controller\ChatController.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\controller\DepartmentController.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\controller\DoctorController.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\controller\PatientController.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\controller\UserController.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\data\ClinicInfo.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\data\DoctorAppointmentInfo.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\data\PatientAppointmentInfo.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\request\AppointmentCreationRequest.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\request\ChatDepRequest.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\request\ChatRequest.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\request\DoctorProfileUpdateRequest.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\request\LoginRequest.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\request\PatientProfileUpdateRequest.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\request\RegisterRequest.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\response\AppointmentProfile.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\response\AppointmentResponse.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\response\AuthResponse.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\response\ChatDepRespone.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\response\ChatRespone.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\response\DepartmentSummaryResponse.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\response\DoctorListItemResponse.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\response\DoctorProfileResponse.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\response\PatientProfileResponse.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\response\UserResponse.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\exception\GlobalExceptionHandler.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\exception\ResourceNotFoundException.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\mapper\AppointmentMapper.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\mapper\DoctorMapper.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\mapper\PatientMapper.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\mapper\UserMapper.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\model\Address.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\model\Appointment.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\model\Condition.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\model\Doctor.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\model\DoctorAvailability.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\model\Hospital.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\model\HospitalDepartment.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\model\MedicalDepartment.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\model\Patient.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\model\PatientCondition.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\model\PatientInsurance.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\model\Review.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\model\TreatedBy.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\model\TreatedById.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\model\User.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\repository\AddressRepository.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\repository\AppointmentRepository.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\repository\DepartmentRepository.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\repository\DoctorRepository.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\repository\HospitalDepartmentRepository.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\repository\MedicalDepartmentRepository.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\repository\PatientRepository.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\repository\UserRepository.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\services\AppointmentService.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\services\ChatService.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\services\DepartmentService.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\services\DoctorService.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\services\PatientService.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\services\UserService.java
-D:\Documents\CHUYEN NGANH\Cong nghe phan mem nang cao\assignment\Advanced-Software-Engineering\be\src\main\java\org\example\axon\util\ValidationUtils.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\AxonApplication.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\configuration\JwtAuthFilter.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\configuration\JwtUtils.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\configuration\SecurityConfig.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\configuration\WebConfig.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\controller\AppoinmentController.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\controller\AuthController.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\controller\ChatController.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\controller\DepartmentController.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\controller\DoctorController.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\controller\PatientController.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\controller\UserController.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\data\ClinicInfo.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\data\DoctorAppointmentInfo.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\data\PatientAppointmentInfo.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\request\AppointmentCreationRequest.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\request\ChatDepRequest.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\request\ChatRequest.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\request\DoctorProfileUpdateRequest.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\request\LoginRequest.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\request\PatientProfileUpdateRequest.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\request\RegisterRequest.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\response\AppointmentProfile.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\response\AppointmentResponse.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\response\AuthResponse.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\response\ChatDepRespone.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\response\ChatRespone.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\response\DepartmentSummaryResponse.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\response\DoctorListItemResponse.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\response\DoctorProfileResponse.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\response\PatientProfileResponse.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\dto\response\UserResponse.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\exception\GlobalExceptionHandler.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\exception\ResourceNotFoundException.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\mapper\AppointmentMapper.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\mapper\DoctorMapper.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\mapper\PatientMapper.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\mapper\UserMapper.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\model\Address.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\model\Appointment.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\model\Condition.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\model\Doctor.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\model\DoctorAvailability.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\model\Hospital.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\model\HospitalDepartment.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\model\MedicalDepartment.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\model\Patient.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\model\PatientCondition.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\model\PatientInsurance.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\model\Review.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\model\TreatedBy.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\model\TreatedById.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\model\User.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\repository\AddressRepository.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\repository\AppointmentRepository.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\repository\DepartmentRepository.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\repository\DoctorRepository.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\repository\HospitalDepartmentRepository.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\repository\MedicalDepartmentRepository.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\repository\PatientRepository.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\repository\UserRepository.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\services\AppointmentService.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\services\ChatService.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\services\DepartmentService.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\services\DoctorService.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\services\PatientService.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\services\UserService.java
+D:\Project\Software-Engineering\Advanced-Software-Engineering\be\src\main\java\org\example\axon\util\ValidationUtils.java
