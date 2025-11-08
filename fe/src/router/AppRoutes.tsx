@@ -1,3 +1,4 @@
+import { Route, Routes } from "react-router-dom";
 // import ProfileUser from "../pages/profile/profileUser";
 import { PATH } from "@/constants";
 import { AuthLayout, MainLayout } from "@/layouts";
@@ -12,7 +13,6 @@ import {
   RegisterPage,
   AIChatPage,
 } from "@/pages";
-import { Route, Routes } from "react-router-dom";
 
 export default function AppRoutes() {
   return (

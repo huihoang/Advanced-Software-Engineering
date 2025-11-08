@@ -1,125 +1,103 @@
-    .homepage {
-        background-color: #f2f8ff;
-        min-height: 100vh;
-        padding-bottom: 60px;
-        font-family: "Segoe UI", sans-serif;
-    }
+.homepage {
+    width: 100%;
+    overflow-x: hidden;
+}
 
-    /* 🎯 Hero section */
-    .homepage .hero {
-        background: linear-gradient(to bottom, #e3f2fd 0%, #f2f8ff 100%);
-        text-align: center;
-        padding: 50px 20px 30px;
-        border-radius: 0 0 40px 40px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    }
+/* 🌟 HERO */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #e6f7ff, #ffffff);
+    padding: 60px 80px;
+    flex-wrap: wrap;
+}
 
-    .homepage .hero h2 {
-        color: #1565c0;
-        font-weight: 600;
-        font-size: 1.8rem;
-        margin-bottom: 25px;
-    }
+.hero-content {
+    max-width: 600px;
+}
 
-    /* Ô tìm kiếm */
-    .homepage .hero .ant-input-search {
-        max-width: 1000px;
-        margin: 0 auto;
-        border: none;
-        height: 30px;
-    }
+.hero-img {
+    max-width: 400px;
+    width: 100%;
+    border-radius: 16px;
+}
 
-    .homepage .hero .ant-input-search input {
-        border-radius: 20px !important;
-        /* border: 1px solid #e0e0e0; */
-        padding: 12px 16px;
-        font-size: 20px;
-    }
+/* ❤️ INTRO */
+.intro-section {
+    padding: 80px;
+    background: #fafafa;
+}
 
-    .homepage .hero .ant-input-search button {
-        background-color: #1e88e5;
-        color: #fff;
-        border-radius: 0 20px 20px 0 !important;
-        border: none;
-        transition: 0.3s ease;
-    }
+.intro-img {
+    width: 100%;
+    border-radius: 12px;
+}
 
-    .homepage .hero .ant-input-search button:hover {
-        background-color: #1565c0;
-    }
+/* ⚙️ SERVICE */
+.service-section {
+    padding: 80px;
+}
 
-    /* 🔹 Mỗi section (Chuyên khoa / Cơ sở y tế) */
-    .section {
-        background: #fff;
-        width: 90%;
-        margin: 40px auto;
-        padding: 20px 30px;
-        border-radius: 20px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    }
+.service-card {
+    text-align: center;
+    border-radius: 16px;
+    padding: 20px;
 
-    /* Tiêu đề section */
-    .section .section-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 15px;
+    .ant-card-body {
+        text-align: center !important;
+        justify-items: center !important;
+        justify-content: center !important;
     }
+}
 
-    .section .section-header h3 {
-        color: #1e88e5;
-        font-weight: 600;
-        margin: 0;
-    }
+.service-img {
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 16px;
+}
 
-    .section .nav-btns {
-        display: flex;
-        gap: 8px;
-    }
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
 
-    .section .nav-btns button {
-        background: #e3f2fd;
-        color: #1e88e5;
-        border: none;
-        transition: 0.3s ease;
-    }
+/* 👩‍⚕️ TEAM */
+.team-section {
+    background: #f0f5ff;
+    padding: 80px;
+}
 
-    .section .nav-btns button:hover {
-        background: #bbdefb;
-        transform: scale(1.1);
-    }
+.doctor-card {
+    text-align: center;
+    border-radius: 16px;
+    padding: 16px;
+}
 
-    /* 🎡 Các slide */
-    .slide-item {
-        text-align: center;
-        padding: 10px;
-        transition: transform 0.3s ease;
-        cursor: pointer;
-    }
+.doctor-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
 
-    .slide-item:hover {
-        transform: translateY(-5px);
-    }
+.center-text {
+    text-align: center;
+    margin-bottom: 32px;
+}
 
-    .slide-item img {
-        width: 1200px;
-        height: 120px;
-        object-fit: contain;
-        border-radius: 16px;
-        margin-bottom: 10px;
-        background: #f9f9f9;
-        padding: 8px;
-        border: 1px solid #eee;
-    }
+/* 📞 CONTACT */
+.contact-section {
+    text-align: center;
+    padding: 80px 40px;
+    background: #fafafa;
+}
 
-    .slide-item span {
-        display: block;
-        font-weight: 500;
-        color: #333;
-    }
-
-    .slide-item .address {
-        font-size: 13px;
-        color: #777;
-        margin-top: 4px;
-    }
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: #001529;
+    color: white;
+}
