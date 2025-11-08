@@ -26,7 +26,7 @@ public class AppoinmentController {
     private JwtUtils jwtUtils;
 
     @GetMapping
-    public ResponseEntity<?> getAllAppoinments(@RequestParam String doctorId, @RequestParam String patientId){
+    public ResponseEntity<?> getAllAppoinments(@RequestParam(required = false) String doctorId, @RequestParam(required = false) String patientId){
         try {
             return ResponseEntity.ok(appointmentService.getAllAppointmentResponse(doctorId,patientId));
         }catch (Exception e) {

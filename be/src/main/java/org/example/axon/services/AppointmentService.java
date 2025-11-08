@@ -37,13 +37,16 @@ public class AppointmentService {
     public List<AppointmentResponse> getAllAppointmentResponse(String doctorId, String patientId){
         try {
             List<Appointment> appointments;
-            if(!doctorId.equals("") && !patientId.equals("")){
+            boolean hasDoctorId = doctorId != null && !doctorId.isEmpty();
+            boolean hasPatientId = patientId != null && !patientId.isEmpty();
+
+            if (hasDoctorId && hasPatientId) {
                 appointments = appointmentRepository.findAllByDoctorUserIdAndPatientUserId(doctorId, patientId);
-            } else if (!doctorId.equals("")){
+            } else if (hasDoctorId) {
                 appointments = appointmentRepository.findAllByDoctorUserId(doctorId);
-            }else if(!patientId.equals("")){
+            } else if (hasPatientId) {
                 appointments = appointmentRepository.findAllByPatientUserId(patientId);
-            }else {
+            } else {
                 appointments = appointmentRepository.findAll();
             }
             List<AppointmentResponse> appointmentResponses = new ArrayList<>();
