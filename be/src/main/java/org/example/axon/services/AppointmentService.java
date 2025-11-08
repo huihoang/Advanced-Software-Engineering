@@ -9,8 +9,6 @@ import org.example.axon.dto.response.AppointmentResponse;
 import org.example.axon.mapper.AppointmentMapper;
 import org.example.axon.model.*;
 import org.example.axon.repository.AppointmentRepository;
-import org.example.axon.repository.DoctorRepository;
-import org.example.axon.repository.PatientRepository;
 import org.example.axon.repository.UserRepository;
 import org.example.axon.util.ValidationUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,11 +26,11 @@ public class AppointmentService {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private DoctorRepository doctorRepository;
+    // @Autowired
+    // private DoctorRepository doctorRepository;
 
-    @Autowired
-    private PatientRepository patientRepository;
+    // @Autowired
+    // private PatientRepository patientRepository;
 
     public List<AppointmentResponse> getAllAppointmentResponse(String doctorId, String patientId){
         try {

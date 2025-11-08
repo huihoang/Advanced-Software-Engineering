@@ -117,180 +117,180 @@ VALUES (
         'Minh',
         'Nguyen',
         'minh.nguyen@example.com',
-        '$2a$10$N9qo8uLOickgx2ZMRZoMye1J8P0W5hZW5J5J0P0W5hZW5J5J0P0W5h',
+        '$2a$10$uoFlu1wCn9crWU7G/I2WYOXEdNGfRoI7PgUp2OgBCNwwIET0yQHaq',
         '0905123456',
-        'Doctor'
+        'DOCTOR'
     ),
     (
         'u2',
         'Hoa',
         'Tran',
         'hoa.tran@example.com',
-        '$2a$10$N9qo8uLOickgx2ZMRZoMye1J8P0W5hZW5J5J0P0W5hZW5J5J0P0W5h',
+        '$2a$10$uoFlu1wCn9crWU7G/I2WYOXEdNGfRoI7PgUp2OgBCNwwIET0yQHaq',
         '0905234567',
-        'Patient'
+        'USER'
     ),
     (
         'u3',
         'Binh',
         'Pham',
         'binh.pham@example.com',
-        '$2a$10$N9qo8uLOickgx2ZMRZoMye1J8P0W5hZW5J5J0P0W5hZW5J5J0P0W5h',
+        '$2a$10$uoFlu1wCn9crWU7G/I2WYOXEdNGfRoI7PgUp2OgBCNwwIET0yQHaq',
         '0905345678',
-        'Doctor'
+        'DOCTOR'
     ),
     (
         'u4',
         'Linh',
         'Le',
         'linh.le@example.com',
-        '$2a$10$N9qo8uLOickgx2ZMRZoMye1J8P0W5hZW5J5J0P0W5hZW5J5J0P0W5h',
+        '$2a$10$uoFlu1wCn9crWU7G/I2WYOXEdNGfRoI7PgUp2OgBCNwwIET0yQHaq',
         '0905456789',
-        'Patient'
+        'USER'
     ),
     (
         'u5',
         'Khoa',
         'Hoang',
         'khoa.hoang@example.com',
-        '$2a$10$N9qo8uLOickgx2ZMRZoMye1J8P0W5hZW5J5J0P0W5hZW5J5J0P0W5h',
+        '$2a$10$uoFlu1wCn9crWU7G/I2WYOXEdNGfRoI7PgUp2OgBCNwwIET0yQHaq',
         '0905567890',
-        'Doctor'
+        'DOCTOR'
     ),
     (
         'u6',
         'Thu',
         'Vo',
         'thu.vo@example.com',
-        '$2a$10$N9qo8uLOickgx2ZMRZoMye1J8P0W5hZW5J5J0P0W5hZW5J5J0P0W5h',
+        '$2a$10$uoFlu1wCn9crWU7G/I2WYOXEdNGfRoI7PgUp2OgBCNwwIET0yQHaq',
         '0905678901',
-        'Patient'
+        'USER'
     ),
     (
         'u7',
         'Dung',
         'Nguyen',
         'dung.nguyen@example.com',
-        '$2a$10$N9qo8uLOickgx2ZMRZoMye1J8P0W5hZW5J5J0P0W5hZW5J5J0P0W5h',
+        '$2a$10$uoFlu1wCn9crWU7G/I2WYOXEdNGfRoI7PgUp2OgBCNwwIET0yQHaq',
         '0905789012',
-        'Doctor'
+        'DOCTOR'
     ),
     (
         'u8',
         'Hanh',
         'Dao',
         'hanh.dao@example.com',
-        '$2a$10$N9qo8uLOickgx2ZMRZoMye1J8P0W5hZW5J5J0P0W5hZW5J5J0P0W5h',
+        '$2a$10$uoFlu1wCn9crWU7G/I2WYOXEdNGfRoI7PgUp2OgBCNwwIET0yQHaq',
         '0905890123',
-        'Patient'
+        'USER'
     ),
     (
         'u9',
         'Tuan',
         'Bui',
         'tuan.bui@example.com',
-        '$2a$10$N9qo8uLOickgx2ZMRZoMye1J8P0W5hZW5J5J0P0W5hZW5J5J0P0W5h',
+        '$2a$10$uoFlu1wCn9crWU7G/I2WYOXEdNGfRoI7PgUp2OgBCNwwIET0yQHaq',
         '0905901234',
-        'Doctor'
+        'DOCTOR'
     ),
     (
         'u10',
         'Mai',
         'Phan',
         'mai.phan@example.com',
-        '$2a$10$N9qo8uLOickgx2ZMRZoMye1J8P0W5hZW5J5J0P0W5hZW5J5J0P0W5h',
+        '$2a$10$uoFlu1wCn9crWU7G/I2WYOXEdNGfRoI7PgUp2OgBCNwwIET0yQHaq',
         '0906012345',
-        'Patient'
+        'USER'
     ),
     (
         'u11',
         'Phong',
         'Tran',
         'phong.tran@example.com',
-        '$2a$10$N9qo8uLOickgx2ZMRZoMye1J8P0W5hZW5J5J0P0W5hZW5J5J0P0W5h',
+        '$2a$10$uoFlu1wCn9crWU7G/I2WYOXEdNGfRoI7PgUp2OgBCNwwIET0yQHaq',
         '0906123456',
-        'Doctor'
+        'DOCTOR'
     ),
     (
         'u12',
         'Lan',
         'Nguyen',
         'lan.nguyen@example.com',
-        '$2a$10$N9qo8uLOickgx2ZMRZoMye1J8P0W5hZW5J5J0P0W5hZW5J5J0P0W5h',
+        '$2a$10$uoFlu1wCn9crWU7G/I2WYOXEdNGfRoI7PgUp2OgBCNwwIET0yQHaq',
         '0906234567',
-        'Patient'
+        'USER'
     ),
     (
         'u13',
         'Hung',
         'Vo',
         'hung.vo@example.com',
-        '$2a$10$N9qo8uLOickgx2ZMRZoMye1J8P0W5hZW5J5J0P0W5hZW5J5J0P0W5h',
+        '$2a$10$uoFlu1wCn9crWU7G/I2WYOXEdNGfRoI7PgUp2OgBCNwwIET0yQHaq',
         '0906345678',
-        'Patient'
+        'USER'
     ),
     (
         'u14',
         'Quang',
         'Le',
         'quang.le@example.com',
-        '$2a$10$N9qo8uLOickgx2ZMRZoMye1J8P0W5hZW5J5J0P0W5hZW5J5J0P0W5h',
+        '$2a$10$uoFlu1wCn9crWU7G/I2WYOXEdNGfRoI7PgUp2OgBCNwwIET0yQHaq',
         '0906456789',
-        'Doctor'
+        'DOCTOR'
     ),
     (
         'u15',
         'Nga',
         'Pham',
         'nga.pham@example.com',
-        '$2a$10$N9qo8uLOickgx2ZMRZoMye1J8P0W5hZW5J5J0P0W5hZW5J5J0P0W5h',
+        '$2a$10$uoFlu1wCn9crWU7G/I2WYOXEdNGfRoI7PgUp2OgBCNwwIET0yQHaq',
         '0906567890',
-        'Patient'
+        'USER'
     ),
     (
         'u16',
         'Thanh',
         'Hoang',
         'thanh.hoang@example.com',
-        '$2a$10$N9qo8uLOickgx2ZMRZoMye1J8P0W5hZW5J5J0P0W5hZW5J5J0P0W5h',
+        '$2a$10$uoFlu1wCn9crWU7G/I2WYOXEdNGfRoI7PgUp2OgBCNwwIET0yQHaq',
         '0906678901',
-        'Patient'
+        'USER'
     ),
     (
         'u17',
         'Long',
         'Dang',
         'long.dang@example.com',
-        '$2a$10$N9qo8uLOickgx2ZMRZoMye1J8P0W5hZW5J5J0P0W5hZW5J5J0P0W5h',
+        '$2a$10$uoFlu1wCn9crWU7G/I2WYOXEdNGfRoI7PgUp2OgBCNwwIET0yQHaq',
         '0906789012',
-        'Doctor'
+        'DOCTOR'
     ),
     (
         'u18',
         'Huong',
         'Tran',
         'huong.tran@example.com',
-        '$2a$10$N9qo8uLOickgx2ZMRZoMye1J8P0W5hZW5J5J0P0W5hZW5J5J0P0W5h',
+        '$2a$10$uoFlu1wCn9crWU7G/I2WYOXEdNGfRoI7PgUp2OgBCNwwIET0yQHaq',
         '0906890123',
-        'Patient'
+        'USER'
     ),
     (
         'u19',
         'Cuong',
         'Nguyen',
         'cuong.nguyen@example.com',
-        '$2a$10$N9qo8uLOickgx2ZMRZoMye1J8P0W5hZW5J5J0P0W5hZW5J5J0P0W5h',
+        '$2a$10$uoFlu1wCn9crWU7G/I2WYOXEdNGfRoI7PgUp2OgBCNwwIET0yQHaq',
         '0906901234',
-        'Doctor'
+        'DOCTOR'
     ),
     (
         'u20',
         'Thuy',
         'Le',
         'thuy.le@example.com',
-        '$2a$10$N9qo8uLOickgx2ZMRZoMye1J8P0W5hZW5J5J0P0W5hZW5J5J0P0W5h',
+        '$2a$10$uoFlu1wCn9crWU7G/I2WYOXEdNGfRoI7PgUp2OgBCNwwIET0yQHaq',
         '0907012345',
-        'Patient'
+        'USER'
     );
 
 INSERT INTO
@@ -536,7 +536,7 @@ VALUES (
     );
 
 INSERT INTO
-    Patients (
+    USERs (
         UserId,
         CitizenId,
         AGE,
@@ -658,9 +658,9 @@ VALUES (
     );
 
 INSERT INTO
-    PatientInsurances (
+    USERInsurances (
         InsuranceId,
-        PatientId,
+        USERId,
         ProviderName,
         ExpiryDate,
         Type
@@ -800,7 +800,7 @@ VALUES (1, 100),
     (10, 102);
 
 INSERT INTO
-    PatientConditions (PatientId, ConditionID)
+    USERConditions (USERId, ConditionID)
 VALUES ('u2', 1),
     ('u2', 3),
     ('u4', 2),
@@ -967,7 +967,7 @@ VALUES (
 
 INSERT INTO
     Appointments (
-        PatientId,
+        USERId,
         DoctorId,
         ScheduleDate,
         ScheduleTime,
@@ -1181,12 +1181,12 @@ INSERT INTO
     Reviews (
         Rating,
         Comment,
-        PatientId,
+        USERId,
         DoctorId
     )
 VALUES (
         5,
-        'Very caring and professional! Excellent doctor.',
+        'Very caring and professional! Excellent DOCTOR.',
         'u2',
         'u1'
     ),
@@ -1210,7 +1210,7 @@ VALUES (
     ),
     (
         4,
-        'Knowledgeable doctor, clear explanations.',
+        'Knowledgeable DOCTOR, clear explanations.',
         'u12',
         'u17'
     ),
@@ -1234,7 +1234,7 @@ VALUES (
     ),
     (
         4,
-        'Good doctor, answered all my questions.',
+        'Good DOCTOR, answered all my questions.',
         'u6',
         'u5'
     ),
@@ -1252,7 +1252,7 @@ VALUES (
     ),
     (
         4,
-        'Very patient and understanding.',
+        'Very USER and understanding.',
         'u18',
         'u11'
     );

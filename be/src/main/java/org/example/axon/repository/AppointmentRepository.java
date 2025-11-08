@@ -4,7 +4,6 @@ import org.example.axon.model.Appointment;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Repository interface for accessing Appointment data.

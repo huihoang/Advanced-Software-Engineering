@@ -3,9 +3,6 @@ package org.example.axon.mapper;
 import org.example.axon.dto.request.AppointmentCreationRequest;
 import org.example.axon.dto.response.AppointmentResponse;
 import org.example.axon.model.Appointment;
-import org.example.axon.model.Doctor;
-import org.example.axon.model.Patient;
-import org.example.axon.model.HospitalDepartment;
 
 public class AppointmentMapper {
 

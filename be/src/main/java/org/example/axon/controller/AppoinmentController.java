@@ -2,9 +2,6 @@ package org.example.axon.controller;
 
 import org.example.axon.configuration.JwtUtils;
 import org.example.axon.dto.request.AppointmentCreationRequest;
-import org.example.axon.dto.response.AppointmentProfile;
-import org.example.axon.dto.response.AppointmentResponse;
-import org.example.axon.model.Appointment;
 import org.example.axon.services.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.example.axon.exception.ResourceNotFoundException;
 
-import java.util.List;
 import java.util.Map;
 
 

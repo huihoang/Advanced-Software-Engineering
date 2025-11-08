@@ -379,7 +379,9 @@ CREATE TABLE `Users` (
 
 -- Insert sample Vietnamese data
 
--- Insert sample users
+-- Insert sample users'
+
+-- mật khẩu là 12345678 đã được băm bằng bcrypt
 INSERT INTO
     `Users` (
         `UserId`,
@@ -395,52 +397,52 @@ VALUES (
         'Nguyễn Văn',
         'An',
         'nguyenvanan@email.com',
-        '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+        '$2a$10$uoFlu1wCn9crWU7G/I2WYOXEdNGfRoI7PgUp2OgBCNwwIET0yQHaq',
         '0901234567',
-        'PATIENT'
+        'USER'
     ),
     (
         '123e4567-e89b-12d3-a456-426614174001',
         'Trần Thị',
         'Bình',
         'tranthibinh@email.com',
-        '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+        '$2a$10$uoFlu1wCn9crWU7G/I2WYOXEdNGfRoI7PgUp2OgBCNwwIET0yQHaq',
         '0902345678',
-        'PATIENT'
+        'USER'
     ),
     (
         '123e4567-e89b-12d3-a456-426614174002',
         'Lê Hoàng',
         'Cường',
         'lehoangcuong@email.com',
-        '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+        '$2a$10$uoFlu1wCn9crWU7G/I2WYOXEdNGfRoI7PgUp2OgBCNwwIET0yQHaq',
         '0903456789',
-        'PATIENT'
+        'USER'
     ),
     (
         '123e4567-e89b-12d3-a456-426614174003',
         'Phạm Thị',
         'Dung',
         'phamthidung@email.com',
-        '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+        '$2a$10$uoFlu1wCn9crWU7G/I2WYOXEdNGfRoI7PgUp2OgBCNwwIET0yQHaq',
         '0904567890',
-        'PATIENT'
+        'USER'
     ),
     (
         '123e4567-e89b-12d3-a456-426614174004',
         'Hoàng Văn',
         'Em',
         'hoangvanem@email.com',
-        '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+        '$2a$10$uoFlu1wCn9crWU7G/I2WYOXEdNGfRoI7PgUp2OgBCNwwIET0yQHaq',
         '0905678901',
-        'PATIENT'
+        'USER'
     ),
     (
         '123e4567-e89b-12d3-a456-426614174005',
         'Đỗ Thị',
         'Hoa',
         'dothihoa@email.com',
-        '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+        '$2a$10$uoFlu1wCn9crWU7G/I2WYOXEdNGfRoI7PgUp2OgBCNwwIET0yQHaq',
         '0906789012',
         'DOCTOR'
     ),
@@ -449,7 +451,7 @@ VALUES (
         'Vũ Văn',
         'Phong',
         'vuvanphong@email.com',
-        '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+        '$2a$10$uoFlu1wCn9crWU7G/I2WYOXEdNGfRoI7PgUp2OgBCNwwIET0yQHaq',
         '0907890123',
         'DOCTOR'
     ),
@@ -458,7 +460,7 @@ VALUES (
         'Bùi Thị',
         'Yến',
         'buithiyen@email.com',
-        '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+        '$2a$10$uoFlu1wCn9crWU7G/I2WYOXEdNGfRoI7PgUp2OgBCNwwIET0yQHaq',
         '0908901234',
         'DOCTOR'
     ),
@@ -467,7 +469,7 @@ VALUES (
         'Phan Văn',
         'Tài',
         'phanvantai@email.com',
-        '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+        '$2a$10$uoFlu1wCn9crWU7G/I2WYOXEdNGfRoI7PgUp2OgBCNwwIET0yQHaq',
         '0909012345',
         'DOCTOR'
     ),
@@ -476,7 +478,7 @@ VALUES (
         'Nguyễn Thị',
         'Mai',
         'nguyenthimai@email.com',
-        '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+        '$2a$10$uoFlu1wCn9crWU7G/I2WYOXEdNGfRoI7PgUp2OgBCNwwIET0yQHaq',
         '090123456',
         'DOCTOR'
     );
