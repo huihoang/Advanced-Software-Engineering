@@ -4,36 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4e66a29-1979-4556-82c0-f49c10fb337f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/axon/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/axon/configuration/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/axon/controller/DoctorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/axon/controller/DoctorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/axon/dto/request/DoctorProfileUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/axon/dto/request/DoctorProfileUpdateRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/axon/dto/response/DoctorProfileResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/axon/dto/response/DoctorProfileResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/axon/mapper/DoctorMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/axon/mapper/DoctorMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/axon/model/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/axon/model/Patient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/axon/repository/DoctorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/axon/repository/DoctorRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/axon/repository/PatientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/axon/repository/PatientRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/axon/services/DoctorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/axon/services/DoctorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/axon/configuration/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/axon/configuration/SecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/axon/controller/DoctorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/axon/controller/DoctorController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/axon/dto/request/DoctorProfileUpdateRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/axon/dto/request/DoctorProfileUpdateRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/axon/dto/response/DoctorListItemResponse$DepartmentSummary.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/axon/dto/response/DoctorListItemResponse$DepartmentSummary.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/axon/dto/response/DoctorListItemResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/axon/dto/response/DoctorListItemResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/axon/dto/response/DoctorProfileResponse$ClinicInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/axon/dto/response/DoctorProfileResponse$ClinicInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/axon/dto/response/DoctorProfileResponse$DepartmentSummary.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/axon/dto/response/DoctorProfileResponse$DepartmentSummary.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/axon/dto/response/DoctorProfileResponse$ShiftSummary.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/axon/dto/response/DoctorProfileResponse$ShiftSummary.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/axon/dto/response/DoctorProfileResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/axon/dto/response/DoctorProfileResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/axon/mapper/DoctorMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/axon/mapper/DoctorMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/axon/model/Patient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/axon/model/Patient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/axon/repository/DoctorRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/axon/repository/DoctorRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/axon/repository/PatientRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/axon/repository/PatientRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/axon/services/DoctorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/axon/services/DoctorService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-    </list>
+    <list default="true" id="e4e66a29-1979-4556-82c0-f49c10fb337f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,23 +26,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dungne&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MTFeaturesSettingsConfigurable&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "dungne",
+    "junie.onboarding.icon.badge.shown": "true",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "MTFeaturesSettingsConfigurable",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="AxonApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="Axon" />

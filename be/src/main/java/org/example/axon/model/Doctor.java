@@ -1,14 +1,36 @@
-package org.example.axon.model;
 
-import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
+
+
+
+
+
+
+
+
+
+
+
+package org.example.axon.model;
 
 import java.math.BigDecimal;
 import java.util.LinkedHashSet;
 import java.util.Set;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MapsId;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 @Setter
