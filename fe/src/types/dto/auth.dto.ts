@@ -11,7 +11,7 @@ export type LoginResDto = {
 };
 
 export type RegisterReqDto = {
-  username: string;
+  email: string;
   password: string;
   firstName: string;
   lastName: string;

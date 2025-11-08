@@ -33,9 +33,8 @@ const AppointmentButton = ({ appointment }: Props) => {
   })();
 
   const disabled =
-    role === USER_ROLE.PATIENT
-      ? appointment.status !== "AVAILABLE" || isPast
-      : isPast;
+    role === USER_ROLE.PATIENT &&
+    (appointment.status !== "AVAILABLE" || isPast);
 
   const getStatusDisplay = () => {
     switch (appointment.status) {
@@ -44,14 +43,16 @@ const AppointmentButton = ({ appointment }: Props) => {
           icon: <CheckCircleOutlined />,
           label: t("confirmed"),
           tagColor: "blue",
-          textColor: disabled ? token.colorTextDisabled : token.colorText,
+          textColor:
+            disabled || isPast ? token.colorTextDisabled : token.colorText,
         };
       case "PENDING":
         return {
           icon: <ClockCircleOutlined />,
           label: t("pending"),
           tagColor: "warning",
-          textColor: disabled ? token.colorTextDisabled : token.colorText,
+          textColor:
+            disabled || isPast ? token.colorTextDisabled : token.colorText,
         };
       case "COMPLETED":
         return {
@@ -72,7 +73,8 @@ const AppointmentButton = ({ appointment }: Props) => {
           icon: null,
           label: t("available"),
           tagColor: "default",
-          textColor: disabled ? token.colorTextDisabled : token.colorText,
+          textColor:
+            disabled || isPast ? token.colorTextDisabled : token.colorText,
         };
     }
   };
@@ -120,7 +122,8 @@ const AppointmentButton = ({ appointment }: Props) => {
           }`}
           style={{ color: statusDisplay.textColor }}
         >
-          {appointment.scheduleTime} - {appointment.endTime}
+          {appointment.scheduleTime.slice(0, 5)} -{" "}
+          {appointment.endTime.slice(0, 5)}
         </Typography.Text>
       </Card>
 
@@ -128,7 +131,10 @@ const AppointmentButton = ({ appointment }: Props) => {
         open={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         appointmentId={appointment.id}
-        appointmentTime={`${appointment.scheduleTime} - ${appointment.endTime}`}
+        appointmentTime={`${appointment.scheduleTime.slice(
+          0,
+          5
+        )} - ${appointment.endTime.slice(0, 5)}`}
         appointmentDate={appointment.scheduleDate}
       />
     </>

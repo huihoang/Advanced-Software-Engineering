@@ -60,6 +60,7 @@ public class AppointmentService {
         try {
             Appointment appointment = appointmentRepository.findById(id)
                     .orElseThrow(()->new ResourceNotFoundException("Appointment","id",id));
+                    
             DoctorAppointmentInfo doctorAppointmentInfo = null;
             if(appointment.getDoctor()!=null){
                 Doctor doctor = appointment.getDoctor();
@@ -89,6 +90,7 @@ public class AppointmentService {
                     .doctor(doctorAppointmentInfo)
                     .patient(patientAppointmentInfo)
                     .status(appointment.getStatus())
+                    .note(appointment.getNote())
                     .build();
 
         } catch (Exception e){
@@ -199,9 +201,6 @@ public class AppointmentService {
         try {
             Appointment appointment = appointmentRepository.findById(id)
                     .orElseThrow(()->new ResourceNotFoundException("Appointment","id",id));
-            if(!appointment.getStatus().equalsIgnoreCase("CONFIRMED")){
-                throw new IllegalStateException("Appointment is not comfirmed yet.");
-            }
             appointment.setStatus("CANCELED");
             appointmentRepository.save(appointment);
         }catch (Exception e){

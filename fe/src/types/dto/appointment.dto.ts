@@ -16,6 +16,7 @@ export type AppointmentDetailDto = {
   scheduleDate: string;
   scheduleTime: string;
   endTime: string;
+  note?: string;
   doctor?: Pick<
     DoctorDto,
     | "userId"
@@ -27,6 +28,7 @@ export type AppointmentDetailDto = {
   >;
   patient?: Pick<
     PatientDto,
+    | "id"
     | "userId"
     | "firstName"
     | "lastName"

@@ -6,5 +6,5 @@ export type ChatRequestDto = {
 };
 
 export type ChatResponseDto = {
-  suggested_departments: DepartmentDto[];
+  suggested_department_ids: DepartmentDto[];
 };

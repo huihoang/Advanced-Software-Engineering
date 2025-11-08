@@ -2,8 +2,10 @@ import { DateFilter } from "@/components/custom";
 import {
   AppointmentButton,
   CreateAppointmentModal,
+  UpdateDoctorModal,
 } from "@/components/doctors";
 import { USER_ROLE } from "@/constants";
+import { useGetAllAppointments } from "@/hooks/appointments";
 import { useUser } from "@/hooks/common";
 import { useGetDoctor } from "@/hooks/doctors";
 import { formatCurrency } from "@/utils/common";
@@ -11,6 +13,7 @@ import { getFormattedDate } from "@/utils/datetime";
 import { t } from "@/utils/i18n";
 import {
   ArrowLeftOutlined,
+  EditOutlined,
   MailOutlined,
   PhoneOutlined,
   PlusOutlined,
@@ -22,7 +25,6 @@ import {
   Descriptions,
   Flex,
   Image,
-  Rate,
   Row,
   Space,
   Spin,
@@ -38,19 +40,29 @@ const DoctorProfilePage = () => {
   const { token } = theme.useToken();
   const { user } = useUser();
 
-  const { data: doctor, isLoading, isError } = useGetDoctor(id);
+  const {
+    data: doctor,
+    isLoading: loading1,
+    isError: error1,
+  } = useGetDoctor(id);
+  const {
+    data: appointments,
+    isLoading: loading2,
+    isError: error2,
+  } = useGetAllAppointments(id);
 
   const [filterDate, setFilterDate] = useState<Date>(new Date());
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   const filteredAppointment =
-    doctor?.appointments.filter(
+    (appointments ?? []).filter(
       (a) => getFormattedDate(a.scheduleDate) === getFormattedDate(filterDate)
     ) ?? [];
 
-  const isOwnProfile = user.role === USER_ROLE.DOCTOR && user?.id === +id;
+  const isOwnProfile = user.role === USER_ROLE.DOCTOR && user?.id === id;
 
-  if (isLoading) {
+  if (loading1 || loading2) {
     return (
       <div className="p-6 flex justify-center">
         <Spin size="large" />
@@ -60,11 +72,22 @@ const DoctorProfilePage = () => {
 
   return (
     <Space size="large" direction="vertical" className="mt-8 mb-20 w-full">
-      <Button onClick={() => navigate(-1)} icon={<ArrowLeftOutlined />}>
-        {t("back")}
-      </Button>
+      <div className="flex justify-between items-center">
+        <Button onClick={() => navigate(-1)} icon={<ArrowLeftOutlined />}>
+          {t("back")}
+        </Button>
+        {isOwnProfile && (
+          <Button
+            type="primary"
+            icon={<EditOutlined />}
+            onClick={() => setIsEditModalOpen(true)}
+          >
+            {t("editProfile")}
+          </Button>
+        )}
+      </div>
 
-      {isError || !doctor ? (
+      {error1 || error2 || !doctor ? (
         <Card className="!mt-4">{t("doctorNotFound")}</Card>
       ) : (
         <>
@@ -208,6 +231,14 @@ const DoctorProfilePage = () => {
         onClose={() => setIsModalOpen(false)}
         initialDate={filterDate}
       />
+
+      {doctor && (
+        <UpdateDoctorModal
+          open={isEditModalOpen}
+          onCancel={() => setIsEditModalOpen(false)}
+          doctor={doctor}
+        />
+      )}
     </Space>
   );
 };

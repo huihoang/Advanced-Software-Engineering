@@ -3,7 +3,7 @@ import { useGetAllDepartments } from "@/hooks/doctors";
 import { t } from "@/utils/i18n";
 
 type PropsType = {
-  value?: number;
+  value?: number | string;
   onChange?: (departmentId: number) => void;
   disabled?: boolean;
   allowClear?: boolean;

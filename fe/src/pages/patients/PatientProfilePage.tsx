@@ -2,6 +2,7 @@ import {
   ArrowLeftOutlined,
   CalendarOutlined,
   ClockCircleOutlined,
+  EditOutlined,
   MailOutlined,
   PhoneOutlined,
   UserOutlined,
@@ -24,13 +25,23 @@ import { t } from "@/utils/i18n";
 import { useGetPatient } from "@/hooks/patients";
 import type { AppointmentDto } from "@/types/dto";
 import { PATH } from "@/constants";
+import { useGetAllAppointments } from "@/hooks/appointments";
+import { UpdatePatientModal } from "@/components/patients";
+import { useState } from "react";
+import { useUser } from "@/hooks/common";
 
 const PatientProfilePage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { token } = theme.useToken();
+  const { user } = useUser();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const { data: patient, isLoading } = useGetPatient(id);
+  const { data: patient, isLoading: loading1 } = useGetPatient(id);
+  const { data: appointments = [], isLoading: loading2 } =
+    useGetAllAppointments("", id);
+
+  const isOwnProfile = user?.id === id;
 
   const getStatusTag = (status: string) => {
     const statusConfig = {
@@ -52,8 +63,8 @@ const PatientProfilePage = () => {
   const columns = [
     {
       title: t("date"),
-      dataIndex: ["shift", "date"],
-      key: "date",
+      dataIndex: "scheduleDate",
+      key: "scheduleDate",
       render: (date: string) => (
         <Space>
           <CalendarOutlined />
@@ -63,12 +74,12 @@ const PatientProfilePage = () => {
     },
     {
       title: t("time"),
-      dataIndex: ["shift", "time"],
-      key: "time",
-      render: (time: string) => (
+      dataIndex: "scheduleTime",
+      key: "scheduleTime",
+      render: (_: string, record: AppointmentDto) => (
         <Space>
           <ClockCircleOutlined />
-          {time}
+          {record.scheduleTime.slice(0, 5)} - {record.endTime.slice(0, 5)}
         </Space>
       ),
     },
@@ -93,7 +104,7 @@ const PatientProfilePage = () => {
     },
   ];
 
-  if (isLoading) {
+  if (loading1 || loading2) {
     return (
       <div className="p-6 flex justify-center">
         <Spin size="large" />
@@ -116,9 +127,20 @@ const PatientProfilePage = () => {
 
   return (
     <Space size="large" direction="vertical" className="mt-8 mb-20 w-full">
-      <Button onClick={() => navigate(-1)} icon={<ArrowLeftOutlined />}>
-        {t("back")}
-      </Button>
+      <div className="flex justify-between items-center">
+        <Button onClick={() => navigate(-1)} icon={<ArrowLeftOutlined />}>
+          {t("back")}
+        </Button>
+        {isOwnProfile && (
+          <Button
+            type="primary"
+            icon={<EditOutlined />}
+            onClick={() => setIsModalOpen(true)}
+          >
+            {t("editProfile")}
+          </Button>
+        )}
+      </div>
 
       <Card>
         <Row gutter={24} className="py-2">
@@ -156,7 +178,7 @@ const PatientProfilePage = () => {
             <Space direction="vertical" size="large" style={{ width: "100%" }}>
               <Row gutter={20}>
                 <Col xs={24} sm={12}>
-                  <Typography.Title level={5}>{t("contact")}</Typography.Title>
+                  <Typography.Title level={5}>{t("info")}</Typography.Title>
                   <Descriptions column={1} bordered size="small">
                     <Descriptions.Item label={t("email")}>
                       <MailOutlined className="mr-2" /> {patient.email}
@@ -166,6 +188,9 @@ const PatientProfilePage = () => {
                     </Descriptions.Item>
                     <Descriptions.Item label={t("dateOfBirth")}>
                       {new Date(patient.dateOfBirth).toLocaleDateString()}
+                    </Descriptions.Item>
+                    <Descriptions.Item label={t("gender")}>
+                      {patient.gender ? t(patient.gender) : "N/A"}
                     </Descriptions.Item>
                     <Descriptions.Item label={t("citizen")}>
                       {patient.citizen?.name ?? "N/A"}
@@ -217,18 +242,22 @@ const PatientProfilePage = () => {
         <Typography.Title level={4} className="mb-4">
           {t("appointmentHistory")}
         </Typography.Title>
-        {patient.appointments && patient.appointments.length > 0 ? (
-          <Table
-            dataSource={patient.appointments}
-            columns={columns}
-            rowKey="id"
-          />
+        {appointments.length > 0 ? (
+          <Table dataSource={appointments} columns={columns} rowKey="id" />
         ) : (
           <Typography.Text type="secondary">
             {t("noAppointments")}
           </Typography.Text>
         )}
       </Card>
+
+      {patient && (
+        <UpdatePatientModal
+          open={isModalOpen}
+          onCancel={() => setIsModalOpen(false)}
+          patient={patient}
+        />
+      )}
     </Space>
   );
 };

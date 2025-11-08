@@ -1,5 +1,11 @@
-import { PATH } from "@/constants";
+import {
+  CancelAppointmentButton,
+  ConfirmAppointmentButton,
+  DeleteAppointmentButton,
+} from "@/components/appointments";
+import { PATH, USER_ROLE } from "@/constants";
 import { useGetAppointment } from "@/hooks/appointments";
+import { useUser } from "@/hooks/common";
 import type { AppointmentStatus } from "@/types/common";
 import { formatCurrency } from "@/utils/common";
 import { t } from "@/utils/i18n";
@@ -22,18 +28,14 @@ import {
   theme,
 } from "antd";
 import { useNavigate, useParams } from "react-router-dom";
-import {
-  CancelAppointmentButton,
-  ConfirmAppointmentButton,
-  DeleteAppointmentButton,
-} from "@/components/appointments";
 
 const AppointmentDetailPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { token } = theme.useToken();
+  const { user } = useUser();
 
-  const { data: appointment, isLoading, isError } = useGetAppointment(id);
+  const { data: appointment, isLoading, isError } = useGetAppointment(+id);
 
   if (isLoading) {
     return (
@@ -161,23 +163,26 @@ const AppointmentDetailPage = () => {
                     {t("time")}
                   </Typography.Text>
                   <Typography.Title className="!m-0" level={5}>
-                    {appointment.scheduleTime} - {appointment.endTime}
+                    {appointment.scheduleTime.slice(0, 5)} -{" "}
+                    {appointment.endTime.slice(0, 5)}
                   </Typography.Title>
                 </div>
               </Space>
             </Card>
             {/* Action Buttons */}
-            <Flex className="!mt-5" gap={10} justify="end">
-              {appointment.status === "AVAILABLE" && (
-                <DeleteAppointmentButton appointmentId={appointment.id} />
-              )}
-              {appointment.status === "PENDING" && (
-                <>
-                  <CancelAppointmentButton appointmentId={appointment.id} />
-                  <ConfirmAppointmentButton appointmentId={appointment.id} />
-                </>
-              )}
-            </Flex>
+            {user?.role !== USER_ROLE.PATIENT && (
+              <Flex className="!mt-5" gap={10} justify="end">
+                {appointment.status === "AVAILABLE" && (
+                  <DeleteAppointmentButton appointmentId={appointment.id} />
+                )}
+                {appointment.status === "PENDING" && (
+                  <>
+                    <CancelAppointmentButton appointmentId={appointment.id} />
+                    <ConfirmAppointmentButton appointmentId={appointment.id} />
+                  </>
+                )}
+              </Flex>
+            )}
           </Col>
 
           {/* Patient Info */}
@@ -191,9 +196,7 @@ const AppointmentDetailPage = () => {
                     type="link"
                     className="!px-0"
                     onClick={() =>
-                      navigate(
-                        PATH.PATIENT_PROFILE(appointment.patient?.userId)
-                      )
+                      navigate(PATH.PATIENT_PROFILE(appointment.patient?.id))
                     }
                   >
                     {t("viewProfile")}
@@ -206,7 +209,7 @@ const AppointmentDetailPage = () => {
                     {appointment.patient.lastName}
                   </Descriptions.Item>
                   <Descriptions.Item label={t("gender")}>
-                    {appointment.patient.gender}
+                    {t(appointment.patient.gender)}
                   </Descriptions.Item>
                   <Descriptions.Item label={t("email")}>
                     {appointment.patient.email}
@@ -214,12 +217,21 @@ const AppointmentDetailPage = () => {
                   <Descriptions.Item label={t("phone")}>
                     {appointment.patient.phoneNumber}
                   </Descriptions.Item>
-                  <Descriptions.Item label={t("dateOfBirth")}>
-                    {new Date(
-                      appointment.patient.dateOfBirth
-                    ).toLocaleDateString()}
-                  </Descriptions.Item>
                 </Descriptions>
+              </Card>
+            </Col>
+          )}
+
+          {/* Note Section */}
+          {appointment.note && (
+            <Col xs={16}>
+              <Card>
+                <Typography.Title level={5} style={{ margin: 0 }}>
+                  {t("note")}
+                </Typography.Title>
+                <Typography.Paragraph className="mt-3 mb-0">
+                  {appointment.note}
+                </Typography.Paragraph>
               </Card>
             </Col>
           )}

@@ -13,14 +13,18 @@ const Header = () => {
 
   const { token } = theme.useToken();
 
-  const tabs = [
-    { label: t("home"), path: PATH.HOME },
-    { label: t("doctors"), path: PATH.DOCTORS },
-  ];
+  const tabs = [{ label: t("home"), path: PATH.HOME }];
 
   // Add AI Chat tab only for patients
   if (user?.role === USER_ROLE.PATIENT) {
+    tabs.push({ label: t("doctors"), path: PATH.DOCTORS });
     tabs.push({ label: t("aiChat"), path: PATH.AI_CHAT });
+  } else if (user?.role === USER_ROLE.DOCTOR) {
+    tabs.push({ label: t("profile"), path: PATH.DOCTOR_PROFILE(user.id) });
+    tabs.push({
+      label: t("appointmentHistory"),
+      path: PATH.APPOINTMENT_HISTORY,
+    });
   }
 
   const isTabActive = (pathname: string, tabPath: string) => {

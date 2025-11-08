@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router";
 
 import Header from "./Header";
+import Footer from "./Footer";
 
 import { PATH, TOKEN_NAME } from "@/constants";
 import { getCookie } from "@/utils/cookie-actions";
@@ -19,9 +20,10 @@ export default function MainLayout() {
   return (
     <Layout className="!min-h-screen bg-gray-50">
       <Header />
-      <Layout.Content className="px-20">
+      <Layout.Content className="px-20 pb-20">
         {hasToken && <Outlet />}
       </Layout.Content>
+      <Footer />
     </Layout>
   );
 }

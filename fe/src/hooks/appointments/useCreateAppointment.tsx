@@ -13,7 +13,7 @@ export const useCreateAppointment = () => {
     mutationFn: appointmentsAPI.create,
     onSuccess: () => {
       queryClient.invalidateQueries({
-        queryKey: [QUERY_KEY.GET_DOCTOR, user?.id],
+        queryKey: [QUERY_KEY.GET_ALL_APPOINTMENTS, user?.id, ""],
       });
       success(t("appointmentCreatedSuccess"));
     },

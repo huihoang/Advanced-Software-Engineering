@@ -2,11 +2,7 @@ import { PATH } from "@/constants";
 import { useSendMessage } from "@/hooks/chats";
 import type { DepartmentDto } from "@/types/dto";
 import { t } from "@/utils/i18n";
-import {
-  MedicineBoxOutlined,
-  RobotOutlined,
-  SendOutlined,
-} from "@ant-design/icons";
+import { MedicineBoxOutlined, SendOutlined } from "@ant-design/icons";
 import {
   Alert,
   Button,
@@ -44,12 +40,10 @@ const AIChatPage = () => {
       { message: message.trim() },
       {
         onSuccess: (response) => {
-          setSuggestedDepartments(response.suggested_departments || []);
+          console.log("AI Response:", response);
+          setSuggestedDepartments(response.suggested_department_ids || []);
         },
-        onError: (error) => {
-          console.error("Error sending message:", error);
-          setSuggestedDepartments([]);
-        },
+        onError: (error) => setSuggestedDepartments([]),
       }
     );
   };

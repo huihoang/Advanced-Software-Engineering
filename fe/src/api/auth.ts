@@ -17,7 +17,7 @@ export const authAPI = {
     return axiosClient.post("/auth/user/register", payload);
   },
   getUser(): Promise<UserDto> {
-    return axiosClient.get("/users/me");
+    return axiosClient.get("/auth/me");
   },
   logout(): Promise<boolean> {
     // return axiosClient.post("/auth/logout");

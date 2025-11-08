@@ -35,7 +35,10 @@ const DepartmentSlider = ({ dept, doctors }: PropsType) => {
   const isAtEnd = currentSlide >= doctors.length - 4;
 
   return (
-    <Card className="mb-8 !rounded-3xl shadow-sm border-0">
+    <Card
+      className="mb-8 border-0"
+      style={{ background: token.colorPrimaryBg }}
+    >
       <Flex align="center" justify="space-between" className="!mb-2">
         <Title level={3} className="m-0" style={{ color: token.colorPrimary }}>
           {dept}
@@ -78,10 +81,10 @@ const DepartmentSlider = ({ dept, doctors }: PropsType) => {
         ]}
       >
         {doctors.map((doctor) => (
-          <div key={doctor.userId} className="p-6">
+          <div key={doctor.id} className="p-6">
             <Card
               hoverable
-              onClick={() => navigate(PATH.DOCTOR_PROFILE(doctor.userId))}
+              onClick={() => navigate(PATH.DOCTOR_PROFILE(doctor.id))}
               className="rounded-xl shadow-sm hover:shadow-2xl hover:-translate-y-1 !transition-all !duration-300 border-0 cursor-pointer"
               styles={{ body: { padding: "24px" } }}
             >

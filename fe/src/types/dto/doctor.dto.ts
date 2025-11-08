@@ -19,3 +19,11 @@ export type DepartmentDto = {
   id: number;
   name: string;
 };
+
+export type UpdateDoctorDto = {
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  bio: string;
+  consultationFee: number;
+};

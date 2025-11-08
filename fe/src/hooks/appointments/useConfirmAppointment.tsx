@@ -4,19 +4,15 @@ import { t } from "@/utils/i18n";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useMessage, useUser } from "../common";
 
-export const useConfirmAppointment = (appointmentId: number) => {
+export const useConfirmAppointment = (id: number) => {
   const queryClient = useQueryClient();
-  const { user } = useUser();
   const { success } = useMessage();
 
   const mutation = useMutation({
-    mutationFn: () => appointmentsAPI.confirm(appointmentId),
+    mutationFn: async () => await appointmentsAPI.confirm(id),
     onSuccess: () => {
       queryClient.invalidateQueries({
-        queryKey: [QUERY_KEY.GET_DOCTOR, user?.id],
-      });
-      queryClient.invalidateQueries({
-        queryKey: [QUERY_KEY.GET_APPOINTMENT, appointmentId],
+        queryKey: [QUERY_KEY.GET_APPOINTMENT, id],
       });
       success(t("appointmentConfirmed"));
     },

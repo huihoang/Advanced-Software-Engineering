@@ -200,48 +200,27 @@ const mockAppointments: AppointmentDetailDto[] = [
 ];
 
 export const appointmentsAPI = {
-  getAll(page: number, limit: number): Promise<AppointmentDto> {
+  getAll(doctorId?: string, patientId?: string): Promise<AppointmentDto[]> {
     return axiosClient.get("/appointments", {
-      params: { page, limit },
+      params: { doctorId, patientId },
     });
   },
   getById(id: number): Promise<AppointmentDetailDto> {
-    // return axiosClient.get(`/appointments/${id}`);
-    return new Promise((resolve, reject) => {
-      const appointment = _.find(mockAppointments, { id: id });
-      if (appointment) setTimeout(() => resolve(appointment), 500);
-      else setTimeout(() => reject(new Error("Doctor not found")), 500);
-    });
+    return axiosClient.get(`/appointments/${id}`);
   },
   create(payload: CreateAppointmentDto): Promise<any> {
-    // return axiosClient.post("/appointments", payload);
-    console.log(payload);
-    return new Promise((resolve) =>
-      setTimeout(() => resolve("Shift registered successfully"), 500)
-    );
+    return axiosClient.post("/appointments", payload);
   },
   delete(id: number): Promise<any> {
-    // return axiosClient.delete("/appointments", { params: { shiftId: id } });
-    return new Promise((resolve) =>
-      setTimeout(() => resolve("Shift unregistered"), 500)
-    );
+    return axiosClient.delete(`/appointments/${id}`);
   },
   book(id: number, payload: BookAppointmentDto): Promise<any> {
-    // return axiosClient.patch(`/appointments/${id}/book`, payload);
-    return new Promise((resolve) => {
-      setTimeout(() => resolve(""), 500);
-    });
+    return axiosClient.patch(`/appointments/${id}/book`, payload);
   },
   confirm(id: number): Promise<any> {
-    // return axiosClient.patch(`/appointments/${id}/confirm`);
-    return new Promise((resolve) => {
-      setTimeout(() => resolve(""), 500);
-    });
+    return axiosClient.patch(`/appointments/${id}/confirm`);
   },
   cancel(id: number): Promise<any> {
-    // return axiosClient.patch(`/appointments/${id}/cancel`);
-    return new Promise((resolve) => {
-      setTimeout(() => resolve(""), 500);
-    });
+    return axiosClient.patch(`/appointments/${id}/cancel`);
   },
 };

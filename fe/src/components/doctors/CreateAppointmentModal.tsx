@@ -66,7 +66,7 @@ const CreateAppointmentModal = ({
           disabled={registerDisabled}
           onClick={handleRegister}
         >
-          {t("register")}
+          {t("create")}
         </Button>,
       ]}
     >
@@ -89,6 +89,12 @@ const CreateAppointmentModal = ({
               format="HH:mm"
               value={startTime ? dayjs(startTime, "HH:mm") : null}
               onChange={(v) => setStartTime(v ? v.format("HH:mm") : null)}
+              disabledTime={() => ({
+                disabledHours: () => [
+                  ...Array.from({ length: 7 }, (_, i) => i),
+                  ...Array.from({ length: 6 }, (_, i) => i + 18),
+                ],
+              })}
             />
           </Col>
         </Row>
@@ -102,6 +108,12 @@ const CreateAppointmentModal = ({
               format="HH:mm"
               value={endTime ? dayjs(endTime, "HH:mm") : null}
               onChange={(v) => setEndTime(v ? v.format("HH:mm") : null)}
+              disabledTime={() => ({
+                disabledHours: () => [
+                  ...Array.from({ length: 7 }, (_, i) => i),
+                  ...Array.from({ length: 6 }, (_, i) => i + 18),
+                ],
+              })}
             />
           </Col>
         </Row>

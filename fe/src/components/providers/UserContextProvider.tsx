@@ -3,7 +3,7 @@ import { getCookie, removeCookie, setCookie } from "@/utils/cookie-actions";
 import { createContext, PropsWithChildren, useEffect, useState } from "react";
 
 type User = {
-  id: number;
+  id: string;
   email?: string;
   role?: UserRole;
 };

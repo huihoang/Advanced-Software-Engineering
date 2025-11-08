@@ -4,6 +4,7 @@ import { PATH } from "@/constants";
 import { AuthLayout, MainLayout } from "@/layouts";
 import {
   AppointmentDetailPage,
+  AppointmentHistoryPage,
   DoctorProfilePage,
   DoctorsPage,
   HomePage,
@@ -19,10 +20,6 @@ export default function AppRoutes() {
     <Routes>
       <Route path="/" element={<MainLayout />}>
         <Route index element={<HomePage />} />
-        {/* <Route
-          path={PATH.DEPARTMENT_DETAIL(":id")}
-          element={<DepartmentDetail />}
-        /> */}
         <Route path={PATH.DOCTORS} element={<DoctorsPage />} />
         <Route
           path={PATH.DOCTOR_PROFILE(":id")}
@@ -39,6 +36,10 @@ export default function AppRoutes() {
         <Route
           path={PATH.PATIENT_PROFILE(":id")}
           element={<PatientProfilePage />}
+        />
+        <Route
+          path={PATH.APPOINTMENT_HISTORY}
+          element={<AppointmentHistoryPage />}
         />
         <Route
           path={PATH.APPOINTMENT_DETAIL(":id")}

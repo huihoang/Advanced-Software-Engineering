@@ -3,10 +3,10 @@ import { QUERY_KEY } from "@/constants";
 import type { PatientDetailDto } from "@/types/dto";
 import { useQuery } from "@tanstack/react-query";
 
-export const useGetPatient = (id: string | number) => {
+export const useGetPatient = (id: string) => {
   const queryObject = useQuery<PatientDetailDto>({
-    queryKey: [QUERY_KEY.GET_PATIENT, +id],
-    queryFn: () => patientsAPI.getById(+id),
+    queryKey: [QUERY_KEY.GET_PATIENT, id],
+    queryFn: () => patientsAPI.getById(id),
   });
 
   return queryObject;

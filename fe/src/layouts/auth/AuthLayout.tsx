@@ -48,8 +48,8 @@ export default function AuthLayout() {
           md={{ span: 10 }}
           lg={{ span: 8 }}
           pull={2}
-          className="p-5 border border-gray-200 shadow-lg rounded-lg"
-          style={{ backgroundColor: token.colorBgLayout }}
+          className="px-8 py-6 border border-gray-200 shadow-lg rounded-lg"
+          style={{ backgroundColor: token.colorWhite }}
         >
           <Outlet />
         </Col>

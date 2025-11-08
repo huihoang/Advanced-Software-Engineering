@@ -26,15 +26,15 @@ const mockDepartments = [
 
 export const chatsAPI = {
   sendMessage(payload: ChatRequestDto): Promise<ChatResponseDto> {
-    // return axiosClient.post<ChatResponseDto>("/chat", payload);
-    return new Promise((resolve) => {
-      setTimeout(
-        () =>
-          resolve({
-            suggested_departments: mockDepartments,
-          }),
-        1000
-      );
-    });
+    return axiosClient.post("/chat", payload);
+    // return new Promise((resolve) => {
+    //   setTimeout(
+    //     () =>
+    //       resolve({
+    //         suggested_departments: mockDepartments,
+    //       }),
+    //     1000
+    //   );
+    // });
   },
 };

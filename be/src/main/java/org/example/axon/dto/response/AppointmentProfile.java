@@ -21,4 +21,5 @@ public class AppointmentProfile {
     private DoctorAppointmentInfo doctor;
     private PatientAppointmentInfo patient;
     private String status;
+    private String note;
 }

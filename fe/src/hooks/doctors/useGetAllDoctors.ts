@@ -2,12 +2,12 @@ import { keepPreviousData, useQuery } from "@tanstack/react-query";
 
 import type { DoctorDto } from "@/types/dto";
 import { doctorsAPI } from "@/api";
-import { QUERY_KEY } from "@/constants";
+import { DATE_FORMAT_DTO, QUERY_KEY } from "@/constants";
 import { getFormattedDate } from "@/utils/datetime";
 
 export const useGetAllDoctors = (
   search?: string,
-  departmentId?: string,
+  departmentId?: number | string,
   scheduleDate?: Date
 ) => {
   const queryObject = useQuery<DoctorDto[]>({
@@ -18,7 +18,11 @@ export const useGetAllDoctors = (
       getFormattedDate(scheduleDate),
     ],
     queryFn: async () =>
-      await doctorsAPI.getAll(search, departmentId, scheduleDate),
+      await doctorsAPI.getAll(
+        search,
+        departmentId,
+        scheduleDate ? getFormattedDate(scheduleDate, DATE_FORMAT_DTO) : null
+      ),
 
     placeholderData: keepPreviousData,
   });

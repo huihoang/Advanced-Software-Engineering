@@ -9,6 +9,7 @@ export const PATH = {
 
   APPOINTMENT_DETAIL: (appointmentId: number | string) =>
     `/appointments/${appointmentId}`,
+  APPOINTMENT_HISTORY: "/appointments/history",
   DEPARTMENT_DETAIL: (id?: string) => `/department/${id ?? ":id"}`,
   SETTINGS: "/SETTINGS",
   AI_CHAT: "/ai-chat",

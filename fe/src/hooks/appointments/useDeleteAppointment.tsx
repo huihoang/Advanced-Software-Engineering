@@ -15,7 +15,7 @@ export const useDeleteAppointment = (appointmentId: number) => {
     mutationFn: () => appointmentsAPI.delete(appointmentId),
     onSuccess: () => {
       queryClient.invalidateQueries({
-        queryKey: [QUERY_KEY.GET_DOCTOR, user?.id],
+        queryKey: [QUERY_KEY.GET_DOCTOR, user?.id, ""],
       });
       success(t("appointmentDeleted"));
       navigate(-1);

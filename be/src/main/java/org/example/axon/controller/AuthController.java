@@ -7,6 +7,8 @@ import org.example.axon.dto.response.*;
 import org.example.axon.model.User;
 import org.example.axon.services.UserService;
 import jakarta.validation.Valid;
+
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -49,5 +51,11 @@ public class AuthController {
         String refreshToken = body.get("refreshToken");
         String email = jwt.getSubject(refreshToken);
         return new AuthResponse(jwt.generateAccessToken(email), jwt.generateRefreshToken(email));
+    }
+
+    @GetMapping("/me")
+    public UserResponse me(Authentication auth) {
+        User u = userService.findByEmail(auth.getName()); // principal = email
+        return new UserResponse(u.getUserId(), u.getEmail(), u.getFirstName(), u.getLastName(), u.getPhoneNumber(), u.getRole());
     }
 }
