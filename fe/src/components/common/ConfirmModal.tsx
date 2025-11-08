@@ -32,7 +32,7 @@ export default memo(function ConfirmModal(props: IProps) {
   return (
     <ConfigProvider theme={{ token: { colorPrimary: primary } }}>
       <Modal
-        width={450}
+        width={400}
         wrapClassName="mb-16"
         centered
         title={<Typography.Title level={4}>{title}</Typography.Title>}

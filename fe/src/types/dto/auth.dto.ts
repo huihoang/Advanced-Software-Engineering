@@ -1,9 +1,20 @@
+import type { UserRole } from "../common";
+
 export type LoginReqDto = {
-  username: string;
+  email: string;
   password: string;
 };
 
 export type LoginResDto = {
-  access_token: string;
-  refresh_token: string;
+  accessToken: string;
+  refreshToken: string;
+};
+
+export type RegisterReqDto = {
+  email: string;
+  password: string;
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  role: UserRole;
 };

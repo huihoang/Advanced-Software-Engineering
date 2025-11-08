@@ -11,6 +11,9 @@ const THEME: ThemeConfig = {
     Layout: {
       headerBg: "#fff",
     },
+    Modal: {
+      titleFontSize: 20,
+    },
   },
 };
 

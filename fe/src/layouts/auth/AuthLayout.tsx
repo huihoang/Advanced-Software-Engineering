@@ -11,7 +11,7 @@ export default function AuthLayout() {
 
   useEffect(() => {
     getCookie(TOKEN_NAME.ACCESS_TOKEN) && navigate(PATH.HOME);
-  }, []);
+  }, [navigate]);
 
   return (
     <div className="h-screen w-screen relative overflow-hidden">
@@ -26,7 +26,7 @@ export default function AuthLayout() {
               className="ml-6"
               style={{ color: token.colorPrimary }}
             >
-              Clinic
+              Healthcare Clinic
             </Typography.Title>
             <img
               height={550}
@@ -48,8 +48,8 @@ export default function AuthLayout() {
           md={{ span: 10 }}
           lg={{ span: 8 }}
           pull={2}
-          className="p-5 border border-gray-200 shadow-lg rounded-lg"
-          style={{ backgroundColor: token.colorBgLayout }}
+          className="px-8 py-6 border border-gray-200 shadow-lg rounded-lg"
+          style={{ backgroundColor: token.colorWhite }}
         >
           <Outlet />
         </Col>

@@ -1,15 +1,23 @@
+import type { DepartmentDto, DoctorDto, UpdateDoctorDto } from "@/types/dto";
 import axiosClient from "@/utils/axios-client";
-import type { DoctorDto, AllDoctorsDto } from "@/types/dto";
-
-import _ from "lodash";
 
 export const doctorsAPI = {
-  getAll(page: number, limit: number): Promise<AllDoctorsDto> {
+  getAll(
+    search?: string,
+    departmentId?: number | string,
+    scheduleDate?: string
+  ): Promise<DoctorDto[]> {
     return axiosClient.get("/doctors", {
-      params: { page, limit },
+      params: { search, departmentId, scheduleDate },
     });
   },
-  getById(doctorId: number): Promise<DoctorDto> {
-    return axiosClient.get(`/doctors/${doctorId}`);
+  getById(id: number | string): Promise<DoctorDto> {
+    return axiosClient.get(`/doctors/${id}`);
+  },
+  getAllDepartments(): Promise<DepartmentDto[]> {
+    return axiosClient.get("/departments");
+  },
+  updateMe(payload: UpdateDoctorDto): Promise<DoctorDto> {
+    return axiosClient.put("/doctor/me", payload);
   },
 };
