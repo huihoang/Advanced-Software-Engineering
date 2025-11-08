@@ -43,4 +43,7 @@ cd be
 | Nguyễn Thanh Hoàng  | 2211101  |
 | Nguyễn Ngọc Quế Chi | 2210371  |
 | Nguyễn Đức Duy      | 2210510  |
-| Lê Trần Anh Dũng  |   |
+| Lê Trần Anh Dũng    | 2210576  |
+| Nguyễn Thành Nhân   | 2114270  |
+| Phan Thế Cương      | 2112953  |
+| Nguyễn Văn Trung    | 2213705  |
