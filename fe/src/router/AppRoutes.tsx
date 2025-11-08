@@ -11,6 +11,7 @@ import {
   NotFound,
   PatientProfilePage,
   RegisterPage,
+  AIChatPage,
 } from "@/pages";
 
 export default function AppRoutes() {
@@ -43,6 +44,7 @@ export default function AppRoutes() {
           path={PATH.APPOINTMENT_DETAIL(":id")}
           element={<AppointmentDetailPage />}
         />
+        <Route path={PATH.AI_CHAT} element={<AIChatPage />} />
         <Route path={PATH.SETTINGS} element={<></>} />
       </Route>
 

@@ -36,6 +36,7 @@
   "license": "License",
   "citizen": "Citizen",
   "department": "Department",
+  "selectDepartment": "Select a department",
   "contact": "Contact",
   "workSchedule": "Work schedule",
   "bookConsultation": "Book consultation",
@@ -57,6 +58,7 @@
   "patientInformation": "Patient information",
   "status": "Status",
   "date": "Date",
+  "selectDate": "Select a date",
   "time": "Time",
   "startTime": "Start time",
   "endTime": "End time",
@@ -92,5 +94,15 @@
   "appointmentCanceled": "Appointment canceled",
   "note": "Note",
   "optional": "optional",
-  "notePlaceholder": "Describe your symptoms or reason for visit..."
+  "notePlaceholder": "Describe your symptoms or reason for visit...",
+  "aiChat": "AI Chat",
+  "aiChatTitle": "AI Health Assistant",
+  "aiChatDescription": "Describe your symptoms and I'll suggest the right department for you",
+  "messageInput": "Describe your symptoms",
+  "sendMessage": "Send",
+  "suggestedDepartments": "Suggested Departments",
+  "noSuggestions": "No suggestions yet. Please describe your symptoms.",
+  "sending": "Sending...",
+  "aiThinking": "AI is thinking...",
+  "viewDoctors": "View Doctors"
 }
