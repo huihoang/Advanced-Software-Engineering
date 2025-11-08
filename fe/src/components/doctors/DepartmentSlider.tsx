@@ -110,20 +110,6 @@ const DepartmentSlider = ({ dept, doctors }: PropsType) => {
                     Dr. {doctor.firstName} {doctor.lastName}
                   </Title>
 
-                  {doctor.rating !== undefined && (
-                    <div className="flex items-center justify-center gap-2">
-                      <Rate
-                        disabled
-                        allowHalf
-                        value={doctor.rating}
-                        style={{ fontSize: 16 }}
-                      />
-                      <Text strong style={{ color: token.colorWarning }}>
-                        {doctor.rating.toFixed(1)}
-                      </Text>
-                    </div>
-                  )}
-
                   {doctor.consultationFee && (
                     <div
                       className="mt-3 pt-3"

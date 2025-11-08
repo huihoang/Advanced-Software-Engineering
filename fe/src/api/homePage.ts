@@ -17,7 +17,11 @@ const mockDoctors: DoctorDto[] = [
     department: { id: 1, name: "Tổng quát" },
     consultationFee: 200000,
     rating: 4.6,
-    clinicInfo: { id: 1, name: "Trung tâm Y tế Quận 1", address: "123 Lê Lợi, Hà Nội" },
+    clinicInfo: {
+      id: 1,
+      name: "Trung tâm Y tế Quận 1",
+      address: "123 Lê Lợi, Hà Nội",
+    },
     appointments: [],
   },
   {
@@ -33,9 +37,11 @@ const mockDoctors: DoctorDto[] = [
     citizen: { id: "VN", name: "Vietnam" },
     department: { id: 2, name: "Tim mạch" },
     consultationFee: 350000,
-    rating: 4.9,
-    clinicInfo: { id: 2, name: "Heart Care Center", address: "45 Trần Hưng Đạo, Hà Nội" },
-    appointments: [],
+    clinicInfo: {
+      id: 2,
+      name: "Heart Care Center",
+      address: "45 Trần Hưng Đạo, Hà Nội",
+    },
   },
   {
     userId: 3,
@@ -50,9 +56,11 @@ const mockDoctors: DoctorDto[] = [
     citizen: { id: "VN", name: "Vietnam" },
     department: { id: 3, name: "Da liễu" },
     consultationFee: 250000,
-    rating: 4.7,
-    clinicInfo: { id: 3, name: "Dermacare Clinic", address: "22 Nguyễn Huệ, TP.HCM" },
-    appointments: [],
+    clinicInfo: {
+      id: 3,
+      name: "Dermacare Clinic",
+      address: "22 Nguyễn Huệ, TP.HCM",
+    },
   },
 ];
 
@@ -79,8 +87,8 @@ export const homeAPI = {
   },
 
   async getClinics() {
-    return new Promise<{ id: number; name: string; address: string }[]>((resolve) =>
-      setTimeout(() => resolve(mockClinics), 200)
+    return new Promise<{ id: number; name: string; address: string }[]>(
+      (resolve) => setTimeout(() => resolve(mockClinics), 200)
     );
   },
 

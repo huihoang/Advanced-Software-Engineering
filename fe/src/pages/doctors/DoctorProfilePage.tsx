@@ -89,14 +89,6 @@ const DoctorProfilePage = () => {
                   <Typography.Text type="secondary">
                     {doctor.department?.name}
                   </Typography.Text>
-
-                  <div className="mt-3">
-                    <Rate
-                      disabled
-                      allowHalf
-                      defaultValue={doctor.rating ?? 0}
-                    />
-                  </div>
                 </Flex>
               </Col>
 
