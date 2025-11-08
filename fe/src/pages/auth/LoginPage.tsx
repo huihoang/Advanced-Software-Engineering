@@ -30,8 +30,8 @@ export default function LoginPage() {
 
         <Form form={form} disabled={isPending} onFinish={onFinish}>
           <Form.Item
-            name="username"
-            rules={[{ required: true, message: summary.required("username") }]}
+            name="email"
+            rules={[{ required: true, message: summary.required("email") }]}
           >
             <Input
               size="large"

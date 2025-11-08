@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { PATH } from "@/constants";
 
 import type { LoginReqDto } from "@/types/dto";
-import { useRegister } from "@/hooks/auth/userRegister";
+import { usePatientRegister } from "@/hooks/auth";
 import { t } from "@/utils/i18n";
 import { summary } from "@/languages/en/summary";
 
@@ -19,10 +19,10 @@ export default function RegisterPage({ onBack }: RegisterPageProps) {
   const [form] = Form.useForm<LoginReqDto>();
   const [error, setError] = useState<boolean>(false);
 
-  const { mutate, isPending } = useRegister();
+  const { mutate, isPending } = usePatientRegister();
 
   const onFinish: FormProps<LoginReqDto>["onFinish"] = (values) => {
-    mutate({ ...values, role: "patient" } as any, {
+    mutate({ ...values, role: "USER" } as any, {
       onError: () => setError(true),
     });
   };

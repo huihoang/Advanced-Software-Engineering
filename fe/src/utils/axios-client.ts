@@ -9,12 +9,13 @@ const axiosClient = axios.create({
 });
 
 axiosClient.interceptors.request.use(
-  async (config: InternalAxiosRequestConfig<any>) => {
+  (config: InternalAxiosRequestConfig<any>) => {
     if (
       config.baseURL === import.meta.env.VITE_API_URL &&
-      !["/auth/login", "/auth/register"].includes(config.url ?? "")
+      !config.url.includes("register") &&
+      !config.url.includes("login")
     ) {
-      const token = await getCookie(TOKEN_NAME.ACCESS_TOKEN);
+      const token = getCookie(TOKEN_NAME.ACCESS_TOKEN);
       const auth = token ? `Bearer ${token}` : "";
       config.headers.setAuthorization(auth);
     }
@@ -24,7 +25,7 @@ axiosClient.interceptors.request.use(
 );
 
 axiosClient.interceptors.response.use(
-  (response: AxiosResponse) => response.data.data
+  (response: AxiosResponse) => response.data
 );
 
 export default axiosClient;

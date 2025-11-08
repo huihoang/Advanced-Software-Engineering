@@ -1,24 +1,26 @@
 import axiosClient from "@/utils/axios-client";
-import type { LoginReqDto, LoginResDto, RegisterReqDto } from "@/types/dto";
+import type {
+  LoginReqDto,
+  LoginResDto,
+  RegisterReqDto,
+  UserDto,
+} from "@/types/dto";
 
 export const authAPI = {
   login(payload: LoginReqDto): Promise<LoginResDto> {
-    // return axiosClient.post("/auth/login", payload);
-    return new Promise<LoginResDto>((resolve) => {
-      setTimeout(
-        () =>
-          resolve({ accessToken: "accessToken", refreshToken: "refreshToken" }),
-        1000
-      );
-    });
+    return axiosClient.post("/auth/login", payload);
   },
-  register(payload: RegisterReqDto): Promise<RegisterReqDto> {
-    return axiosClient.post("/auth/register", payload);
+  doctorRegister(payload: RegisterReqDto): Promise<any> {
+    return axiosClient.post("/auth/doctor/register", payload);
+  },
+  patientRegister(payload: RegisterReqDto): Promise<any> {
+    return axiosClient.post("/auth/user/register", payload);
+  },
+  getUser(): Promise<UserDto> {
+    return axiosClient.get("/users/me");
   },
   logout(): Promise<boolean> {
-    return axiosClient.post("/auth/logout");
-    // logout(): Promise<any> {
-    //   // return axiosClient.post("/auth/logout");
-    //   return new Promise((resolve) => setTimeout(resolve, 1000));
+    // return axiosClient.post("/auth/logout");
+    return new Promise((resolve) => setTimeout(resolve, 500));
   },
 };
