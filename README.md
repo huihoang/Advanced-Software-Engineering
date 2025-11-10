@@ -1,6 +1,6 @@
 # HealthCare Clinic
 
-**HealthCare Clinic** là ứng dụng là ứng dụng quản lý phòng khám, giúp bệnh nhân và bác sĩ dễ dàng tương tác: đặt lịch hẹn, quản lý thông tin cá nhân, và theo dõi lịch làm việc. Ứng dụng hỗ trợ trải nghiệm người dùng trực quan, tối ưu hoá quy trình khám chữa bệnh và giảm tải cho nhân viên y tế.
+**HealthCare Clinic** ứng dụng quản lý phòng khám, giúp bệnh nhân và bác sĩ dễ dàng tương tác: đặt lịch hẹn, quản lý thông tin cá nhân\lịch hẹn, và đăng ký/theo dõi lịch làm việc của bác sĩ. Ứng dụng hỗ trợ trải nghiệm người dùng trực quan, tối ưu hoá quy trình khám chữa bệnh và giảm tải cho nhân viên y tế.
 ---
 
 ## 🚀 Tính năng chính
